@@ -29,10 +29,10 @@ var AnnouncementMsgColor = "#000";
 var AnnouncementLinkColor = "#0033A0";
 
 /* Survey (green) level message text and toggle */
-var SurveyTitleText = "Help us improve library services, spaces, and collections!";
-var SurveyMsgText = "Take the ";
-var SurveyMsgLinkLabel = "LibQUAL+ survey";
-var SurveyMsgLinkURL = "https://www.libqual.org/survey/RWSLDQ72YU886X8HRA";
+var SurveyTitleText = "Help us improve library services!";
+var SurveyMsgText = "Let us know what you think here: ";
+var SurveyMsgLinkLabel = "https://uky.az1.qualtrics.com/jfe/form/SV_b1MweifqbwEnGbb";
+var SurveyMsgLinkURL = "https://uky.az1.qualtrics.com/jfe/form/SV_b1MweifqbwEnGbb";
 var SurveyMsgToggle = "off";
 var SurveyMsgBackground = "#4CBCC0";
 var SurveyMsgColor = "#000";
@@ -132,94 +132,6 @@ var ukltophdr_survey = "<div class=\"site-ukl-survey\" id=\"uklsurvey\"><div cla
 
 var ukltophdr_end_clamp = "</div>";
 
-/* Cookie stuff for Survey Message */
-var cookie_name = "UKLSurvey";
-
-/* Function to set the cookie */
-function CookieSet (cName, cValue, cPath, cExpires) {
-encodeURIComponent(cValue);
-  if (cExpires === "") {
-    var cdate = new Date().toLocaleString();
-    cExpires = cdate;
-  }
-  if (cPath !== "") {
-    cPath = ";Path=" + cPath;
-  }
-document.cookie = cName + "=" + cValue +"expires=" + cExpires + cPath;
-}
-
-/* Functions to hide elements */
-function hideElements() {
-    document.getElementById("uklsurvey").style.display = 'none';
-    document.getElementById("ukl-survey-close").style.display = 'none';
-}
-
-function hideMElements() {
-    document.getElementById("uklsurvey").style.display = 'none';
-    document.getElementById("ukl-survey-close-mobile").style.display = 'none';
-}
-
-/* Functions to display elements */
-function showElements() {
-    document.getElementById("uklsurvey").style.display = 'block';
-    document.getElementById("ukl-survey-close").style.display = 'block';
-}
-
-function showMElements() {
-    document.getElementById("uklsurvey").style.display = 'block';
-    document.getElementById("ukl-survey-close-mobile").style.display = 'block';
-}
-
-var value_or_null = (document.cookie.match("^(?:.*;)?\\s*" + cookie_name + "\\s*=\\s*([^;]+)(?:.*)?$")||[,null])[1];
-
-//console.log(value_or_null);
-
-const MsThreshold = 300000;
-
-/* Function to compare two dates by milisections to check threshold */
-/* Set new cookie and display elements if threshold is met, else hide elements */
-function fireCookie() {
-  if (diffInMs > MsThreshold) {
-    CookieSet("UKLSurvey","","/","");
-    //console.log("setting new cookie");
-    hideElements();
-    } else if (value_or_null == null) {
-    CookieSet("UKLSurvey","","/","");
-    //console.log("setting first cookie");
-    hideElements();
-    } 
-}
-
-function chkThreshold() {
-    /* If time threshold not met, hide elements */
-    if (typeof diffInMs !== 'undefined') {
-    
-    if (diffInMs < MsThreshold) {
-      hideElements();
-    } else {
-      showElements();
-    }
-    }
-}
-
-if (value_or_null !== null) {
-var expiredate = value_or_null.replace("expires=", "");
-
-//console.log(expiredate);
-}
-
-var curdate = new Date().toLocaleString();
-
-//console.log(curdate);
-
-/* Convert date strings to date objects */
-format_expiredate = Date.parse(expiredate);
-format_curdate = Date.parse(curdate);
-
-/* Calculate the difference in milliseconds */
-const diffInMs = format_curdate - format_expiredate;
-//console.log(diffInMs);
-
 /* toggle function for mobile secondary header */
 function toggleMobile() {
   
@@ -263,7 +175,7 @@ function toggleMobile() {
     });
 }
 
-window.addEventListener("load", function () {
+
     var ukDiv = document.createElement("div");
     ukDiv.id = "ukheader";
     document.body.insertBefore(ukDiv, document.body.firstChild);
@@ -366,11 +278,9 @@ window.addEventListener("load", function () {
 
     }
       
-  }
-    
-});
+  };
 
-window.addEventListener('load', function() {
+
 
   if (hdr_simple == 0) {
     /* toggles for top level alert messages but not if simple header is set */
@@ -440,12 +350,7 @@ window.addEventListener('load', function() {
   if (div3) { 
     div3.addEventListener("click", function() { 
       document.getElementById("uklsurvey").style.display = "none";
-    });
-
-    
-    /* fire cookie */
-    document.getElementById("ukl-survey-close").addEventListener("click", fireCookie);
-    chkThreshold();
+    }); 
   }
   
   /* close survey message in mobile */
@@ -454,10 +359,4 @@ window.addEventListener('load', function() {
     div4.addEventListener("click", function() {
       document.getElementById("uklsurvey").style.display = "none";
     });
-    
-     /* fire cookie in mobile */
-    document.getElementById("ukl-survey-close-mobile").addEventListener("click", fireCookie);
-    chkThreshold();
   }
-
-});
