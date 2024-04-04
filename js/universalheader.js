@@ -6,14 +6,41 @@ const modulePath = document.querySelector("script[data-config]").dataset.config;
 
 import(modulePath)
 	.then((module) => {
-		const config = module.default;
-		init(config);
+		const hdr = module.default;
+		init(hdr);
 	})
 	.catch((error) => {
 		console.error("Error with config:", error);
 	});
 
-function init() {
+function init(hdr) {
+	let {
+		hdr_simple,
+		hdr_level,
+		include,
+		mhdr_home_label,
+		mhdr_home_url,
+		link1_label,
+		link1_url,
+		link2_label,
+		link2_url,
+		link3_label,
+		link3_url,
+		link4_label,
+		link4_url,
+		link5_label,
+		link5_url,
+		link6_label,
+		link6_url,
+		hdr_srch_include,
+		hdr_width,
+		hdr_alert_include,
+		hdr_alert_title,
+		hdr_alert_msg,
+		hdr_alert_url_label,
+		hdr_alert_url,
+	} = hdr;
+
 	/* Configurable Alert Messages Variables */
 
 	/* Danger (red) level message text and toggle */
@@ -58,114 +85,114 @@ function init() {
 	/* ----------------------------------------------------------------- */
 
 	/* metadata header variables */
-	const hdr = {};
+	// const hdr = {};
 	const bases = ["home", "link1", "link2", "link3", "link4", "link5", "link6"];
 
 	/* Include header? */
-	const metas = document.getElementsByName("hdr.include");
-	if (metas.length) {
-		const content = metas[0].getAttribute("content");
-		hdr["include"] = parseInt(content, 10);
-	}
+	// const metas = document.getElementsByName("hdr.include");
+	// if (metas.length) {
+	// 	const content = metas[0].getAttribute("content");
+	// 	hdr["include"] = parseInt(content, 10);
+	// }
 
-	function getInfo(base) {
-		const labels = document.getElementsByName("hdr." + base + ".label");
-		if (labels.length) {
-			const labelContent = labels[0].getAttribute("content");
-			hdr[base + ".label"] = labelContent;
-			let urlContent = undefined;
-			/* link? */
-			const links = document.getElementsByName("hdr." + base + ".link");
-			if (links.length) {
-				urlContent = links[0].getAttribute("content");
-			}
+	// function getInfo(base) {
+	// 	const labels = document.getElementsByName("hdr." + base + ".label");
+	// 	if (labels.length) {
+	// 		const labelContent = labels[0].getAttribute("content");
+	// 		hdr[base + ".label"] = labelContent;
+	// 		let urlContent = undefined;
+	// 		/* link? */
+	// 		const links = document.getElementsByName("hdr." + base + ".link");
+	// 		if (links.length) {
+	// 			urlContent = links[0].getAttribute("content");
+	// 		}
 
-			/* url? */
-			const urls = document.getElementsByName("hdr." + base + ".url");
-			if (urls.length) {
-				urlContent = urls[0].getAttribute("content");
-			}
+	// 		/* url? */
+	// 		const urls = document.getElementsByName("hdr." + base + ".url");
+	// 		if (urls.length) {
+	// 			urlContent = urls[0].getAttribute("content");
+	// 		}
 
-			if (urlContent) {
-				hdr[base + ".url"] = urlContent;
-			}
-		}
-	}
+	// 		if (urlContent) {
+	// 			hdr[base + ".url"] = urlContent;
+	// 		}
+	// 	}
+	// }
 
-	for (let i = 0; i < bases.length; i++) {
-		getInfo(bases[i]);
-	}
+	// for (let i = 0; i < bases.length; i++) {
+	// 	getInfo(bases[i]);
+	// }
 
 	/* simple header mode (only university wide header with top level alerts turned off) for Digital Libraries */
-	if (typeof document.getElementsByName("hdr.simple")[0] != "undefined") {
-		var hdr_simple = document
-			.getElementsByName("hdr.simple")[0]
-			.getAttribute("content");
-	}
+	// if (typeof document.getElementsByName("hdr.simple")[0] != "undefined") {
+	// 	var hdr_simple = document
+	// 		.getElementsByName("hdr.simple")[0]
+	// 		.getAttribute("content");
+	// }
 
-	/* additional variables for mobile header */
-	if (typeof document.getElementsByName("hdr.home.label")[0] != "undefined") {
-		var mhdr_home_label = document
-			.getElementsByName("hdr.home.label")[0]
-			.getAttribute("content");
-	}
-	if (typeof document.getElementsByName("hdr.home.link")[0] != "undefined") {
-		var mhdr_home_url = document
-			.getElementsByName("hdr.home.link")[0]
-			.getAttribute("content");
-	}
+	// /* additional variables for mobile header */
+	// if (typeof document.getElementsByName("hdr.home.label")[0] != "undefined") {
+	// 	var mhdr_home_label = document
+	// 		.getElementsByName("hdr.home.label")[0]
+	// 		.getAttribute("content");
+	// }
+	// if (typeof document.getElementsByName("hdr.home.link")[0] != "undefined") {
+	// 	var mhdr_home_url = document
+	// 		.getElementsByName("hdr.home.link")[0]
+	// 		.getAttribute("content");
+	// }
 
-	/* Springshare search box? */
-	if (typeof document.getElementsByName("hdr.srch.include")[0] != "undefined") {
-		var hdr_srch_include = document
-			.getElementsByName("hdr.srch.include")[0]
-			.getAttribute("content");
-	}
+	// /* Springshare search box? */
+	// if (typeof document.getElementsByName("hdr.srch.include")[0] != "undefined") {
+	// 	var hdr_srch_include = document
+	// 		.getElementsByName("hdr.srch.include")[0]
+	// 		.getAttribute("content");
+	// }
 
-	/* services down alert message? */
-	if (
-		typeof document.getElementsByName("hdr.alert.include")[0] != "undefined"
-	) {
-		var hdr_alert_include = document
-			.getElementsByName("hdr.alert.include")[0]
-			.getAttribute("content");
-	}
-	if (typeof document.getElementsByName("hdr.alert.title")[0] != "undefined") {
-		var hdr_alert_title = document
-			.getElementsByName("hdr.alert.title")[0]
-			.getAttribute("content");
-	}
-	if (typeof document.getElementsByName("hdr.alert.msg")[0] != "undefined") {
-		var hdr_alert_msg = document
-			.getElementsByName("hdr.alert.msg")[0]
-			.getAttribute("content");
-	}
-	if (
-		typeof document.getElementsByName("hdr.alert.url.label")[0] != "undefined"
-	) {
-		var hdr_alert_url_label = document
-			.getElementsByName("hdr.alert.url.label")[0]
-			.getAttribute("content");
-	}
-	if (typeof document.getElementsByName("hdr.alert.url")[0] != "undefined") {
-		var hdr_alert_url = document
-			.getElementsByName("hdr.alert.url")[0]
-			.getAttribute("content");
-	}
+	// /* services down alert message? */
+	// if (
+	// 	typeof document.getElementsByName("hdr.alert.include")[0] != "undefined"
+	// ) {
+	// 	var hdr_alert_include = document
+	// 		.getElementsByName("hdr.alert.include")[0]
+	// 		.getAttribute("content");
+	// }
+	// if (typeof document.getElementsByName("hdr.alert.title")[0] != "undefined") {
+	// 	var hdr_alert_title = document
+	// 		.getElementsByName("hdr.alert.title")[0]
+	// 		.getAttribute("content");
+	// }
+	// if (typeof document.getElementsByName("hdr.alert.msg")[0] != "undefined") {
+	// 	var hdr_alert_msg = document
+	// 		.getElementsByName("hdr.alert.msg")[0]
+	// 		.getAttribute("content");
+	// }
+	// if (
+	// 	typeof document.getElementsByName("hdr.alert.url.label")[0] != "undefined"
+	// ) {
+	// 	var hdr_alert_url_label = document
+	// 		.getElementsByName("hdr.alert.url.label")[0]
+	// 		.getAttribute("content");
+	// }
+	// if (typeof document.getElementsByName("hdr.alert.url")[0] != "undefined") {
+	// 	var hdr_alert_url = document
+	// 		.getElementsByName("hdr.alert.url")[0]
+	// 		.getAttribute("content");
+	// }
 
-	/* variable for custom header width */
-	if (typeof document.getElementsByName("hdr.width")[0] != "undefined") {
-		var hdr_width = document
-			.getElementsByName("hdr.width")[0]
-			.getAttribute("content");
-	}
+	// /* variable for custom header width */
+	// if (typeof document.getElementsByName("hdr.width")[0] != "undefined") {
+	// 	var hdr_width = document
+	// 		.getElementsByName("hdr.width")[0]
+	// 		.getAttribute("content");
+	// }
 
-	/* variable for header level setting */
-	if (typeof document.getElementsByName("hdr.include")[0] != "undefined") {
-		var hdr_level = document
-			.getElementsByName("hdr.include")[0]
-			.getAttribute("content");
-	}
+	// /* variable for header level setting */
+	// if (typeof document.getElementsByName("hdr.include")[0] != "undefined") {
+	// 	var hdr_level = document
+	// 		.getElementsByName("hdr.include")[0]
+	// 		.getAttribute("content");
+	// }
 
 	/* variables for HTML header chunks */
 	var ukltophdr_start_clamp = '<div class="ukl-ext-clamp">';
@@ -402,11 +429,11 @@ function init() {
 			});
 
 			/* insert content from meta into html */
-			for (var i = 0; i < bases.length; ++i) {
+			for (let i = 0; i < bases.length; ++i) {
 				console.log(bases[i]);
-				let label = hdr[bases[i] + ".label"];
-				let url = hdr[bases[i] + ".url"];
-				console.log(`label: ${label} url:${url}`);
+				let label = hdr[bases[i] + "_label"];
+				let url = hdr[bases[i] + "_url"];
+
 				if (label) {
 					let site = document.getElementById("get" + bases[i]);
 					if (site) {
