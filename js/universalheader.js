@@ -182,9 +182,6 @@ function init(hdr) {
 	const expiredate = value_or_null
 		? value_or_null.replace("expires=", "")
 		: null;
-	if (value_or_null !== null) {
-		//console.log(expiredate);
-	}
 
 	var curdate = new Date().toLocaleString();
 
