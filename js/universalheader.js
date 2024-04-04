@@ -183,7 +183,7 @@ function init(hdr) {
 		? value_or_null.replace("expires=", "")
 		: null;
 
-	var curdate = new Date().toLocaleString();
+	const curdate = new Date().toLocaleString();
 
 	//console.log(curdate);
 
@@ -236,7 +236,7 @@ function init(hdr) {
 		});
 	}
 
-	var ukDiv = document.createElement("div");
+	const ukDiv = document.createElement("div");
 	ukDiv.id = "ukheader";
 	document.body.insertBefore(ukDiv, document.body.firstChild);
 
@@ -306,8 +306,8 @@ function init(hdr) {
 				document.getElementById("getmhome").innerHTML = mhdr_home_label;
 			}
 
-			var div2 = document.getElementById("menu_button_more");
-			var clickCount = 0;
+			const div2 = document.getElementById("menu_button_more");
+			let clickCount = 0;
 			div2.addEventListener("click", function () {
 				clickCount++;
 				div2.setAttribute(
@@ -440,7 +440,7 @@ function init(hdr) {
 
 	/* set custom header width */
 	if (hdr_width > 72) {
-		var wrapper = document.getElementsByClassName("slab__wrapper");
+		const wrapper = document.getElementsByClassName("slab__wrapper");
 		if (typeof wrapper[0] != "undefined") {
 			wrapper[0].style.maxWidth = hdr_width + "rem";
 		}
@@ -459,7 +459,7 @@ function init(hdr) {
 	}
 
 	/* close survey message */
-	var div3 = document.getElementById("survey_button_less");
+	const div3 = document.getElementById("survey_button_less");
 	if (div3) {
 		div3.addEventListener("click", function () {
 			document.getElementById("uklsurvey").style.display = "none";
@@ -473,7 +473,7 @@ function init(hdr) {
 	}
 
 	/* close survey message in mobile */
-	var div4 = document.getElementById("survey_button_less_mobile");
+	const div4 = document.getElementById("survey_button_less_mobile");
 	if (div4) {
 		div4.addEventListener("click", function () {
 			document.getElementById("uklsurvey").style.display = "none";
