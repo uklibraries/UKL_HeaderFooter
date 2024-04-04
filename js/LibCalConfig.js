@@ -7,7 +7,7 @@ export default {
 	bases: [
 		{
 			title: "home",
-			lable: "libraries",
+			label: "LibCal",
 			url: "https://google.com",
 		},
 		{
