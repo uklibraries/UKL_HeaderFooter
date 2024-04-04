@@ -64,18 +64,7 @@ function init(hdr) {
 		include,
 		mhdr_home_label,
 		mhdr_home_url,
-		link1_label,
-		link1_url,
-		link2_label,
-		link2_url,
-		link3_label,
-		link3_url,
-		link4_label,
-		link4_url,
-		link5_label,
-		link5_url,
-		link6_label,
-		link6_url,
+		bases,
 		hdr_srch_include,
 		hdr_width,
 		hdr_alert_include,
@@ -84,7 +73,7 @@ function init(hdr) {
 		hdr_alert_url_label,
 		hdr_alert_url,
 	} = hdr;
-	const bases = ["home", "link1", "link2", "link3", "link4", "link5", "link6"];
+	// const bases = ["home", "link1", "link2", "link3", "link4", "link5", "link6"];
 
 	/* variables for HTML header chunks */
 	const ukltophdr_start_clamp = '<div class="ukl-ext-clamp">';
@@ -317,13 +306,13 @@ function init(hdr) {
 			});
 
 			/* insert content from meta into html */
-			for (let i = 0; i < bases.length; ++i) {
-				console.log(bases[i]);
-				let label = hdr[bases[i] + "_label"];
-				let url = hdr[bases[i] + "_url"];
+			for (let i = 0; i < bases.length; i++) {
+				let label = bases[i].label;
+				let url = bases[i].url;
 
-				if (label) {
-					let site = document.getElementById("get" + bases[i]);
+				if (bases[i].label) {
+					let site = document.getElementById("get" + bases[i].title);
+
 					if (site) {
 						if (url) {
 							site.innerHTML =
