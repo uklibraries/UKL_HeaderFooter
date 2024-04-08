@@ -20,7 +20,7 @@ function init(hdr) {
 	const DangerTitleText = "0 - UK ALERT - DELAYED OPENING";
 	const DangerMsgText =
 		"URGENT: University of Kentucky campus operations on a 2-hour delay. All library facilities will open at 10 am, today, Friday, Jan 19.";
-	const DangerMsgToggle = "off";
+	const DangerMsgToggle = "on";
 	const DangerMsgBackground = "#c12c2b";
 	const DangerMsgColor = "#fff";
 	const DangerLinkColor = "#fff";
@@ -29,7 +29,7 @@ function init(hdr) {
 	const WarningTitleText = "0 - UK ALERT - EARLY CANCELLATION";
 	const WarningMsgText =
 		"We are currently experiencing technical difficulties with some online databases.  We are working to resolve this issue as soon as possible.  Thank you for your patience. ";
-	const WarningMsgToggle = "off";
+	const WarningMsgToggle = "on";
 	const WarningMsgBackground = "#FFDC00";
 	const WarningMsgColor = "#000";
 	const WarningLinkColor = "#0033A0";
@@ -38,7 +38,7 @@ function init(hdr) {
 	const AnnouncementTitleText = "0 - UK ALERT - EARLY CANCELLATION";
 	const AnnouncementMsgText =
 		"We are currently experiencing technical difficulties with some online databases.  We are working to resolve this issue as soon as possible.  Thank you for your patience. ";
-	const AnnouncementMsgToggle = "off";
+	const AnnouncementMsgToggle = "on";
 	const AnnouncementMsgBackground = "#a1d3ed";
 	const AnnouncementMsgColor = "#000";
 	const AnnouncementLinkColor = "#0033A0";
@@ -49,7 +49,7 @@ function init(hdr) {
 	const SurveyMsgText = "Take the ";
 	const SurveyMsgLinkLabel = "LibQUAL+ survey";
 	const SurveyMsgLinkURL = "https://www.libqual.org/survey/RWSLDQ72YU886X8HRA";
-	const SurveyMsgToggle = "off";
+	const SurveyMsgToggle = "on";
 	const SurveyMsgBackground = "#4CBCC0";
 	const SurveyMsgColor = "#000";
 
@@ -73,7 +73,6 @@ function init(hdr) {
 		hdr_alert_url_label,
 		hdr_alert_url,
 	} = hdr;
-	// const bases = ["home", "link1", "link2", "link3", "link4", "link5", "link6"];
 
 	/* variables for HTML header chunks */
 	const ukltophdr_start_clamp = '<div class="ukl-ext-clamp">';
@@ -139,8 +138,6 @@ function init(hdr) {
 		"^(?:.*;)?\\s*" + cookie_name + "\\s*=\\s*([^;]+)(?:.*)?$"
 	) || [, null])[1];
 
-	//console.log(value_or_null);
-
 	const MsThreshold = 300000;
 
 	/* Function to compare two dates by milisections to check threshold */
@@ -174,15 +171,12 @@ function init(hdr) {
 
 	const curdate = new Date().toLocaleString();
 
-	//console.log(curdate);
-
 	/* Convert date strings to date objects */
 	let format_expiredate = Date.parse(expiredate);
 	let format_curdate = Date.parse(curdate);
 
 	/* Calculate the difference in milliseconds */
 	const diffInMs = format_curdate - format_expiredate;
-	//console.log(diffInMs);
 
 	/* toggle function for mobile secondary header */
 	function toggleMobile() {
@@ -307,11 +301,11 @@ function init(hdr) {
 
 			/* insert content from meta into html */
 			for (let i = 0; i < bases.length; i++) {
-				let label = bases[i].label;
+				let title = bases[i].title;
 				let url = bases[i].url;
 
 				if (bases[i].label) {
-					let site = document.getElementById("get" + bases[i].title);
+					let site = document.getElementById("get" + bases[i].label);
 
 					if (site) {
 						if (url) {
@@ -319,7 +313,7 @@ function init(hdr) {
 								'<a href="' +
 								url +
 								'" class="section-heading">' +
-								label +
+								title +
 								"</a>";
 						} else {
 							site.innerHTML = label;
