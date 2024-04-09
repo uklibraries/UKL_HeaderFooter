@@ -1,7 +1,7 @@
 export default {
 	hdr_simple: 0,
-	hdr_level: 1,
-	include: 1,
+	hdr_level: 0,
+	include: 0,
 	mhdr_home_label: "LibCal",
 	mhdr_home_url: "https://libcal.uky.edu",
 	bases: [
@@ -41,8 +41,8 @@ export default {
 			url: "https://libguides.uky",
 		},
 	],
-	hdr_srch_include: 1,
-	hdr_width: 80,
+	hdr_srch_include: 0,
+	hdr_width: 120,
 	hdr_alert_include: 1,
 	hdr_alert_title: "Unexpected Service Disruption",
 	hdr_alert_msg:
