@@ -14,6 +14,7 @@ import(modulePath)
 	.catch((error) => {
 		console.error("Error with config:", error);
 	});
+
 function globalConfig(hdr) {
 	let { hdr_alert_include } = hdr;
 	return {
@@ -23,7 +24,7 @@ function globalConfig(hdr) {
 		DangerTitleText: "0 - UK ALERT - DELAYED OPENING",
 		DangerMsgText:
 			"URGENT: University of Kentucky campus operations on a 2-hour delay. All library facilities will open at 10 am, today, Friday, Jan 19.",
-		DangerMsgToggle: "on",
+		DangerMsgToggle: "off",
 		DangerMsgBackground: "#c12c2b",
 		DangerMsgColor: "#fff",
 		DangerLinkColor: "#fff",
@@ -265,7 +266,7 @@ function renderHTML(config, hdr) {
 	document.body.insertBefore(ukDiv, document.body.firstChild);
 	function chooseRender() {
 		let headerContent = "";
-		if (hdr_simple == 0) {
+		if (hdr_simple == 1) {
 			headerContent += ukltophdr_start_clamp + ukltophdr_univlvl;
 			headerContent += include ? ukltophdr_sitehdr : "";
 			headerContent +=

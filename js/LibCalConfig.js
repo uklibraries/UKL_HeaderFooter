@@ -1,5 +1,5 @@
 export default {
-	hdr_simple: 0,
+	hdr_simple: 1,
 	hdr_level: 0,
 	include: 0,
 	mhdr_home_label: "LibCal",
