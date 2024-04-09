@@ -53,7 +53,7 @@ function globalConfig(hdr) {
 		SurveyMsgText: "Take the ",
 		SurveyMsgLinkLabel: "LibQUAL+ survey",
 		SurveyMsgLinkURL: "https://www.libqual.org/survey/RWSLDQ72YU886X8HRA",
-		SurveyMsgToggle: "on",
+		SurveyMsgToggle: "off",
 		SurveyMsgBackground: "#4CBCC0",
 		SurveyMsgColor: "#000",
 
@@ -263,6 +263,7 @@ function renderHTML(config, hdr) {
 
 	const ukDiv = document.createElement("div");
 	ukDiv.id = "ukheader";
+	ukDiv.innerHTML = chooseRender();
 	document.body.insertBefore(ukDiv, document.body.firstChild);
 	function chooseRender() {
 		let headerContent = "";
@@ -288,7 +289,6 @@ function renderHTML(config, hdr) {
 		headerContent += ukltophdr_end_clamp;
 		return headerContent;
 	}
-	ukDiv.innerHTML = chooseRender();
 
 	/* mobile header? */
 	if (include) {
@@ -303,7 +303,6 @@ function renderHTML(config, hdr) {
 			document.getElementById("getmhome").innerHTML = mhdr_home_label;
 		}
 	}
-	console.log(document.getElementById("getmhome"));
 	/* insert content from meta into html */
 	for (let i = 0; i < bases.length; i++) {
 		let title = bases[i].title;
@@ -346,12 +345,11 @@ function renderHTML(config, hdr) {
 		document.getElementById("top-alert").style.background =
 			AnnouncementMsgBackground;
 		document.getElementById("top-alert").style.color = AnnouncementMsgColor;
-		document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
+		// document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
 	}
 
-	console.log(document.getElementById("tltalert"));
-
 	/* toggle for survey message but not if simple header is set */
+	console.log(ukDiv);
 	if (SurveyMsgToggle == "on") {
 		document.getElementById("uklsurveytlt").innerHTML = SurveyTitleText;
 		document.getElementById("uklsurveymsg").innerHTML = SurveyMsgText;
