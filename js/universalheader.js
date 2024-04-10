@@ -7,7 +7,7 @@ const modulePath = document.querySelector("script[data-config]").dataset.config;
 import(modulePath)
 	.then((module) => {
 		const hdr = module.default;
-		const config = globalConfig(hdr);
+		const config = globalConfig();
 		init();
 		renderHTML(config, hdr);
 	})
@@ -15,8 +15,7 @@ import(modulePath)
 		console.error("Error with config:", error);
 	});
 
-function globalConfig(hdr) {
-	let { hdr_alert_include } = hdr;
+function globalConfig() {
 	return {
 		/* Configurable Alert Messages Variables */
 
@@ -24,7 +23,7 @@ function globalConfig(hdr) {
 		DangerTitleText: "0 - UK ALERT - DELAYED OPENING",
 		DangerMsgText:
 			"URGENT: University of Kentucky campus operations on a 2-hour delay. All library facilities will open at 10 am, today, Friday, Jan 19.",
-		DangerMsgToggle: "on",
+		DangerMsgToggle: "off",
 		DangerMsgBackground: "#c12c2b",
 		DangerMsgColor: "#fff",
 		DangerLinkColor: "#fff",
@@ -33,7 +32,7 @@ function globalConfig(hdr) {
 		WarningTitleText: "0 - UK ALERT - EARLY CANCELLATION",
 		WarningMsgText:
 			"We are currently experiencing technical difficulties with some online databases.  We are working to resolve this issue as soon as possible.  Thank you for your patience. ",
-		WarningMsgToggle: "on",
+		WarningMsgToggle: "off",
 		WarningMsgBackground: "#FFDC00",
 		WarningMsgColor: "#000",
 		WarningLinkColor: "#0033A0",
@@ -42,7 +41,7 @@ function globalConfig(hdr) {
 		AnnouncementTitleText: "0 - UK ALERT - EARLY CANCELLATION",
 		AnnouncementMsgText:
 			"We are currently experiencing technical difficulties with some online databases.  We are working to resolve this issue as soon as possible.  Thank you for your patience. ",
-		AnnouncementMsgToggle: "on",
+		AnnouncementMsgToggle: "off",
 		AnnouncementMsgBackground: "#a1d3ed",
 		AnnouncementMsgColor: "#000",
 		AnnouncementLinkColor: "#0033A0",
@@ -318,6 +317,21 @@ function renderHTML(config, hdr) {
 				}
 			}
 		}
+		const div2 = document.getElementById("menu_button_more");
+		let clickCount = 0;
+		div2.addEventListener("click", function () {
+			clickCount++;
+			div2.setAttribute(
+				"id",
+				clickCount % 2 === 0 ? "menu_button_more" : "menu_button_less"
+			);
+		});
+		/* toggle visibility of Springshare search box */
+		if (hdr_srch_include == 1) {
+			document.getElementById("springsrch").style.display = "block";
+			document.getElementById("link5").style.display = "none";
+			document.getElementById("link6").style.display = "none";
+		}
 	}
 	/* toggles for top level alert messages but not if simple header is set */
 
@@ -352,17 +366,37 @@ function renderHTML(config, hdr) {
 			document.getElementById("uklsurveymsg").innerHTML = SurveyMsgText;
 			document.getElementById("uklsurveylink").innerHTML +=
 				"<a href='" + SurveyMsgLinkURL + "'>" + SurveyMsgLinkLabel + "</a>";
+			/* close survey message */
+			const div3 = document.getElementById("survey_button_less");
+			if (div3) {
+				div3.addEventListener("click", function () {
+					document.getElementById("uklsurvey").style.display = "none";
+				});
+
+				/* fire cookie */
+				document
+					.getElementById("ukl-survey-close")
+					.addEventListener("click", fireCookie);
+				chkThreshold();
+			}
+
+			/* close survey message in mobile */
+			const div4 = document.getElementById("survey_button_less_mobile");
+			if (div4) {
+				div4.addEventListener("click", function () {
+					document.getElementById("uklsurvey").style.display = "none";
+				});
+
+				/* fire cookie in mobile */
+				document
+					.getElementById("ukl-survey-close-mobile")
+					.addEventListener("click", fireCookie);
+				chkThreshold();
+			}
 		}
 	}
 
 	/* toggle for survey message but not if simple header is set */
-
-	/* toggle visibility of Springshare search box */
-	if (hdr_srch_include == 1) {
-		document.getElementById("springsrch").style.display = "block";
-		document.getElementById("link5").style.display = "none";
-		document.getElementById("link6").style.display = "none";
-	}
 
 	/* toggle visibility of lower operator controlled alert message */
 	if (hdr_alert_include == 1) {
@@ -391,42 +425,5 @@ function renderHTML(config, hdr) {
 		if (typeof wrapper[4] != "undefined") {
 			wrapper[4].style.maxWidth = hdr_width + "rem";
 		}
-	}
-
-	const div2 = document.getElementById("menu_button_more");
-	let clickCount = 0;
-	div2.addEventListener("click", function () {
-		clickCount++;
-		div2.setAttribute(
-			"id",
-			clickCount % 2 === 0 ? "menu_button_more" : "menu_button_less"
-		);
-	});
-	/* close survey message */
-	const div3 = document.getElementById("survey_button_less");
-	if (div3) {
-		div3.addEventListener("click", function () {
-			document.getElementById("uklsurvey").style.display = "none";
-		});
-
-		/* fire cookie */
-		document
-			.getElementById("ukl-survey-close")
-			.addEventListener("click", fireCookie);
-		chkThreshold();
-	}
-
-	/* close survey message in mobile */
-	const div4 = document.getElementById("survey_button_less_mobile");
-	if (div4) {
-		div4.addEventListener("click", function () {
-			document.getElementById("uklsurvey").style.display = "none";
-		});
-
-		/* fire cookie in mobile */
-		document
-			.getElementById("ukl-survey-close-mobile")
-			.addEventListener("click", fireCookie);
-		chkThreshold();
 	}
 }
