@@ -1,7 +1,7 @@
 export default {
 	hdr_simple: 0,
 	hdr_level: 0,
-	include: 0,
+	include: 1,
 	mhdr_home_label: "LibCal",
 	mhdr_home_url: "https://libcal.uky.edu",
 	bases: [
@@ -30,16 +30,16 @@ export default {
 			title: "Stuff 4",
 			url: "https://google.com/",
 		},
-		{
-			label: "link5",
-			title: "Stuff 5",
-			url: "https://google.com/",
-		},
-		{
-			label: "link6",
-			title: "Research Guides",
-			url: "https://libguides.uky",
-		},
+		// {
+		// 	label: "link5",
+		// 	title: "Stuff 5",
+		// 	url: "https://google.com/",
+		// },
+		// {
+		// 	label: "link6",
+		// 	title: "Research Guides",
+		// 	url: "https://libguides.uky",
+		// },
 	],
 	hdr_srch_include: 1,
 	hdr_width: 120,

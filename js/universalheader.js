@@ -24,7 +24,7 @@ function globalConfig(hdr) {
 		DangerTitleText: "0 - UK ALERT - DELAYED OPENING",
 		DangerMsgText:
 			"URGENT: University of Kentucky campus operations on a 2-hour delay. All library facilities will open at 10 am, today, Friday, Jan 19.",
-		DangerMsgToggle: "off",
+		DangerMsgToggle: "on",
 		DangerMsgBackground: "#c12c2b",
 		DangerMsgColor: "#fff",
 		DangerLinkColor: "#fff",
@@ -33,7 +33,7 @@ function globalConfig(hdr) {
 		WarningTitleText: "0 - UK ALERT - EARLY CANCELLATION",
 		WarningMsgText:
 			"We are currently experiencing technical difficulties with some online databases.  We are working to resolve this issue as soon as possible.  Thank you for your patience. ",
-		WarningMsgToggle: "off",
+		WarningMsgToggle: "on",
 		WarningMsgBackground: "#FFDC00",
 		WarningMsgColor: "#000",
 		WarningLinkColor: "#0033A0",
@@ -42,7 +42,7 @@ function globalConfig(hdr) {
 		AnnouncementTitleText: "0 - UK ALERT - EARLY CANCELLATION",
 		AnnouncementMsgText:
 			"We are currently experiencing technical difficulties with some online databases.  We are working to resolve this issue as soon as possible.  Thank you for your patience. ",
-		AnnouncementMsgToggle: "off",
+		AnnouncementMsgToggle: "on",
 		AnnouncementMsgBackground: "#a1d3ed",
 		AnnouncementMsgColor: "#000",
 		AnnouncementLinkColor: "#0033A0",
@@ -53,7 +53,7 @@ function globalConfig(hdr) {
 		SurveyMsgText: "Take the ",
 		SurveyMsgLinkLabel: "LibQUAL+ survey",
 		SurveyMsgLinkURL: "https://www.libqual.org/survey/RWSLDQ72YU886X8HRA",
-		SurveyMsgToggle: "off",
+		SurveyMsgToggle: "on",
 		SurveyMsgBackground: "#4CBCC0",
 		SurveyMsgColor: "#000",
 
@@ -70,9 +70,7 @@ function globalConfig(hdr) {
 			'<div id="uklsitelvl"><div class="mtopmenu"><span id="mhead"><span id="getmhome"></span></span><div class="item">  <a href="javascript:void(0);" class="icon" onclick="toggleMobile()"><span id="menu_button_more"></span></a></div></div><div class="ukl-ext-clamp"><header id="MainHeader" class="global-header "><div class="slab"><div class="slab__wrapper"><div class="global-header"><div class="global-header-layout"><span id="gethome"></span><span id="gethdrw"></span> <div class="nav-links"><div class="link" id="link1"><span id="getlink1"></span></div><div class="link" id="link2"><span id="getlink2"></span></div><div class="link" id="link3"><span id="getlink3"></span></div><div class="link" id="link4"><span id="getlink4"></span></div></div><div class="utility-links"><div id="springsrch"><form action="https://libguides.uky.edu/srch.php" role="search"><label id="springsrchLabel" for="searchTerm"><input type="text" id="searchTerm" name="q" placeholder="Search our Guides">&nbsp;<button type="submit" id="springbtn">Search</button></form></div><div class="link" id="link5"><span id="getlink5"></span></div><div class="link" id="link6"><span id="getlink6"></span></div></div></div></div></div></div></header></div>',
 
 		ukltophdr_low_alert:
-			hdr_alert_include === 1
-				? '<div class="site-ukl-alert" id="uklalert"><div class="slab__wrapper"><div class="icon-wrapper"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="#EFF4FD"></circle><rect x="22" y="12" width="4.54545" height="4.54545" fill="#1E8AFF"></rect><rect x="22" y="19.9545" width="4.54545" height="17.0455" fill="#1E8AFF"></rect></svg></div><div><h2 id="uklalerttlt"></h2><div class="message"><p><span id="uklalertmsg"></span>&nbsp;&nbsp;<span id="uklalertlink"></span></p></div></div></div></div>'
-				: "",
+			'<div class="site-ukl-alert" id="uklalert"><div class="slab__wrapper"><div class="icon-wrapper"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="#EFF4FD"></circle><rect x="22" y="12" width="4.54545" height="4.54545" fill="#1E8AFF"></rect><rect x="22" y="19.9545" width="4.54545" height="17.0455" fill="#1E8AFF"></rect></svg></div><div><h2 id="uklalerttlt"></h2><div class="message"><p><span id="uklalertmsg"></span>&nbsp;&nbsp;<span id="uklalertlink"></span></p></div></div></div></div>',
 
 		ukltophdr_survey:
 			'<div class="site-ukl-survey" id="uklsurvey"><div class="slab__wrapper"><div id="ukl-survey-foil"><h2 id="uklsurveytlt"></h2><div class="message"><span id="uklsurveymsg"></span><span id="uklsurveylink"></span></div></div><div id="ukl-survey-close" class="icon-wrapper"><a href="javascript:void(0);"><span id="survey_button_less"></span></a></div></div><div id="ukl-survey-close-mobile" class="icon-wrapper"><a href="javascript:void(0);"><span id="survey_button_less_mobile"></span></a></div></div>',
@@ -268,24 +266,24 @@ function renderHTML(config, hdr) {
 	function chooseRender() {
 		let headerContent = "";
 		if (hdr_simple == 1) {
-			headerContent += ukltophdr_start_clamp + ukltophdr_univlvl;
-			headerContent += include ? ukltophdr_sitehdr : "";
-			headerContent +=
-				DangerMsgToggle || WarningMsgToggle || AnnouncementMsgToggle
-					? ukltophdr_top_alert
-					: "";
+			headerContent += ukltophdr_start_clamp;
+			headerContent += ukltophdr_univlvl;
+			headerContent += include === 1 ? ukltophdr_sitehdr : "";
+			headerContent += hdr_alert_include === 1 ? ukltophdr_low_alert : "";
 			headerContent += ukltophdr_end_clamp;
 			return headerContent;
 		}
 		headerContent += ukltophdr_start_clamp;
 		headerContent +=
-			DangerMsgToggle || WarningMsgToggle || AnnouncementMsgToggle
+			DangerMsgToggle == "on" ||
+			WarningMsgToggle == "on" ||
+			AnnouncementMsgToggle == "on"
 				? ukltophdr_top_alert
 				: "";
 		headerContent += ukltophdr_univlvl;
-		headerContent += include == "1" ? ukltophdr_sitehdr : "";
-		headerContent += ukltophdr_low_alert;
-		headerContent += SurveyMsgToggle == "on" ? ukltophdr_survey : "";
+		headerContent += include === 1 ? ukltophdr_sitehdr : "";
+		headerContent += hdr_alert_include ? ukltophdr_low_alert : "";
+		headerContent += SurveyMsgToggle === "on" ? ukltophdr_survey : "";
 		headerContent += ukltophdr_end_clamp;
 		return headerContent;
 	}
@@ -302,68 +300,68 @@ function renderHTML(config, hdr) {
 		} else if (mhdr_home_label) {
 			document.getElementById("getmhome").innerHTML = mhdr_home_label;
 		}
-	}
-	/* insert content from meta into html */
-	for (let i = 0; i < bases.length; i++) {
-		let title = bases[i].title;
-		let url = bases[i].url;
+		/* insert content from meta into html */
+		for (let i = 0; i < bases.length; i++) {
+			let title = bases[i].title;
+			let url = bases[i].url;
 
-		if (bases[i].label) {
-			let site = document.getElementById("get" + bases[i].label);
+			if (bases[i].label) {
+				let site = document.getElementById("get" + bases[i].label);
 
-			if (site) {
-				if (url) {
-					site.innerHTML =
-						'<a href="' + url + '" class="section-heading">' + title + "</a>";
-				} else {
-					site.innerHTML = label;
+				if (site) {
+					if (url) {
+						site.innerHTML =
+							'<a href="' + url + '" class="section-heading">' + title + "</a>";
+					} else {
+						site.innerHTML = label;
+					}
 				}
 			}
 		}
 	}
 	/* toggles for top level alert messages but not if simple header is set */
 
-	if (DangerMsgToggle == "on") {
-		document.getElementById("tltalert").innerHTML = DangerTitleText;
-		document.getElementById("msgalert").innerHTML = DangerMsgText;
-		document.getElementById("top-alert").style.display = "block";
-		document.getElementById("top-alert").style.background = DangerMsgBackground;
-		document.getElementById("top-alert").style.color = DangerMsgColor;
-		document.getElementById("ukalertlink").style.color = DangerLinkColor;
-	} else if (WarningMsgToggle == "on") {
-		document.getElementById("tltalert").innerHTML = WarningTitleText;
-		document.getElementById("msgalert").innerHTML = WarningMsgText;
-		document.getElementById("top-alert").style.display = "block";
-		document.getElementById("top-alert").style.background =
-			WarningMsgBackground;
-		document.getElementById("top-alert").style.color = WarningMsgColor;
-		document.getElementById("ukalertlink").style.color = WarningLinkColor;
-	} else if (AnnouncementMsgToggle == "on") {
-		document.getElementById("tltalert").innerHTML = AnnouncementTitleText;
-		document.getElementById("msgalert").innerHTML = AnnouncementMsgText;
-		document.getElementById("top-alert").style.display = "block";
-		document.getElementById("top-alert").style.background =
-			AnnouncementMsgBackground;
-		document.getElementById("top-alert").style.color = AnnouncementMsgColor;
-		// document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
+	if (hdr_simple === 0) {
+		if (DangerMsgToggle == "on") {
+			document.getElementById("tltalert").innerHTML = DangerTitleText;
+			document.getElementById("msgalert").innerHTML = DangerMsgText;
+			document.getElementById("top-alert").style.display = "block";
+			document.getElementById("top-alert").style.background =
+				DangerMsgBackground;
+			document.getElementById("top-alert").style.color = DangerMsgColor;
+			document.getElementById("ukalertlink").style.color = DangerLinkColor;
+		} else if (WarningMsgToggle == "on") {
+			document.getElementById("tltalert").innerHTML = WarningTitleText;
+			document.getElementById("msgalert").innerHTML = WarningMsgText;
+			document.getElementById("top-alert").style.display = "block";
+			document.getElementById("top-alert").style.background =
+				WarningMsgBackground;
+			document.getElementById("top-alert").style.color = WarningMsgColor;
+			document.getElementById("ukalertlink").style.color = WarningLinkColor;
+		} else if (AnnouncementMsgToggle == "on") {
+			document.getElementById("tltalert").innerHTML = AnnouncementTitleText;
+			document.getElementById("msgalert").innerHTML = AnnouncementMsgText;
+			document.getElementById("top-alert").style.display = "block";
+			document.getElementById("top-alert").style.background =
+				AnnouncementMsgBackground;
+			document.getElementById("top-alert").style.color = AnnouncementMsgColor;
+			// document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
+		}
+		if (SurveyMsgToggle == "on") {
+			document.getElementById("uklsurveytlt").innerHTML = SurveyTitleText;
+			document.getElementById("uklsurveymsg").innerHTML = SurveyMsgText;
+			document.getElementById("uklsurveylink").innerHTML +=
+				"<a href='" + SurveyMsgLinkURL + "'>" + SurveyMsgLinkLabel + "</a>";
+		}
 	}
 
 	/* toggle for survey message but not if simple header is set */
-	console.log(ukDiv);
-	if (SurveyMsgToggle == "on") {
-		document.getElementById("uklsurveytlt").innerHTML = SurveyTitleText;
-		document.getElementById("uklsurveymsg").innerHTML = SurveyMsgText;
-		document.getElementById("uklsurveylink").innerHTML +=
-			"<a href='" + SurveyMsgLinkURL + "'>" + SurveyMsgLinkLabel + "</a>";
-	}
 
-	if (hdr_level == 1) {
-		/* toggle visibility of Springshare search box */
-		if (hdr_srch_include == 1 && hdr_simple == 0) {
-			document.getElementById("springsrch").style.display = "block";
-			document.getElementById("link5").style.display = "none";
-			document.getElementById("link6").style.display = "none";
-		}
+	/* toggle visibility of Springshare search box */
+	if (hdr_srch_include == 1) {
+		document.getElementById("springsrch").style.display = "block";
+		document.getElementById("link5").style.display = "none";
+		document.getElementById("link6").style.display = "none";
 	}
 
 	/* toggle visibility of lower operator controlled alert message */
