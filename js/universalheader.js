@@ -23,7 +23,7 @@ function globalConfig() {
 		DangerTitleText: "0 - UK ALERT - DELAYED OPENING",
 		DangerMsgText:
 			"URGENT: University of Kentucky campus operations on a 2-hour delay. All library facilities will open at 10 am, today, Friday, Jan 19.",
-		DangerMsgToggle: "off",
+		DangerMsgToggle: "on",
 		DangerMsgBackground: "#c12c2b",
 		DangerMsgColor: "#fff",
 		DangerLinkColor: "#fff",
