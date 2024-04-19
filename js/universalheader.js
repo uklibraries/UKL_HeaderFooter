@@ -9,6 +9,7 @@ import(modulePath)
 		const hdr = module.default;
 		const config = globalConfig();
 		init();
+		cookie();
 		renderHTML(config, hdr);
 	})
 	.catch((error) => {
@@ -78,11 +79,11 @@ function globalConfig() {
 	};
 }
 
-function init() {
-	/* ----------------------------------------------------------------- */
-	/* ----------------   DO NOT EDIT BELOW THIS LINE!  ---------------- */
-	/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* ----------------   DO NOT EDIT BELOW THIS LINE!  ---------------- */
+/* ----------------------------------------------------------------- */
 
+function cookie() {
 	/* Cookie stuff for Survey Message */
 	const cookie_name = "UKLSurvey";
 
@@ -166,7 +167,9 @@ function init() {
 
 	/* Calculate the difference in milliseconds */
 	const diffInMs = format_curdate - format_expiredate;
+}
 
+function init() {
 	/* toggle function for mobile secondary header */
 	window.toggleMobile = function () {
 		/* toggle visibility of "MainHeader" in mobile */
