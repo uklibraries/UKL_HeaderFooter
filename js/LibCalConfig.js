@@ -1,6 +1,5 @@
 export default {
-	hdr_simple: 1,
-	hdr_level: 0,
+	hdr_simple: 0,
 	include: 1,
 	mhdr_home_label: "LibCal",
 	mhdr_home_url: "https://libcal.uky.edu",
@@ -18,7 +17,7 @@ export default {
 		{
 			label: "link2",
 			title: "Stuff 2",
-			url: "https://google.com/",
+			url: "https://google.com /",
 		},
 		{
 			label: "link3",
@@ -41,7 +40,7 @@ export default {
 			url: "https://libguides.uky",
 		},
 	],
-	hdr_srch_include: 1,
+	hdr_srch_include: 0,
 	hdr_width: 120,
 	hdr_alert_include: 0,
 	hdr_alert_title: "Unexpected Service Disruption",

@@ -96,7 +96,9 @@ function init() {
 		if (cPath !== "") {
 			cPath = ";Path=" + cPath;
 		}
-		document.cookie = cName + "=" + cValue + "expires=" + cExpires + cPath;
+		document.cookie = `${cName}=${encodeURIComponent(
+			cValue
+		)};expires=${cExpires}${cPath}`;
 	}
 
 	/* Functions to hide elements */
@@ -210,7 +212,6 @@ function init() {
 function renderHTML(config, hdr) {
 	let {
 		hdr_simple,
-		hdr_level,
 		include,
 		mhdr_home_label,
 		mhdr_home_url,
@@ -301,22 +302,19 @@ function renderHTML(config, hdr) {
 		}
 		/* insert content from meta into html */
 		for (let i = 0; i < bases.length; i++) {
-			let title = bases[i].title;
-			let url = bases[i].url;
+			let title = bases[i]?.title;
+			let url = bases[i]?.url;
+			let label = bases[i]?.label;
+			let site = document.getElementById("get" + bases[i].label);
 
-			if (bases[i].label) {
-				let site = document.getElementById("get" + bases[i].label);
-
-				if (site) {
-					if (url) {
-						site.innerHTML =
-							'<a href="' + url + '" class="section-heading">' + title + "</a>";
-					} else {
-						site.innerHTML = label;
-					}
-				}
+			if (label) {
+				site.innerHTML =
+					'<a href="' + url + '" class="section-heading">' + title + "</a>";
+			} else {
+				site.innerHTML = bases[i].label;
 			}
 		}
+
 		const div2 = document.getElementById("menu_button_more");
 		let clickCount = 0;
 		div2.addEventListener("click", function () {
