@@ -10,7 +10,8 @@ import(modulePath)
 		const config = globalConfig();
 		init();
 		cookie();
-		renderHTML(config, hdr);
+		insertHTML(config, hdr);
+		insertContentAndStyle(config, hdr);
 	})
 	.catch((error) => {
 		console.error("Error with config:", error);
@@ -212,44 +213,13 @@ function init() {
 	};
 }
 
-function renderHTML(config, hdr) {
-	let {
-		hdr_simple,
-		include,
-		mhdr_home_label,
-		mhdr_home_url,
-		bases,
-		hdr_srch_include,
-		hdr_width,
-		hdr_alert_include,
-		hdr_alert_title,
-		hdr_alert_msg,
-		hdr_alert_url_label,
-		hdr_alert_url,
-	} = hdr;
+function insertHTML(config, hdr) {
+	let { hdr_simple, include, hdr_alert_include } = hdr;
 
 	let {
-		DangerTitleText,
-		DangerMsgText,
 		DangerMsgToggle,
-		DangerMsgBackground,
-		DangerMsgColor,
-		DangerLinkColor,
-		WarningTitleText,
-		WarningMsgText,
 		WarningMsgToggle,
-		WarningMsgBackground,
-		WarningMsgColor,
-		WarningLinkColor,
-		AnnouncementTitleText,
-		AnnouncementMsgText,
 		AnnouncementMsgToggle,
-		AnnouncementMsgColor,
-		AnnouncementMsgBackground,
-		SurveyTitleText,
-		SurveyMsgText,
-		SurveyMsgLinkLabel,
-		SurveyMsgLinkURL,
 		SurveyMsgToggle,
 		SurveyMsgBackground,
 		SurveyMsgColor,
@@ -290,6 +260,48 @@ function renderHTML(config, hdr) {
 		headerContent += ukltophdr_end_clamp;
 		return headerContent;
 	}
+}
+
+function insertContentAndStyle(config, hdr) {
+	let {
+		hdr_simple,
+		include,
+		mhdr_home_label,
+		mhdr_home_url,
+		bases,
+		hdr_srch_include,
+		hdr_width,
+		hdr_alert_include,
+		hdr_alert_title,
+		hdr_alert_msg,
+		hdr_alert_url_label,
+		hdr_alert_url,
+	} = hdr;
+
+	let {
+		DangerTitleText,
+		DangerMsgText,
+		DangerMsgToggle,
+		DangerMsgBackground,
+		DangerMsgColor,
+		DangerLinkColor,
+		WarningTitleText,
+		WarningMsgText,
+		WarningMsgToggle,
+		WarningMsgBackground,
+		WarningMsgColor,
+		WarningLinkColor,
+		AnnouncementTitleText,
+		AnnouncementMsgText,
+		AnnouncementMsgToggle,
+		AnnouncementMsgColor,
+		AnnouncementMsgBackground,
+		SurveyTitleText,
+		SurveyMsgText,
+		SurveyMsgLinkLabel,
+		SurveyMsgLinkURL,
+		SurveyMsgToggle,
+	} = config;
 
 	/* mobile header? */
 	if (include) {
