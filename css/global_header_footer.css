@@ -1,5 +1,11 @@
 /* || Global header styles */
 
+:root {
+  --bg-primary: #0033a0;
+  --bg-university-level-header: #041E42;
+  --bg-local-alert: #4cbcc0;
+}
+
 .ukl-ext-clamp .global-header {
   color: white;
   font-family: "usual", sans-serif;
@@ -72,7 +78,7 @@
 }
 
 .ukl-ext-clamp .global-header {
-  background-color: #0033a0;
+  background-color: var(--bg-primary);
 }
 .ukl-ext-clamp .global-header a {
   color: white;
@@ -96,22 +102,22 @@
 .ukl-ext-clamp .global-header .menu-button:focus{
   border-color: #ffffff;
   outline: 2px solid #ffffff;
-  background-color: #0033a0;
+  background-color: var(--bg-primary);
   color: #DCDDDE;
 }
 
 .ukl-ext-clamp .global-header .menu-button:active {
-  background-color: #0033a0;
+  background-color: var(--bg-primary);
   color: #DCDDDE;
 }
 
 .ukl-ext-clamp .global-header button:focus {
-  background-color: #0033a0;
+  background-color: var(--bg-primary);
   color: #DCDDDE;
 }
 
 .ukl-ext-clamp .global-header button[aria-pressed='true']{
-  background-color: #0033a0;
+  background-color: var(--bg-primary);
   color: #DCDDDE;
 }
 
@@ -197,7 +203,7 @@
 .ukl-ext-clamp .universal-header {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  background-color: #041E42;
+  background-color: var(--bg-university-level-header);
   color: white;
 }
 .ukl-ext-clamp .universal-header.slab {
@@ -222,7 +228,7 @@
 }
 
 .ukl-ext-clamp .universal-header.clamp--wildcat {
-  background-color: #0033a0;
+  background-color: var(--bg-primary);
 }
 
 .ukl-ext-clamp .universal-nav .my-uk-logo {
@@ -409,7 +415,7 @@ html {
   padding-bottom: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  background-color: #0033a0;
+  background-color: var(--bg-primary);
   color: white;
   font-family: "usual", sans-serif;
 }
@@ -431,7 +437,7 @@ html {
 .ukl-ext-clamp .universal-footer__ribbon a {
   line-height: 17px;
   text-decoration: none;
-  text-shadow: 1px 0 1px #0033a0, 2px 0 1px #0033a0, -1px 0 1px #0033a0, -2px 0 1px #0033a0;
+  text-shadow: 1px 0 1px var(--bg-primary), 2px 0 1px var(--bg-primary), -1px 0 1px var(--bg-primary), -2px 0 1px var(--bg-primary);
 }
 .ukl-ext-clamp .universal-footer__ribbon a.underline-link {
   background-attachment: scroll;
@@ -523,7 +529,7 @@ body {
 }
 
 .site-ukl-survey .slab__wrapper {
-  background-color: #4CBCC0;
+  background-color: var(--bg-local-alert);
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -547,18 +553,18 @@ body {
   text-transform: uppercase;
   font-size: 1.5rem;
   font-weight: 900;
-  color: #0033A0;
+  color: var(--bg-primary);
   margin: 0;
   line-height: 1.2;
 }
 
 #uklsurvey {
-  background: #4CBCC0;
+  background: var(--bg-local-alert);
   font-family: "usual", sans-serif;
 }
 
 #uklsurvey .slab__wrapper {
-  background: #4CBCC0;
+  background: var(--bg-local-alert);
 }
 
 #uklsurveylink > a {
@@ -575,7 +581,7 @@ body {
 
 #survey_button_less {
   display: block;
-  color: #0033A0;
+  color: var(--bg-primary);
   float: right;
   margin-left: 2vmin;
   width: 7mm;
@@ -591,7 +597,7 @@ body {
 }
 
 #uklsurveymsg {
-  color: #0033A0;
+  color: var(--bg-primary);
 }
 
 #uklsurveylink a {
@@ -620,12 +626,12 @@ body {
   }
   
   #uklsurveymsg {
-  color: #0033A0;
+  color: var(--bg-primary);
   }
 
   #survey_button_less_mobile {
     display: block;
-    color: #0033A0;
+    color: var(--bg-primary);
     margin-left: 2vmin;
     width: 7mm;
     height: 7mm;
@@ -674,7 +680,7 @@ body {
   font-family: "usual", sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
-  color: #0033A0;
+  color: var(--bg-primary);
   margin: 0;
   line-height: 1.2;
 }
@@ -768,7 +774,7 @@ body {
 }
 
 #ukheader .mtopmenu  {
-  background-color: #0033a0;
+  background-color: var(--bg-primary);
   padding: 10px 20px 10px 0px;
   min-height: 75px;
 }
