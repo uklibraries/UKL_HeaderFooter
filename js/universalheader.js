@@ -318,15 +318,31 @@ function insertContentAndStyle(config, hdr) {
 		/* insert content from meta into html */
 		for (const base of bases) {
 			let title = base.title;
-			let url = base.url;
 			let label = base.label;
-			let site = document.getElementById("get" + base.label);
+			let button = document.getElementById("get" + base.label);
+			if (base.hasOwnProperty("children")) {
+				const menuTitle = document.createElement("h3");
+				button.appendChild(menuTitle).innerText = base.title;
+				console.log(button);
 
-			if (label) {
-				site.innerHTML =
-					'<a href="' + url + '" class="section-heading">' + title + "</a>";
+				let menu = document.createElement("ul");
+				menu.classList.add("hidden");
+
+				base.children.forEach((child) => {
+					menu.appendChild(populateMenu(child));
+				});
+				button.appendChild(menu);
+				button.addEventListener("click", () => {
+					menu.classList.toggle("hidden");
+				});
 			} else {
-				site.innerHTML = label;
+				let url = base.url;
+				if (label) {
+					button.innerHTML =
+						'<a href="' + url + '" class="section-heading">' + title + "</a>";
+				} else {
+					button.innerHTML = label;
+				}
 			}
 		}
 
@@ -435,4 +451,13 @@ function insertContentAndStyle(config, hdr) {
 			wrapper[4].style.maxWidth = hdr_width + "rem";
 		}
 	}
+}
+
+function populateMenu(menuItem) {
+	const li = document.createElement("li");
+	const a = document.createElement("a");
+	a.href = menuItem.url;
+	a.textContent = menuItem.title;
+	li.appendChild(a);
+	return li;
 }
