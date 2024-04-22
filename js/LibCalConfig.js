@@ -1,6 +1,6 @@
 export default {
 	hdr_simple: 0,
-	include: 0,
+	include: 1,
 	mhdr_home_label: "LibCal",
 	mhdr_home_url: "https://libcal.uky.edu",
 	bases: [

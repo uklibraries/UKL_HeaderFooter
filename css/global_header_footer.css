@@ -751,7 +751,7 @@ body {
   text-decoration: none;
 }
 
-#menu_button_more {
+.menu_button_more {
   display: block;
   float: right;
   margin-left: 2vmin;
@@ -762,7 +762,7 @@ body {
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 120 80" width="40" height="40" version="1.0" xmlns="http://www.w3.org/2000/svg"><rect x="15" width="90" height="15" rx="10"></rect><rect x="15" y="30" width="90" height="15" rx="10"></rect><rect x="15" y="60" width="90" height="15" rx="10"></rect></svg>');
 }
 
-#menu_button_less {
+.menu_button_less {
   display: block;
   float: right;
   margin-left: 2vmin;
@@ -873,9 +873,15 @@ body {
 
 #springbtn:active {
   background-color: #e7e7e7;
-}
+} 
 
 #springbtn:focus {
   background-color: #e7e7e7;
   color: black;
+}
+
+/* Utility */
+
+.hidden{
+  display: none;
 }
