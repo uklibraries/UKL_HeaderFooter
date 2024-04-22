@@ -323,7 +323,6 @@ function insertContentAndStyle(config, hdr) {
 			if (base.hasOwnProperty("children")) {
 				const menuTitle = document.createElement("h3");
 				button.appendChild(menuTitle).innerText = base.title;
-				console.log(button);
 
 				let menu = document.createElement("ul");
 				menu.classList.add("hidden");
