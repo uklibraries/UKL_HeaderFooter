@@ -331,9 +331,7 @@ function insertContentAndStyle(config, hdr) {
 					menu.appendChild(populateMenu(child));
 				});
 				button.appendChild(menu);
-				button.addEventListener("click", () => {
-					menu.classList.toggle("hidden");
-				});
+				button.addEventListener("click", () => menu.classList.toggle("hidden"));
 			} else {
 				let url = base.url;
 				if (label) {
