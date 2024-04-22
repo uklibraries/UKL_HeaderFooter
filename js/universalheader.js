@@ -156,9 +156,7 @@ function cookie() {
 		}
 	};
 
-	const expiredate = value_or_null
-		? value_or_null.replace("expires=", "")
-		: null;
+	const expiredate = value_or_null && value_or_null.replace("expires=", "");
 
 	const curdate = new Date().toLocaleString();
 
@@ -316,17 +314,17 @@ function insertContentAndStyle(config, hdr) {
 			document.getElementById("getmhome").innerHTML = mhdr_home_label;
 		}
 		/* insert content from meta into html */
-		for (let i = 0; i < bases.length; i++) {
-			let title = bases[i]?.title;
-			let url = bases[i]?.url;
-			let label = bases[i]?.label;
-			let site = document.getElementById("get" + bases[i].label);
+		for (const base of bases) {
+			let title = base.title;
+			let url = base.url;
+			let label = base.label;
+			let site = document.getElementById("get" + base.label);
 
 			if (label) {
 				site.innerHTML =
 					'<a href="' + url + '" class="section-heading">' + title + "</a>";
 			} else {
-				site.innerHTML = bases[i].label;
+				site.innerHTML = label;
 			}
 		}
 
