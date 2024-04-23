@@ -279,23 +279,6 @@ function insertContentAndStyle(config, hdr) {
 	} = hdr;
 
 	let {
-		DangerTitleText,
-		DangerMsgText,
-		DangerMsgToggle,
-		DangerMsgBackground,
-		DangerMsgColor,
-		DangerLinkColor,
-		WarningTitleText,
-		WarningMsgText,
-		WarningMsgToggle,
-		WarningMsgBackground,
-		WarningMsgColor,
-		WarningLinkColor,
-		AnnouncementTitleText,
-		AnnouncementMsgText,
-		AnnouncementMsgToggle,
-		AnnouncementMsgColor,
-		AnnouncementMsgBackground,
 		SurveyTitleText,
 		SurveyMsgText,
 		SurveyMsgLinkLabel,
@@ -322,13 +305,14 @@ function insertContentAndStyle(config, hdr) {
 			let button = document.getElementById("get" + base.label);
 			if (base.hasOwnProperty("children")) {
 				const menuTitle = document.createElement("h3");
-				button.appendChild(menuTitle).innerText = base.title;
+				const menu = document.createElement("ul");
 
-				let menu = document.createElement("ul");
+				button.appendChild(menuTitle).innerText = base.title;
 				menu.classList.add("hidden");
+				menu.classList.add("menuDropdown");
 
 				base.children.forEach((child) => {
-					menu.appendChild(populateMenu(child));
+					menu.appendChild(createListItem(child));
 				});
 				button.appendChild(menu);
 				button.addEventListener("click", () => menu.classList.toggle("hidden"));
@@ -358,31 +342,7 @@ function insertContentAndStyle(config, hdr) {
 	/* toggles for top level alert messages but not if simple header is set */
 
 	if (hdr_simple === 0) {
-		if (DangerMsgToggle == "on") {
-			document.getElementById("tltalert").innerHTML = DangerTitleText;
-			document.getElementById("msgalert").innerHTML = DangerMsgText;
-			document.getElementById("top-alert").style.display = "block";
-			document.getElementById("top-alert").style.background =
-				DangerMsgBackground;
-			document.getElementById("top-alert").style.color = DangerMsgColor;
-			document.getElementById("ukalertlink").style.color = DangerLinkColor;
-		} else if (WarningMsgToggle == "on") {
-			document.getElementById("tltalert").innerHTML = WarningTitleText;
-			document.getElementById("msgalert").innerHTML = WarningMsgText;
-			document.getElementById("top-alert").style.display = "block";
-			document.getElementById("top-alert").style.background =
-				WarningMsgBackground;
-			document.getElementById("top-alert").style.color = WarningMsgColor;
-			document.getElementById("ukalertlink").style.color = WarningLinkColor;
-		} else if (AnnouncementMsgToggle == "on") {
-			document.getElementById("tltalert").innerHTML = AnnouncementTitleText;
-			document.getElementById("msgalert").innerHTML = AnnouncementMsgText;
-			document.getElementById("top-alert").style.display = "block";
-			document.getElementById("top-alert").style.background =
-				AnnouncementMsgBackground;
-			document.getElementById("top-alert").style.color = AnnouncementMsgColor;
-			// document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
-		}
+		setAnnouncement(config);
 		if (SurveyMsgToggle == "on") {
 			document.getElementById("uklsurveytlt").innerHTML = SurveyTitleText;
 			document.getElementById("uklsurveymsg").innerHTML = SurveyMsgText;
@@ -450,11 +410,55 @@ function insertContentAndStyle(config, hdr) {
 	}
 }
 
-function populateMenu(menuItem) {
+function createListItem(menuItem) {
 	const li = document.createElement("li");
 	const a = document.createElement("a");
 	a.href = menuItem.url;
 	a.textContent = menuItem.title;
 	li.appendChild(a);
 	return li;
+}
+
+function setAnnouncement(config) {
+	let {
+		DangerMsgToggle,
+		DangerTitleText,
+		DangerMsgText,
+		DangerMsgBackground,
+		DangerMsgColor,
+		DangerLinkColor,
+		WarningTitleText,
+		WarningMsgText,
+		WarningMsgBackground,
+		WarningMsgToggle,
+		AnnouncementMsgToggle,
+		AnnouncementTitleText,
+		AnnouncementMsgText,
+		AnnouncementMsgBackground,
+		AnnouncementMsgColor,
+	} = config;
+	if (DangerMsgToggle == "on") {
+		document.getElementById("tltalert").innerHTML = DangerTitleText;
+		document.getElementById("msgalert").innerHTML = DangerMsgText;
+		document.getElementById("top-alert").style.display = "block";
+		document.getElementById("top-alert").style.background = DangerMsgBackground;
+		document.getElementById("top-alert").style.color = DangerMsgColor;
+		document.getElementById("ukalertlink").style.color = DangerLinkColor;
+	} else if (WarningMsgToggle == "on") {
+		document.getElementById("tltalert").innerHTML = WarningTitleText;
+		document.getElementById("msgalert").innerHTML = WarningMsgText;
+		document.getElementById("top-alert").style.display = "block";
+		document.getElementById("top-alert").style.background =
+			WarningMsgBackground;
+		document.getElementById("top-alert").style.color = WarningMsgColor;
+		document.getElementById("ukalertlink").style.color = WarningLinkColor;
+	} else if (AnnouncementMsgToggle == "on") {
+		document.getElementById("tltalert").innerHTML = AnnouncementTitleText;
+		document.getElementById("msgalert").innerHTML = AnnouncementMsgText;
+		document.getElementById("top-alert").style.display = "block";
+		document.getElementById("top-alert").style.background =
+			AnnouncementMsgBackground;
+		document.getElementById("top-alert").style.color = AnnouncementMsgColor;
+		// document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
+	}
 }
