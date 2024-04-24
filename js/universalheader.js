@@ -303,19 +303,27 @@ function insertContentAndStyle(config, hdr) {
 			let title = base.title;
 			let label = base.label;
 			let button = document.getElementById("get" + base.label);
+			button.classList.add("dropdown");
+			button.setAttribute("tabIndex", "1");
+			const i = document.createElement("i");
+			button.appendChild(i);
+			i.setAttribute("tabIndex", "1");
+			i.classList.add("db2");
+
 			if (base.hasOwnProperty("children")) {
 				const menuTitle = document.createElement("h3");
+				menuTitle.classList.add("dropbtn", "c");
 				const menu = document.createElement("ul");
 
 				button.appendChild(menuTitle).innerText = base.title;
-				menu.classList.add("hidden");
-				menu.classList.add("menuDropdown");
+				// menu.classList.add("hidden");
+				menu.classList.add("dropdown-content", "c");
 
 				base.children.forEach((child) => {
 					menu.appendChild(createListItem(child));
 				});
 				button.appendChild(menu);
-				button.addEventListener("click", () => menu.classList.toggle("hidden"));
+				// button.addEventListener("click", () => menu.classList.toggle("hidden"));
 			} else {
 				let url = base.url;
 				if (label) {
@@ -412,6 +420,7 @@ function insertContentAndStyle(config, hdr) {
 
 function createListItem(menuItem) {
 	const li = document.createElement("li");
+	li.classList.add("mi");
 	const a = document.createElement("a");
 	a.href = menuItem.url;
 	a.textContent = menuItem.title;
