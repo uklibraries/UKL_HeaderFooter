@@ -484,3 +484,15 @@ function setAnnouncement(config) {
 		// document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
 	}
 }
+
+function createSVG() {
+	svg = document.createElementNS("http://www.w3.org/2000/svg", svg);
+	svg.setAttribute("focusable", "false");
+	svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+	svg.setAttribute("viewBox", "0 0 85 69");
+	svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+	svg.setAttribute("aria-hidden", "true");
+
+	g = documen.createElement(g);
+	svg.appendChild(g);
+}

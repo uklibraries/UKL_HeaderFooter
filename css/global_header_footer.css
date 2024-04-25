@@ -1055,3 +1055,13 @@ color: white;
   height: 100px;
   color: white;
 }
+
+#gethome{
+  display: flex !important;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+#gethome a {
+  text-decoration: none !important;
+}
