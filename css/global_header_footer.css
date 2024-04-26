@@ -736,47 +736,65 @@ body {
 
 @media screen and (max-width: 1023px) {
 
-  #gethome {
-      /*display:none !important;*/
-  }
-
   .dropdown a {
-      padding-bottom: 20px;
+    padding-bottom: 20px;
   }
 
   .dropdown .dropdown-content.c  {
-  padding: 0px 0px 0px 10px;
+    padding: 0px 0px 0px 10px;
+    margin-left: calc(-35% - 10px) !important;
   }
 
   .dropbtn {
-      padding: 0px 0px;
+    padding: 0px 0px;
   }
 
-  .dropdown-content {
-      position:unset !important;
-      visibility:visible !important;
-      opacity:1 !important;
-      margin-left:0 !important;
-  }
+.dropdown .dropdown-content {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: unset;
+    z-index: unset;
+}
 
-  .dropbtn.c {
-      pointer-events: none;
-  }
+.dropbtn {
+    padding: 0px 0px 0px 0px !important;
+}
 
-  .dropbtn::after {
-    /*display:none !important;*/
-  }
+.dropbtn.c {
+    padding-bottom: 20px !important;
+}
 
-  .dropdown:focus .dropdown-content {
+.dropdown:focus .dropdown-content {
     outline: none;
-    visibility: hidden;
-    opacity: 0;
+    position:inherit;
+    display:block;
+    visibility: visible;
+    opacity: 1;
     transform: translateY(0px);
-  }
+    padding-top: 0px;
+}
 
-  .ukl-ext-clamp .global-header-layout { 
+#getlink1:focus .dropdown-content {
+      display:block;
+}
+
+#getlink2:focus .dropdown-content {
+    display:block;
+}
+
+#getlink3:focus .dropdown-content {
+    display:block;
+}
+
+#getlink4:focus .dropdown-content {
+    display:block;
+}
+
+.ukl-ext-clamp .global-header-layout { 
     display: block; 
-  } 
+} 
 
 }
 
@@ -962,8 +980,6 @@ body {
 }
 
 
-
-
 /* dd content */
 .dropdown .dropdown-content {
   position: absolute;
@@ -1099,8 +1115,8 @@ body {
 @media (max-width:560px) {
 .dropdown .dropdown-content.r,
 .dropdown .dropdown-content.c {
-  left: 0;
-  margin-left: 0;
+  /*left: 0;
+  margin-left: 0;*/
   }
 .dropbtn.c::before, .dropbtn.r::before {
   background: #0033a0;
