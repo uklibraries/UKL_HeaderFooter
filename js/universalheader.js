@@ -483,6 +483,4 @@ function setAnnouncement(config) {
 		document.getElementById("top-alert").style.color = AnnouncementMsgColor;
 		// document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
 	}
-
-	// console.log(if(window.location.href.includes("mockup.html")));
 }
