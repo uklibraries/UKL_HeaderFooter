@@ -483,16 +483,6 @@ function setAnnouncement(config) {
 		document.getElementById("top-alert").style.color = AnnouncementMsgColor;
 		// document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
 	}
-}
 
-function createSVG() {
-	svg = document.createElementNS("http://www.w3.org/2000/svg", svg);
-	svg.setAttribute("focusable", "false");
-	svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
-	svg.setAttribute("viewBox", "0 0 85 69");
-	svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-	svg.setAttribute("aria-hidden", "true");
-
-	g = documen.createElement(g);
-	svg.appendChild(g);
+	// console.log(if(window.location.href.includes("mockup.html")));
 }
