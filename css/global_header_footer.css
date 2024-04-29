@@ -869,14 +869,10 @@ body {
     .menu_button {
     display: none;
     }
-  #MainHeader {
-    display: block;
-    }
 }
 
 /* was 768 */
 @media screen and (max-width: 1023px) {
-
   .utility-links {
     padding: 0 0 0 0 !important;
     }
