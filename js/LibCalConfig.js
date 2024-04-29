@@ -62,8 +62,8 @@ export default {
 		"We are currently working to resolve an authentication issue affect EBSCO databases.",
 	hdr_alert_url_label: "More information",
 	hdr_alert_url: "https://google.com",
-	mhdr_home_label: "LibCal",
-	mhdr_home_url: "https://libcal.uky.edu",
+	home_label: "LibCal",
+	home_url: "https://libcal.uky.edu",
 	bases: [
 		{
 			title: "LibCal",
