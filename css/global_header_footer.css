@@ -1119,7 +1119,6 @@ body {
 @media (max-width:560px) {
 .dropdown .dropdown-content.r,
 .dropdown .dropdown-content.c {
-  left: 0;
   margin-left: 0;
   }
 .dropbtn.c::before, .dropbtn.r::before {
