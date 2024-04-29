@@ -170,7 +170,7 @@ function cookie() {
 }
 
 function init() {
-	document.querySelector(".menu_button_more").addEventListener("click", () => {
+	document.querySelector(".menu_button").addEventListener("click", () => {
 		document.querySelector(".nav-links").classList.toggle("hidden");
 		document.querySelector(".utility-links").classList.toggle("hidden");
 	});
@@ -449,12 +449,18 @@ function createLogoHeaderWithMobileButton(parent, url, title) {
 
 function handleResize() {
 	if (window.innerWidth > 1023) {
-		document.querySelector(".menu_button_more").classList.add("hidden");
+		document.querySelector(".menu_button").classList.add("hidden");
 		document.querySelector(".nav-links").classList.remove("hidden");
 		document.querySelector(".utility-links").classList.remove("hidden");
 	} else {
+		if (document.querySelector(".nav-links")) {
+			document.querySelector(".menu_button").classList.add("menu_button_more");
+			document
+				.querySelector(".menu_button")
+				.classList.remove("menu_button_less");
+		}
 		document.querySelector(".nav-links").classList.add("hidden");
 		document.querySelector(".utility-links").classList.add("hidden");
-		document.querySelector(".menu_button_more").classList.remove("hidden");
+		document.querySelector(".menu_button").classList.remove("hidden");
 	}
 }
