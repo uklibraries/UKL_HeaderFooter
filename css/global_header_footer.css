@@ -24,7 +24,8 @@
 .ukl-ext-clamp #gethome {
   font-size: 2rem;
   text-decoration: none;
-  display: block;
+  display: flex;
+  /* display: block; */
 }
 
 .utility-links {
@@ -515,7 +516,10 @@ html {
 /* || Added header/footer styles */
 
 body {
-  margin: 0px;
+  /* margin: 0px; */
+  color: white;
+  font-family: "usual", sans-serif;
+  margin: 0px 0px 0px 0px;
 }
 
 .show-for-sr {
@@ -745,36 +749,58 @@ body {
   }
 
   .dropdown .dropdown-content.c  {
-  padding: 0px 0px 0px 10px;
+    padding: 0px 0px 0px 10px;
+    margin-left: calc(-35% - 10px) !important;
   }
 
   .dropbtn {
       padding: 0px 0px;
   }
 
-  .dropdown-content {
-      position:unset !important;
-      visibility:visible !important;
-      opacity:1 !important;
-      margin-left:0 !important;
-  }
+.dropdown .dropdown-content {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: unset;
+    z-index: unset;
+}
 
-  .dropbtn.c {
-      pointer-events: none;
-  }
+.dropbtn {
+    padding: 0px 0px 0px 0px !important;
+}
 
-  .dropbtn::after {
-    /*display:none !important;*/
-  }
+.dropbtn.c {
+    padding-bottom: 20px !important;
+}
 
   .dropdown:focus .dropdown-content {
     outline: none;
-    visibility: hidden;
-    opacity: 0;
+    position:inherit;
+    display:block;
+    visibility: visible;
+    opacity: 1;
     transform: translateY(0px);
-  }
+    padding-top: 0px;
+}
 
-  .ukl-ext-clamp .global-header-layout { 
+#getlink1:focus .dropdown-content {
+      display:block;
+}
+
+#getlink2:focus .dropdown-content {
+    display:block;
+}
+
+#getlink3:focus .dropdown-content {
+    display:block;
+}
+
+#getlink4:focus .dropdown-content {
+    display:block;
+}
+
+.ukl-ext-clamp .global-header-layout { 
     display: block; 
   } 
 
@@ -804,7 +830,8 @@ body {
 .menu_button_more {
   display: block;
   float: right;
-  margin-left: 2vmin;
+  justify-content:flex-end;
+  margin-left: auto;
   width: 7mm;
   height: 7mm;
   background-size: 100%;
@@ -815,7 +842,8 @@ body {
 .menu_button_less {
   display: block;
   float: right;
-  margin-left: 2vmin;
+  justify-content:flex-end;
+  margin-left: auto;
   width: 7mm;
   height: 7mm;
   background-size: 100%;
@@ -856,6 +884,7 @@ body {
     }
   .ukl-ext-clamp .global-header-layout > div {
     padding: 0 0 0 0;
+    margin-top: 50px;
     }
   #springsrch {
      padding-top: 25px !important;
@@ -929,7 +958,7 @@ body {
 /* Utility */
 
 .hidden{
-  display: none !important;
+ display: none !important;
 }
 
 /* Testing */
