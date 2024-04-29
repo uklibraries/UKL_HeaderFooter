@@ -838,19 +838,13 @@ body {
 
 /* was 769 */
 @media screen and (min-width: 1024px) {
-  .mtopmenu {
+    .menu_button {
     display: none;
-    }
-  #MainHeader {
-    display: block;
     }
 }
 
 /* was 768 */
 @media screen and (max-width: 1023px) {
-  #MainHeader {
-    display: none;
-    }
   .utility-links {
     padding: 0 0 0 0 !important;
     }
@@ -935,7 +929,7 @@ body {
 /* Utility */
 
 .hidden{
-  display: none;
+  display: none !important;
 }
 
 /* Testing */
@@ -1010,9 +1004,6 @@ body {
 }
 .dropdown-content .mi:hover::before {
     opacity: 1;
-}
-
-.dropdown-content.mi a{
 }
 
 /* style text link */
@@ -1130,4 +1121,11 @@ color: white;
 
 #gethome a {
   text-decoration: none !important;
+}
+
+@media (max-width: 560px){
+  .global-header-layout {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -8,10 +8,10 @@ import(modulePath)
 	.then((module) => {
 		const hdr = module.default;
 		const config = globalConfig();
-		init();
 		cookie();
 		insertHTML(config, hdr);
 		insertContentAndStyle(config, hdr);
+		init();
 	})
 	.catch((error) => {
 		console.error("Error with config:", error);
@@ -170,48 +170,13 @@ function cookie() {
 }
 
 function init() {
-	/* toggle function for mobile secondary header */
-	window.toggleMobile = function () {
-		/* toggle visibility of "MainHeader" in mobile */
-		try {
-			const div = document.getElementById("MainHeader");
+	document.querySelector(".menu_button_more").addEventListener("click", () => {
+		document.querySelector(".nav-links").classList.toggle("hidden");
+		document.querySelector(".utility-links").classList.toggle("hidden");
+	});
 
-			/* div element exists? */
-			if (!div) {
-				throw new Error("Div element with id 'MainHeader' not found");
-			}
-
-			/* toggle visibility div */
-			if (div.style.display === "block") {
-				div.style.display = "none";
-			} else {
-				div.style.display = "block";
-			}
-		} catch (error) {
-			/* log the error */
-			console.error(error);
-		}
-
-		/* toggle "MainHeader" when window is resized */
-		window.addEventListener("resize", () => {
-			const elem = document.querySelector("#MainHeader");
-			const styleStr = elem.getAttribute("style");
-			style = styleStr.replace("display: ", "").replace(";", "");
-			if (window.innerWidth > 768 && style == "none") {
-				document.getElementById("MainHeader").style.display = "block";
-				if (document.querySelector(".menu_button_less")) {
-					document
-						.querySelector(".menu_button_less")
-						.classList.add("menu_button_more");
-				}
-			} else if (
-				window.innerWidth < 768 &&
-				document.querySelector(".menu_button_more")
-			) {
-				document.getElementById("MainHeader").style.display = "none";
-			}
-		});
-	};
+	window.addEventListener("resize", handleResize);
+	handleResize();
 }
 
 function insertHTML(config, hdr) {
@@ -307,27 +272,16 @@ function insertContentAndStyle(config, hdr) {
 				const menu = document.createElement("ul");
 
 				button.appendChild(menuTitle).innerText = base.title;
-				// menu.classList.add("hidden");
 				menu.classList.add("dropdown-content", "c");
 
 				base.children.forEach((child) => {
 					menu.appendChild(createListItem(child));
 				});
 				button.appendChild(menu);
-				// button.addEventListener("click", () => menu.classList.toggle("hidden"));
 			} else if (label == "home") {
 				let url = base.url;
 				let title = base.title;
-
-				let svg = document.createElement("div");
-				svg.innerHTML = `<svg class="UK-Logo-Header" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 85 69"xmlns="http://www.w3.org/2000/svg"aria-hidden="true"><g fill="currentColor" fill-rule="evenodd"><path d="M24.466 33.753H19.88V9.234h4.587V3.106H3.056v6.128h4.589v24.52l6.118 6.129h10.703zm15.292 6.13h10.705l6.117-6.13V9.236h4.586v-6.13H39.758v6.13h4.588v24.517h-4.588z"/><path d="M61.55 45.628l13.38-13.407h6.117v-6.13H58.108v6.13h2.294l-9.174 9.193H38.23v-9.193h4.588v-6.13h-21.41v6.13h4.587v27.581h-4.587v6.129h21.41v-6.129H38.23v-9.194h12.998l9.173 9.194h-2.293v6.129h22.939v-6.129h-5.353z" /><path d="M36.7.041V12.3h4.588v10.728H22.937V12.299h4.589V.041H0V12.3h4.587v22.985h.003l-.003.002 7.646 7.66h10.705v13.792h-4.589v12.26h27.525v-12.26h-4.586v-3.066h8.41l5.353 5.365v9.96h29.052l.002-12.259h-6.882L66.138 45.63l10.32-10.343h7.647l-.002-12.26-24.465.001V12.299h4.587V.041H36.701zm1.528 1.533h24.469v9.195h-4.589v13.79h24.468v9.193h-6.882L63.843 45.63 76.46 58.27h6.116v9.196H56.58V58.27h-.001l-6.118-6.13H39.758v6.13h4.587v9.196H19.878V58.27h4.59V41.415h-11.47l-6.883-6.897v-23.75H1.528V1.574h24.467v9.195h-4.588v13.79h21.41v-13.79h-4.59V1.574z"/></g></svg>`;
-
-				let a = document.createElement("a");
-				a.setAttribute("href", url);
-				a.innerText = title;
-
-				button.appendChild(svg);
-				button.appendChild(a);
+				createLogoHeaderWithMobileButton(button, home_url, home_label);
 			} else {
 				let url = base.url;
 				if (label) {
@@ -339,11 +293,11 @@ function insertContentAndStyle(config, hdr) {
 			}
 		}
 
-		// const div2 = document.querySelector(".menu_button_more");
-		// div2.addEventListener("click", function () {
-		// 	div2.classList.toggle("menu_button_more");
-		// 	div2.classList.toggle("menu_button_less");
-		// });
+		const div2 = document.querySelector(".menu_button_more");
+		div2.addEventListener("click", function () {
+			div2.classList.toggle("menu_button_more");
+			div2.classList.toggle("menu_button_less");
+		});
 		/* toggle visibility of Springshare search box */
 		if (hdr_srch_include == 1) {
 			document.getElementById("springsrch").style.display = "block";
@@ -476,14 +430,31 @@ function setAnnouncement(config) {
 	}
 }
 
-function createSVG() {
-	svg = document.createElementNS("http://www.w3.org/2000/svg", svg);
-	svg.setAttribute("focusable", "false");
-	svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
-	svg.setAttribute("viewBox", "0 0 85 69");
-	svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-	svg.setAttribute("aria-hidden", "true");
+function createLogoHeaderWithMobileButton(parent, url, title) {
+	let svg = document.createElement("div");
+	svg.innerHTML = `<svg class="UK-Logo-Header" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 85 69"xmlns="http://www.w3.org/2000/svg"aria-hidden="true"><g fill="currentColor" fill-rule="evenodd"><path d="M24.466 33.753H19.88V9.234h4.587V3.106H3.056v6.128h4.589v24.52l6.118 6.129h10.703zm15.292 6.13h10.705l6.117-6.13V9.236h4.586v-6.13H39.758v6.13h4.588v24.517h-4.588z"/><path d="M61.55 45.628l13.38-13.407h6.117v-6.13H58.108v6.13h2.294l-9.174 9.193H38.23v-9.193h4.588v-6.13h-21.41v6.13h4.587v27.581h-4.587v6.129h21.41v-6.129H38.23v-9.194h12.998l9.173 9.194h-2.293v6.129h22.939v-6.129h-5.353z" /><path d="M36.7.041V12.3h4.588v10.728H22.937V12.299h4.589V.041H0V12.3h4.587v22.985h.003l-.003.002 7.646 7.66h10.705v13.792h-4.589v12.26h27.525v-12.26h-4.586v-3.066h8.41l5.353 5.365v9.96h29.052l.002-12.259h-6.882L66.138 45.63l10.32-10.343h7.647l-.002-12.26-24.465.001V12.299h4.587V.041H36.701zm1.528 1.533h24.469v9.195h-4.589v13.79h24.468v9.193h-6.882L63.843 45.63 76.46 58.27h6.116v9.196H56.58V58.27h-.001l-6.118-6.13H39.758v6.13h4.587v9.196H19.878V58.27h4.59V41.415h-11.47l-6.883-6.897v-23.75H1.528V1.574h24.467v9.195h-4.588v13.79h21.41v-13.79h-4.59V1.574z"/></g></svg>`;
 
-	g = documen.createElement(g);
-	svg.appendChild(g);
+	let a = document.createElement("a");
+	a.setAttribute("href", url);
+	a.innerText = title;
+
+	let mobileMenuButton = document.createElement("span");
+	mobileMenuButton.classList.add("menu_button_more", "menu_button");
+	mobileMenuButton.setAttribute("tabindex", 0);
+
+	parent.appendChild(svg);
+	parent.appendChild(a);
+	parent.appendChild(mobileMenuButton);
+}
+
+function handleResize() {
+	if (window.innerWidth > 1023) {
+		document.querySelector(".menu_button_more").classList.add("hidden");
+		document.querySelector(".nav-links").classList.remove("hidden");
+		document.querySelector(".utility-links").classList.remove("hidden");
+	} else {
+		document.querySelector(".nav-links").classList.add("hidden");
+		document.querySelector(".utility-links").classList.add("hidden");
+		document.querySelector(".menu_button_more").classList.remove("hidden");
+	}
 }
