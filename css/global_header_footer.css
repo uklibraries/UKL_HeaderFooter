@@ -24,7 +24,8 @@
 .ukl-ext-clamp #gethome {
   font-size: 2rem;
   text-decoration: none;
-  display: block;
+  display: flex;
+  /* display: block; */
 }
 
 .utility-links {
@@ -515,7 +516,10 @@ html {
 /* || Added header/footer styles */
 
 body {
-  margin: 0px;
+  /* margin: 0px; */
+  color: white;
+  font-family: "usual", sans-serif;
+  margin: 0px 0px 0px 0px;
 }
 
 .show-for-sr {
@@ -736,8 +740,12 @@ body {
 
 @media screen and (max-width: 1023px) {
 
+  #gethome {
+      /*display:none !important;*/
+  }
+
   .dropdown a {
-    padding-bottom: 20px;
+      padding-bottom: 20px;
   }
 
   .dropdown .dropdown-content.c  {
@@ -746,7 +754,7 @@ body {
   }
 
   .dropbtn {
-    padding: 0px 0px;
+      padding: 0px 0px;
   }
 
 .dropdown .dropdown-content {
@@ -766,7 +774,7 @@ body {
     padding-bottom: 20px !important;
 }
 
-.dropdown:focus .dropdown-content {
+  .dropdown:focus .dropdown-content {
     outline: none;
     position:inherit;
     display:block;
@@ -794,7 +802,7 @@ body {
 
 .ukl-ext-clamp .global-header-layout { 
     display: block; 
-} 
+  } 
 
 }
 
@@ -822,7 +830,8 @@ body {
 .menu_button_more {
   display: block;
   float: right;
-  margin-left: 2vmin;
+  justify-content:flex-end;
+  margin-left: auto;
   width: 7mm;
   height: 7mm;
   background-size: 100%;
@@ -833,7 +842,8 @@ body {
 .menu_button_less {
   display: block;
   float: right;
-  margin-left: 2vmin;
+  justify-content:flex-end;
+  margin-left: auto;
   width: 7mm;
   height: 7mm;
   background-size: 100%;
@@ -856,7 +866,7 @@ body {
 
 /* was 769 */
 @media screen and (min-width: 1024px) {
-  .mtopmenu {
+    .menu_button {
     display: none;
     }
   #MainHeader {
@@ -866,9 +876,7 @@ body {
 
 /* was 768 */
 @media screen and (max-width: 1023px) {
-  #MainHeader {
-    display: none;
-    }
+
   .utility-links {
     padding: 0 0 0 0 !important;
     }
@@ -880,6 +888,7 @@ body {
     }
   .ukl-ext-clamp .global-header-layout > div {
     padding: 0 0 0 0;
+    margin-top: 50px;
     }
   #springsrch {
      padding-top: 25px !important;
@@ -953,7 +962,7 @@ body {
 /* Utility */
 
 .hidden{
-  display: none;
+ display: none !important;
 }
 
 /* Testing */
@@ -978,6 +987,8 @@ body {
   background-color: #0033a0;
   transition: 0.35s ease-out;
 }
+
+
 
 
 /* dd content */
@@ -1026,9 +1037,6 @@ body {
 }
 .dropdown-content .mi:hover::before {
     opacity: 1;
-}
-
-.dropdown-content.mi a{
 }
 
 /* style text link */
@@ -1115,8 +1123,8 @@ body {
 @media (max-width:560px) {
 .dropdown .dropdown-content.r,
 .dropdown .dropdown-content.c {
-  /*left: 0;
-  margin-left: 0;*/
+  left: 0;
+  margin-left: 0;
   }
 .dropbtn.c::before, .dropbtn.r::before {
   background: #0033a0;
@@ -1146,4 +1154,11 @@ color: white;
 
 #gethome a {
   text-decoration: none !important;
+}
+
+@media (max-width: 560px){
+  .global-header-layout {
+    display: flex;
+    flex-direction: column;
+  }
 }
