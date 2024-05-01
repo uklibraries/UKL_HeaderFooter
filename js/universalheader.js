@@ -438,7 +438,7 @@ function createLogoHeaderWithMobileButton(parent, url, title) {
 	a.setAttribute("href", url);
 	a.innerText = title;
 
-	let mobileMenuButton = document.createElement("span");
+	let mobileMenuButton = document.createElement("div");
 	mobileMenuButton.classList.add("menu_button_more", "menu_button");
 	mobileMenuButton.setAttribute("tabindex", 0);
 
