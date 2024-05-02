@@ -21,8 +21,8 @@ const headerStrings = {
 };
 
 insertHTML(localConfig, globalConfig);
-insertContentAndStyle(localConfig, globalConfig);
 cookie();
+insertContentAndStyle(localConfig, globalConfig);
 init();
 
 function cookie() {
@@ -371,6 +371,8 @@ function setAnnouncement(
 	WarningMsgText,
 	WarningMsgBackground,
 	WarningMsgToggle,
+	WarningMsgColor,
+	WarningLinkColor,
 	AnnouncementMsgToggle,
 	AnnouncementTitleText,
 	AnnouncementMsgText,
