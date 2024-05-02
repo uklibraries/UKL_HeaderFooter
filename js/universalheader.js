@@ -218,10 +218,10 @@ function insertContentAndStyle(localConfig, globalConfig) {
 			let label = base.label;
 			let button = document.getElementById("get" + base.label);
 			button.classList.add("dropdown");
-			button.setAttribute("tabIndex", "1");
+			button.setAttribute("tabIndex", "0");
 			const i = document.createElement("i");
 			button.appendChild(i);
-			i.setAttribute("tabIndex", "1");
+			i.setAttribute("tabIndex", "0");
 			i.classList.add("db2");
 
 			if (base.hasOwnProperty("children")) {
