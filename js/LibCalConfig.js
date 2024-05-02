@@ -52,7 +52,6 @@
 
 export default {
 	hdr_simple: 0,
-	hdr_level: 1,
 	include: 1,
 	hdr_srch_include: 1,
 	hdr_width: 80,
