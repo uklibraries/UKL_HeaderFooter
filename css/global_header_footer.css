@@ -524,6 +524,13 @@ body {
   padding-top: 0;
 }
 
+.surveybtn {
+  background: none;
+  border: none; 
+  padding: 0; 
+  cursor: pointer;
+}
+
 .site-ukl-survey .slab__wrapper {
   background-color: var(--bg-local-alert);
   padding: 1rem;
@@ -678,6 +685,7 @@ body {
 
 #uklalertmsg {
   color: #000;
+  line-height: 1.5;
 }
 
 #uklalertlink a {
