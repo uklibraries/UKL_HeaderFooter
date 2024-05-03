@@ -2,8 +2,17 @@
 // Author: Eric Weig, University of Kentucky Libraries
 // 2022 - 2024
 
-import localConfig from "./LibCalConfig.js";
 import globalConfig from "./globalConfig.js";
+
+import(document.querySelector("#headerScript").dataset.localConfig).then(
+	(module) => {
+		const localConfig = module.default;
+		insertHTML(localConfig, globalConfig);
+		cookie();
+		insertContentAndStyle(localConfig, globalConfig);
+		init();
+	}
+);
 
 const headerStrings = {
 	ukltophdr_start_clamp: '<div class="ukl-ext-clamp">',
@@ -20,11 +29,6 @@ const headerStrings = {
 
 	ukltophdr_end_clamp: "</div>",
 };
-
-insertHTML(localConfig, globalConfig);
-cookie();
-insertContentAndStyle(localConfig, globalConfig);
-init();
 
 function cookie() {
 	/* Cookie stuff for Survey Message */
