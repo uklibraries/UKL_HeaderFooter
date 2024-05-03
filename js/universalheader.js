@@ -10,7 +10,6 @@ import(document.querySelector("#headerScript").dataset.localConfig).then(
 		insertHTML(localConfig, globalConfig);
 		cookie();
 		insertContentAndStyle(localConfig, globalConfig);
-		init();
 	}
 );
 
@@ -254,6 +253,8 @@ function insertContentAndStyle(localConfig, globalConfig) {
 				}
 			}
 		}
+
+		init();
 
 		const div2 = document.querySelector(".menu_button_more");
 		div2.addEventListener("click", function () {

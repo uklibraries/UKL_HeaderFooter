@@ -10,7 +10,7 @@ export default {
 	hdr_alert_url_label: "More information",
 	hdr_alert_url: "https://google.com",
 	home_label: "NKAA",
-	home_url: "https://google.com",
+	home_url: "https://",
 	bases: [
 		{
 			title: "LibCal",
