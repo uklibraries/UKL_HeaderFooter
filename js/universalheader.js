@@ -2,8 +2,17 @@
 // Author: Eric Weig, University of Kentucky Libraries
 // 2022 - 2024
 
-import localConfig from "./LibCalConfig.js";
 import globalConfig from "./globalConfig.js";
+
+import(document.querySelector("#headerScript").dataset.localConfig).then(
+	(module) => {
+		const localConfig = module.default;
+		insertHTML(localConfig, globalConfig);
+		cookie();
+		insertContentAndStyle(localConfig, globalConfig);
+		init();
+	}
+);
 
 const headerStrings = {
 	ukltophdr_start_clamp: '<div class="ukl-ext-clamp">',
@@ -19,11 +28,6 @@ const headerStrings = {
 		'<div class="site-ukl-survey" id="uklsurvey"><div class="slab__wrapper"><div id="ukl-survey-foil"><h2 id="uklsurveytlt"></h2><div class="message"><span id="uklsurveymsg"></span><span id="uklsurveylink"></span></div></div><div id="ukl-survey-close" class="icon-wrapper"><a href="javascript:void(0);"><span id="survey_button_less"></span></a></div></div><div id="ukl-survey-close-mobile" class="icon-wrapper"><a href="javascript:void(0);"><span id="survey_button_less_mobile"></span></a></div></div>',
 	ukltophdr_end_clamp: "</div>",
 };
-
-insertHTML(localConfig, globalConfig);
-cookie();
-insertContentAndStyle(localConfig, globalConfig);
-init();
 
 function cookie() {
 	/* Cookie stuff for Survey Message */
