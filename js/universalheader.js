@@ -16,7 +16,8 @@ const headerStrings = {
 	ukltophdr_low_alert:
 		'<div class="site-ukl-alert" id="uklalert"><div class="slab__wrapper"><div class="icon-wrapper"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="#EFF4FD"></circle><rect x="22" y="12" width="4.54545" height="4.54545" fill="#1E8AFF"></rect><rect x="22" y="19.9545" width="4.54545" height="17.0455" fill="#1E8AFF"></rect></svg></div><div><h2 id="uklalerttlt"></h2><div class="message"><p><span id="uklalertmsg"></span>&nbsp;&nbsp;<span id="uklalertlink"></span></p></div></div></div></div>',
 	ukltophdr_survey:
-		'<div class="site-ukl-survey" id="uklsurvey"><div class="slab__wrapper"><div id="ukl-survey-foil"><h2 id="uklsurveytlt"></h2><div class="message"><span id="uklsurveymsg"></span><span id="uklsurveylink"></span></div></div><div id="ukl-survey-close" class="icon-wrapper"><a href="javascript:void(0);"><span id="survey_button_less"></span></a></div></div><div id="ukl-survey-close-mobile" class="icon-wrapper"><a href="javascript:void(0);"><span id="survey_button_less_mobile"></span></a></div></div>',
+		'<div class="site-ukl-survey" id="uklsurvey"><div class="slab__wrapper"><div id="ukl-survey-foil"><h2 id="uklsurveytlt"></h2><div class="message"><span id="uklsurveymsg"></span><span id="uklsurveylink"></span></div></div><div id="ukl-survey-close" class="icon-wrapper"><button class="surveybtn" id="btnCloseSurvey" title="close Survey"><span id="survey_button_less"></span></button></div></div><div id="ukl-survey-close-mobile" class="icon-wrapper"><button class="surveybtn" id="btnCloseSurveyMbl" title="Close Survey"><span id="survey_button_less_mobile"></span></button></div></div>',
+
 	ukltophdr_end_clamp: "</div>",
 };
 
@@ -119,9 +120,7 @@ function init() {
 	handleResize();
 }
 
-function insertHTML(config, hdr) {
-	let { hdr_simple, include, hdr_alert_include } = hdr;
-
+function insertHTML(localConfig, globalConfig) {
 	let {
 		DangerMsgToggle,
 		WarningMsgToggle,
@@ -129,6 +128,11 @@ function insertHTML(config, hdr) {
 		SurveyMsgToggle,
 		SurveyMsgBackground,
 		SurveyMsgColor,
+	} = globalConfig;
+
+	let { hdr_simple, include, hdr_alert_include } = localConfig;
+
+	let {
 		ukltophdr_start_clamp,
 		ukltophdr_top_alert,
 		ukltophdr_univlvl,
@@ -136,7 +140,7 @@ function insertHTML(config, hdr) {
 		ukltophdr_low_alert,
 		ukltophdr_survey,
 		ukltophdr_end_clamp,
-	} = config;
+	} = headerStrings;
 
 	const ukDiv = document.createElement("div");
 	ukDiv.id = "ukheader";
@@ -161,14 +165,14 @@ function insertHTML(config, hdr) {
 				: "";
 		headerContent += ukltophdr_univlvl;
 		headerContent += include === 1 ? ukltophdr_sitehdr : "";
-		headerContent += hdr_alert_include ? ukltophdr_low_alert : "";
+		headerContent += hdr_alert_include === 1 ? ukltophdr_low_alert : "";
 		headerContent += SurveyMsgToggle === "on" ? ukltophdr_survey : "";
 		headerContent += ukltophdr_end_clamp;
 		return headerContent;
 	}
 }
 
-function insertContentAndStyle(config, hdr) {
+function insertContentAndStyle(localConfig, globalConfig) {
 	let {
 		hdr_simple,
 		include,
@@ -182,15 +186,30 @@ function insertContentAndStyle(config, hdr) {
 		hdr_alert_msg,
 		hdr_alert_url_label,
 		hdr_alert_url,
-	} = hdr;
+	} = localConfig;
 
 	let {
+		DangerMsgToggle,
+		DangerTitleText,
+		DangerMsgText,
+		DangerMsgBackground,
+		DangerMsgColor,
+		DangerLinkColor,
+		WarningTitleText,
+		WarningMsgText,
+		WarningMsgBackground,
+		WarningMsgToggle,
+		AnnouncementMsgToggle,
+		AnnouncementTitleText,
+		AnnouncementMsgText,
+		AnnouncementMsgBackground,
+		AnnouncementMsgColor,
 		SurveyTitleText,
 		SurveyMsgText,
 		SurveyMsgLinkLabel,
 		SurveyMsgLinkURL,
 		SurveyMsgToggle,
-	} = config;
+	} = globalConfig;
 
 	/* mobile header? */
 	if (include) {
@@ -239,7 +258,7 @@ function insertContentAndStyle(config, hdr) {
 			div2.classList.toggle("menu_button_less");
 		});
 		/* toggle visibility of Springshare search box */
-		if (hdr_srch_include == 1) {
+		if (hdr_srch_include === 1) {
 			document.getElementById("springsrch").style.display = "block";
 			document.getElementById("link5").style.display = "none";
 			document.getElementById("link6").style.display = "none";
@@ -248,8 +267,24 @@ function insertContentAndStyle(config, hdr) {
 	/* toggles for top level alert messages but not if simple header is set */
 
 	if (hdr_simple === 0) {
-		setAnnouncement(config);
-		if (SurveyMsgToggle == "on") {
+		setAnnouncement(
+			DangerMsgToggle,
+			DangerTitleText,
+			DangerMsgText,
+			DangerMsgBackground,
+			DangerMsgColor,
+			DangerLinkColor,
+			WarningTitleText,
+			WarningMsgText,
+			WarningMsgBackground,
+			WarningMsgToggle,
+			AnnouncementMsgToggle,
+			AnnouncementTitleText,
+			AnnouncementMsgText,
+			AnnouncementMsgBackground,
+			AnnouncementMsgColor
+		);
+		if (SurveyMsgToggle === "on") {
 			document.getElementById("uklsurveytlt").innerHTML = SurveyTitleText;
 			document.getElementById("uklsurveymsg").innerHTML = SurveyMsgText;
 			document.getElementById("uklsurveylink").innerHTML +=
@@ -326,24 +361,25 @@ function createListItem(menuItem) {
 	return li;
 }
 
-function setAnnouncement(config) {
-	let {
-		DangerMsgToggle,
-		DangerTitleText,
-		DangerMsgText,
-		DangerMsgBackground,
-		DangerMsgColor,
-		DangerLinkColor,
-		WarningTitleText,
-		WarningMsgText,
-		WarningMsgBackground,
-		WarningMsgToggle,
-		AnnouncementMsgToggle,
-		AnnouncementTitleText,
-		AnnouncementMsgText,
-		AnnouncementMsgBackground,
-		AnnouncementMsgColor,
-	} = config;
+function setAnnouncement(
+	DangerMsgToggle,
+	DangerTitleText,
+	DangerMsgText,
+	DangerMsgBackground,
+	DangerMsgColor,
+	DangerLinkColor,
+	WarningTitleText,
+	WarningMsgText,
+	WarningMsgBackground,
+	WarningMsgToggle,
+	WarningMsgColor,
+	WarningLinkColor,
+	AnnouncementMsgToggle,
+	AnnouncementTitleText,
+	AnnouncementMsgText,
+	AnnouncementMsgBackground,
+	AnnouncementMsgColor
+) {
 	if (DangerMsgToggle == "on") {
 		document.getElementById("tltalert").innerHTML = DangerTitleText;
 		document.getElementById("msgalert").innerHTML = DangerMsgText;
