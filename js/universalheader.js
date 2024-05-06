@@ -8,7 +8,6 @@ import(document.querySelector("#headerScript").dataset.localConfig).then(
 	(module) => {
 		const localConfig = module.default;
 		insertHTML(localConfig, globalConfig);
-		cookie();
 		insertContentAndStyle(localConfig, globalConfig);
 	}
 );
@@ -28,88 +27,15 @@ const headerStrings = {
 	ukltophdr_end_clamp: "</div>",
 };
 
-function cookie() {
-	/* Cookie stuff for Survey Message */
-	const cookie_name = "UKLSurvey";
-
-	/* Function to set the cookie */
-	function CookieSet(cName, cValue, cPath, cExpires) {
-		encodeURIComponent(cValue);
-		if (cExpires === "") {
-			const cdate = new Date().toLocaleString();
-			cExpires = cdate;
-		}
-		if (cPath !== "") {
-			cPath = ";Path=" + cPath;
-		}
-		document.cookie = `${cName}=${encodeURIComponent(
-			cValue
-		)};expires=${cExpires}${cPath}`;
-	}
-
-	/* Functions to hide elements */
-	function hideElements() {
-		document.getElementById("uklsurvey").style.display = "none";
-		document.getElementById("ukl-survey-close").style.display = "none";
-	}
-
-	function hideMElements() {
-		document.getElementById("uklsurvey").style.display = "none";
-		document.getElementById("ukl-survey-close-mobile").style.display = "none";
-	}
-
-	/* Functions to display elements */
-	function showElements() {
-		document.getElementById("uklsurvey").style.display = "block";
-		document.getElementById("ukl-survey-close").style.display = "block";
-	}
-
-	function showMElements() {
-		document.getElementById("uklsurvey").style.display = "block";
-		document.getElementById("ukl-survey-close-mobile").style.display = "block";
-	}
-
-	const value_or_null = (document.cookie.match(
-		"^(?:.*;)?\\s*" + cookie_name + "\\s*=\\s*([^;]+)(?:.*)?$"
-	) || [, null])[1];
-
-	const MsThreshold = 300000;
-
-	/* Function to compare two dates by milisections to check threshold */
-	/* Set new cookie and display elements if threshold is met, else hide elements */
-	window.fireCookie = function () {
-		if (diffInMs > MsThreshold) {
-			CookieSet("UKLSurvey", "", "/", "");
-			//console.log("setting new cookie");
-			hideElements();
-		} else if (value_or_null == null) {
-			CookieSet("UKLSurvey", "", "/", "");
-			//console.log("setting first cookie");
-			hideElements();
-		}
-	};
-
-	window.chkThreshold = function () {
-		/* If time threshold not met, hide elements */
-		if (typeof diffInMs !== "undefined") {
-			if (diffInMs < MsThreshold) {
-				hideElements();
-			} else {
-				showElements();
-			}
-		}
-	};
-
-	const expiredate = value_or_null && value_or_null.replace("expires=", "");
-
-	const curdate = new Date().toLocaleString();
-
-	/* Convert date strings to date objects */
-	let format_expiredate = Date.parse(expiredate);
-	let format_curdate = Date.parse(curdate);
-
-	/* Calculate the difference in milliseconds */
-	const diffInMs = format_curdate - format_expiredate;
+const cookieName = "UKLSurvey";
+// default 300000 = 5 minutes
+const cookieExpiryMS = 300000;
+const now = new Date();
+const cookieExists = getCookieExists();
+function getCookieExists() {
+	return document.cookie.split(";").some((cookie) => {
+		return cookie.trim().startsWith(cookieName + "=");
+	});
 }
 
 function init() {
@@ -240,8 +166,6 @@ function insertContentAndStyle(localConfig, globalConfig) {
 				});
 				button.appendChild(menu);
 			} else if (label == "home") {
-				let url = base.url;
-				let title = base.title;
 				createLogoHeaderWithMobileButton(button, home_url, home_label);
 			} else {
 				let url = base.url;
@@ -295,21 +219,22 @@ function insertContentAndStyle(localConfig, globalConfig) {
 				"<a href='" + SurveyMsgLinkURL + "'>" + SurveyMsgLinkLabel + "</a>";
 			/* close survey message */
 			const div3 = document.getElementById("survey_button_less");
+			if (cookieExists) {
+				document.getElementById("uklsurvey").style.display = "none";
+			}
 			if (div3) {
 				div3.addEventListener("click", function () {
 					document.getElementById("uklsurvey").style.display = "none";
 				});
-
 				/* fire cookie */
 				document
 					.getElementById("ukl-survey-close")
-					.addEventListener("click", fireCookie);
-				chkThreshold();
+					.addEventListener("click", cookie);
 			}
 
 			/* close survey message in mobile */
 			const div4 = document.getElementById("survey_button_less_mobile");
-			if (div4) {
+			if (div4 || cookieExists) {
 				div4.addEventListener("click", function () {
 					document.getElementById("uklsurvey").style.display = "none";
 				});
@@ -317,8 +242,7 @@ function insertContentAndStyle(localConfig, globalConfig) {
 				/* fire cookie in mobile */
 				document
 					.getElementById("ukl-survey-close-mobile")
-					.addEventListener("click", fireCookie);
-				chkThreshold();
+					.addEventListener("click", cookie);
 			}
 		}
 	}
@@ -442,5 +366,41 @@ function handleResize() {
 		document.querySelector(".nav-links").classList.add("hidden");
 		document.querySelector(".utility-links").classList.add("hidden");
 		document.querySelector(".menu_button").classList.remove("hidden");
+	}
+}
+
+function cookie() {
+	if (getCookieExists()) {
+		hideElements();
+	} else {
+		setCookie();
+	}
+
+	function setCookie() {
+		const cExpires = new Date(now.getTime() + cookieExpiryMS).toUTCString();
+		// Set a cookie that expires in 5 minutes
+		document.cookie = `${cookieName}=;expires=${cExpires};Path=/`;
+	}
+
+	/* Functions to hide elements */
+	function hideElements() {
+		document.getElementById("uklsurvey").style.display = "none";
+		document.getElementById("ukl-survey-close").style.display = "none";
+	}
+
+	function hideMElements() {
+		document.getElementById("uklsurvey").style.display = "none";
+		document.getElementById("ukl-survey-close-mobile").style.display = "none";
+	}
+
+	/* Functions to display elements */
+	function showElements() {
+		document.getElementById("uklsurvey").style.display = "block";
+		document.getElementById("ukl-survey-close").style.display = "block";
+	}
+
+	function showMElements() {
+		document.getElementById("uklsurvey").style.display = "block";
+		document.getElementById("ukl-survey-close-mobile").style.display = "block";
 	}
 }

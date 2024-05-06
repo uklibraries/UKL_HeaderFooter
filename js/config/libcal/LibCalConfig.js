@@ -13,9 +13,7 @@ export default {
 	home_url: "https://libcal.uky.edu",
 	bases: [
 		{
-			title: "LibCal",
 			label: "home",
-			url: "https://google.com",
 		},
 		{
 			title: "About",
