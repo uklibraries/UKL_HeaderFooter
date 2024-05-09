@@ -12,6 +12,7 @@ export default {
 	home_label: "NKAA",
 	home_url: "https://google.com",
 	custom_logo: false,
+	image_path: "./js/config/libcal/img.png",
 	bases: [
 		{
 			label: "home",

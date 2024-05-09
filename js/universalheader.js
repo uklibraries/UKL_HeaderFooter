@@ -2,10 +2,10 @@
 // Author: Eric Weig, University of Kentucky Libraries
 // 2022 - 2024
 import globalConfig from "./globalConfig.js";
-const modulePath = document.querySelector("#headerScript").dataset.localConfig;
-const imagePath = document.querySelector("#headerScript").dataset.image;
+const base_path = document.querySelector("#headerScript").dataset.base_path;
+const module_path = `./config/sites/${base_path}/${base_path}Config.js`;
 
-import(modulePath).then((module) => {
+import(module_path).then((module) => {
 	const localConfig = module.default;
 	insertHTML(localConfig, globalConfig);
 	insertContentAndStyle(localConfig, globalConfig);
@@ -113,6 +113,7 @@ function insertContentAndStyle(localConfig, globalConfig) {
 		hdr_alert_url_label,
 		hdr_alert_url,
 		custom_logo,
+		image_path,
 	} = localConfig;
 
 	let {
@@ -165,7 +166,8 @@ function insertContentAndStyle(localConfig, globalConfig) {
 					button,
 					home_url,
 					home_label,
-					custom_logo
+					custom_logo,
+					image_path
 				);
 			} else {
 				let url = base.url;
@@ -336,13 +338,19 @@ function setAnnouncement(
 	}
 }
 
-function createLogoHeaderWithMobileButton(parent, url, title, custom_logo) {
+function createLogoHeaderWithMobileButton(
+	parent,
+	url,
+	title,
+	custom_logo,
+	image_path
+) {
 	let container = document.createElement("a");
 	container.href = url;
 	let image = document.createElement(custom_logo === true ? "img" : "div");
 	let span = document.createElement("span");
 	if (custom_logo === true) {
-		image.src = `${imagePath}`;
+		image.src = `${image_path}`;
 		image.alt = title;
 	} else {
 		image.innerHTML = `<svg class="UK-Logo-Header" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 85 69"xmlns="http://www.w3.org/2000/svg"aria-hidden="true"><g fill="currentColor" fill-rule="evenodd"><path d="M24.466 33.753H19.88V9.234h4.587V3.106H3.056v6.128h4.589v24.52l6.118 6.129h10.703zm15.292 6.13h10.705l6.117-6.13V9.236h4.586v-6.13H39.758v6.13h4.588v24.517h-4.588z"/><path d="M61.55 45.628l13.38-13.407h6.117v-6.13H58.108v6.13h2.294l-9.174 9.193H38.23v-9.193h4.588v-6.13h-21.41v6.13h4.587v27.581h-4.587v6.129h21.41v-6.129H38.23v-9.194h12.998l9.173 9.194h-2.293v6.129h22.939v-6.129h-5.353z" /><path d="M36.7.041V12.3h4.588v10.728H22.937V12.299h4.589V.041H0V12.3h4.587v22.985h.003l-.003.002 7.646 7.66h10.705v13.792h-4.589v12.26h27.525v-12.26h-4.586v-3.066h8.41l5.353 5.365v9.96h29.052l.002-12.259h-6.882L66.138 45.63l10.32-10.343h7.647l-.002-12.26-24.465.001V12.299h4.587V.041H36.701zm1.528 1.533h24.469v9.195h-4.589v13.79h24.468v9.193h-6.882L63.843 45.63 76.46 58.27h6.116v9.196H56.58V58.27h-.001l-6.118-6.13H39.758v6.13h4.587v9.196H19.878V58.27h4.59V41.415h-11.47l-6.883-6.897v-23.75H1.528V1.574h24.467v9.195h-4.588v13.79h21.41v-13.79h-4.59V1.574z"/></g></svg>`;
