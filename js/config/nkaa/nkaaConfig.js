@@ -11,6 +11,7 @@ export default {
 	hdr_alert_url: "https://google.com",
 	home_label: "NKAA",
 	home_url: "https://google.com",
+	custom_logo: false,
 	bases: [
 		{
 			label: "home",

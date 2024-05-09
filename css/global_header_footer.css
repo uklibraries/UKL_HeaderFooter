@@ -3,7 +3,6 @@
 :root {
   --bg-primary: #0033a0;
   --bg-university-level-header: #041E42;
-  --bg-local-alert: #4cbcc0;
 }
 
 .ukl-ext-clamp .global-header {
@@ -532,7 +531,6 @@ body {
 }
 
 .site-ukl-survey .slab__wrapper {
-  background-color: var(--bg-local-alert);
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -852,9 +850,7 @@ body {
 
 /* was 768 */
 @media screen and (max-width: 1023px) {
-  #gethome {
-    margin-bottom: 50px;
-  }
+
   
   #menu_button {
     width: 5vmin; height: 5vmin;
@@ -1102,4 +1098,19 @@ body {
     display: flex;
     flex-direction: column;
   }
+}
+
+div#gethome>a{
+  max-height: 20vh;
+  display: flex;
+  align-items: center;
+  max-width: 250px;
+  gap: 1.5rem;
+}
+
+div#gethome>a>img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit:cover;
 }

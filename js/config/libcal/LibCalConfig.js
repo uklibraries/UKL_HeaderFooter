@@ -11,6 +11,7 @@ export default {
 	hdr_alert_url: "https://google.com",
 	home_label: "LibCal",
 	home_url: "https://libcal.uky.edu",
+	custom_logo: true,
 	bases: [
 		{
 			label: "home",

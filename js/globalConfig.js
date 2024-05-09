@@ -17,7 +17,7 @@ export default {
 	AnnouncementMsgText:
 		"We are currently experiencing technical difficulties with some online databases.  We are working to resolve this issue as soon as possible.  Thank you for your patience. ",
 	AnnouncementMsgToggle: "off",
-	AnnouncementMsgBackground: "#a1d3ed",
+	AnnouncementMsgBackground: "#4cbcc0",
 	AnnouncementMsgColor: "#000",
 	AnnouncementLinkColor: "#0033A0",
 	SurveyTitleText: "Help us improve library services, spaces, and collections!",
@@ -25,6 +25,6 @@ export default {
 	SurveyMsgLinkLabel: "LibQUAL+ survey",
 	SurveyMsgLinkURL: "https://www.libqual.org/survey/RWSLDQ72YU886X8HRA",
 	SurveyMsgToggle: "on",
-	SurveyMsgBackground: "#4CBCC0",
+	SurveyMsgBackground: "#sdf",
 	SurveyMsgColor: "#000",
 };
