@@ -2,17 +2,25 @@
 // Author: Eric Weig, University of Kentucky Libraries
 // 2022 - 2024
 
-import globalConfig from "./globalConfig.js";
+import globalConfig from "./config/global/globalConfig.js";
+const base_path = document.querySelector("#headerScript").dataset.base_path;
+const module_path = `./config/sites/${base_path}/${base_path}Config.js`;
 
-import(document.querySelector("#headerScript").dataset.localConfig).then(
-	(module) => {
-		const localConfig = module.default;
-		insertHTML(localConfig, globalConfig);
-		cookie();
-		insertContentAndStyle(localConfig, globalConfig);
-		init();
-	}
-);
+import(module_path).then((module) => {
+	const localConfig = module.default;
+	insertHTML(localConfig, globalConfig);
+	insertContentAndStyle(localConfig, globalConfig);
+});
+
+const cookieName = "UKLSurvey";
+// 300000 = 5 minutes
+const cookieExpiryMS = 300000;
+const now = new Date();
+const cookieExists = () => {
+	return document.cookie.split(";").some((cookie) => {
+		return cookie.trim().startsWith(cookieName + "=");
+	});
+};
 
 const headerStrings = {
 	ukltophdr_start_clamp: '<div class="ukl-ext-clamp">',
@@ -29,90 +37,6 @@ const headerStrings = {
 
 	ukltophdr_end_clamp: "</div>",
 };
-
-function cookie() {
-	/* Cookie stuff for Survey Message */
-	const cookie_name = "UKLSurvey";
-
-	/* Function to set the cookie */
-	function CookieSet(cName, cValue, cPath, cExpires) {
-		encodeURIComponent(cValue);
-		if (cExpires === "") {
-			const cdate = new Date().toLocaleString();
-			cExpires = cdate;
-		}
-		if (cPath !== "") {
-			cPath = ";Path=" + cPath;
-		}
-		document.cookie = `${cName}=${encodeURIComponent(
-			cValue
-		)};expires=${cExpires}${cPath}`;
-	}
-
-	/* Functions to hide elements */
-	function hideElements() {
-		document.getElementById("uklsurvey").style.display = "none";
-		document.getElementById("ukl-survey-close").style.display = "none";
-	}
-
-	function hideMElements() {
-		document.getElementById("uklsurvey").style.display = "none";
-		document.getElementById("ukl-survey-close-mobile").style.display = "none";
-	}
-
-	/* Functions to display elements */
-	function showElements() {
-		document.getElementById("uklsurvey").style.display = "block";
-		document.getElementById("ukl-survey-close").style.display = "block";
-	}
-
-	function showMElements() {
-		document.getElementById("uklsurvey").style.display = "block";
-		document.getElementById("ukl-survey-close-mobile").style.display = "block";
-	}
-
-	const value_or_null = (document.cookie.match(
-		"^(?:.*;)?\\s*" + cookie_name + "\\s*=\\s*([^;]+)(?:.*)?$"
-	) || [, null])[1];
-
-	const MsThreshold = 300000;
-
-	/* Function to compare two dates by milisections to check threshold */
-	/* Set new cookie and display elements if threshold is met, else hide elements */
-	window.fireCookie = function () {
-		if (diffInMs > MsThreshold) {
-			CookieSet("UKLSurvey", "", "/", "");
-			//console.log("setting new cookie");
-			hideElements();
-		} else if (value_or_null == null) {
-			CookieSet("UKLSurvey", "", "/", "");
-			//console.log("setting first cookie");
-			hideElements();
-		}
-	};
-
-	window.chkThreshold = function () {
-		/* If time threshold not met, hide elements */
-		if (typeof diffInMs !== "undefined") {
-			if (diffInMs < MsThreshold) {
-				hideElements();
-			} else {
-				showElements();
-			}
-		}
-	};
-
-	const expiredate = value_or_null && value_or_null.replace("expires=", "");
-
-	const curdate = new Date().toLocaleString();
-
-	/* Convert date strings to date objects */
-	let format_expiredate = Date.parse(expiredate);
-	let format_curdate = Date.parse(curdate);
-
-	/* Calculate the difference in milliseconds */
-	const diffInMs = format_curdate - format_expiredate;
-}
 
 function init() {
 	document.querySelector(".menu_button").addEventListener("click", () => {
@@ -190,6 +114,8 @@ function insertContentAndStyle(localConfig, globalConfig) {
 		hdr_alert_msg,
 		hdr_alert_url_label,
 		hdr_alert_url,
+		custom_logo,
+		image_path,
 	} = localConfig;
 
 	let {
@@ -242,9 +168,13 @@ function insertContentAndStyle(localConfig, globalConfig) {
 				});
 				button.appendChild(menu);
 			} else if (label == "home") {
-				let url = base.url;
-				let title = base.title;
-				createLogoHeaderWithMobileButton(button, home_url, home_label);
+				createLogoHeaderWithMobileButton(
+					button,
+					home_url,
+					home_label,
+					custom_logo,
+					image_path
+				);
 			} else {
 				let url = base.url;
 				if (label) {
@@ -255,6 +185,8 @@ function insertContentAndStyle(localConfig, globalConfig) {
 				}
 			}
 		}
+
+		init();
 
 		const div2 = document.querySelector(".menu_button_more");
 		div2.addEventListener("click", function () {
@@ -293,8 +225,13 @@ function insertContentAndStyle(localConfig, globalConfig) {
 			document.getElementById("uklsurveymsg").innerHTML = SurveyMsgText;
 			document.getElementById("uklsurveylink").innerHTML +=
 				"<a href='" + SurveyMsgLinkURL + "'>" + SurveyMsgLinkLabel + "</a>";
+			document.getElementById("uklsurvey").style.backgroundColor =
+				AnnouncementMsgBackground;
 			/* close survey message */
 			const div3 = document.getElementById("survey_button_less");
+			if (cookieExists()) {
+				document.getElementById("uklsurvey").style.display = "none";
+			}
 			if (div3) {
 				div3.addEventListener("click", function () {
 					document.getElementById("uklsurvey").style.display = "none";
@@ -303,13 +240,12 @@ function insertContentAndStyle(localConfig, globalConfig) {
 				/* fire cookie */
 				document
 					.getElementById("ukl-survey-close")
-					.addEventListener("click", fireCookie);
-				chkThreshold();
+					.addEventListener("click", setCookie);
 			}
 
 			/* close survey message in mobile */
 			const div4 = document.getElementById("survey_button_less_mobile");
-			if (div4) {
+			if (div4 || cookieExists) {
 				div4.addEventListener("click", function () {
 					document.getElementById("uklsurvey").style.display = "none";
 				});
@@ -317,8 +253,7 @@ function insertContentAndStyle(localConfig, globalConfig) {
 				/* fire cookie in mobile */
 				document
 					.getElementById("ukl-survey-close-mobile")
-					.addEventListener("click", fireCookie);
-				chkThreshold();
+					.addEventListener("click", setCookie);
 			}
 		}
 	}
@@ -410,20 +345,37 @@ function setAnnouncement(
 	}
 }
 
-function createLogoHeaderWithMobileButton(parent, url, title) {
-	let svg = document.createElement("div");
-	svg.innerHTML = `<svg class="UK-Logo-Header" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 85 69"xmlns="http://www.w3.org/2000/svg"aria-hidden="true"><g fill="currentColor" fill-rule="evenodd"><path d="M24.466 33.753H19.88V9.234h4.587V3.106H3.056v6.128h4.589v24.52l6.118 6.129h10.703zm15.292 6.13h10.705l6.117-6.13V9.236h4.586v-6.13H39.758v6.13h4.588v24.517h-4.588z"/><path d="M61.55 45.628l13.38-13.407h6.117v-6.13H58.108v6.13h2.294l-9.174 9.193H38.23v-9.193h4.588v-6.13h-21.41v6.13h4.587v27.581h-4.587v6.129h21.41v-6.129H38.23v-9.194h12.998l9.173 9.194h-2.293v6.129h22.939v-6.129h-5.353z" /><path d="M36.7.041V12.3h4.588v10.728H22.937V12.299h4.589V.041H0V12.3h4.587v22.985h.003l-.003.002 7.646 7.66h10.705v13.792h-4.589v12.26h27.525v-12.26h-4.586v-3.066h8.41l5.353 5.365v9.96h29.052l.002-12.259h-6.882L66.138 45.63l10.32-10.343h7.647l-.002-12.26-24.465.001V12.299h4.587V.041H36.701zm1.528 1.533h24.469v9.195h-4.589v13.79h24.468v9.193h-6.882L63.843 45.63 76.46 58.27h6.116v9.196H56.58V58.27h-.001l-6.118-6.13H39.758v6.13h4.587v9.196H19.878V58.27h4.59V41.415h-11.47l-6.883-6.897v-23.75H1.528V1.574h24.467v9.195h-4.588v13.79h21.41v-13.79h-4.59V1.574z"/></g></svg>`;
-
-	let a = document.createElement("a");
-	a.setAttribute("href", url);
-	a.innerText = title;
+function createLogoHeaderWithMobileButton(
+	parent,
+	url,
+	title,
+	custom_logo,
+	image_path
+) {
+	let container = document.createElement("a");
+	container.href = url;
+	let image = document.createElement(custom_logo === true ? "img" : "div");
+	let span = document.createElement("span");
+	if (custom_logo === true) {
+		image.src = `${image_path}`;
+		image.alt = title;
+	} else {
+		image.innerHTML = `<svg class="UK-Logo-Header" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 85 69"xmlns="http://www.w3.org/2000/svg"aria-hidden="true"><g fill="currentColor" fill-rule="evenodd"><path d="M24.466 33.753H19.88V9.234h4.587V3.106H3.056v6.128h4.589v24.52l6.118 6.129h10.703zm15.292 6.13h10.705l6.117-6.13V9.236h4.586v-6.13H39.758v6.13h4.588v24.517h-4.588z"/><path d="M61.55 45.628l13.38-13.407h6.117v-6.13H58.108v6.13h2.294l-9.174 9.193H38.23v-9.193h4.588v-6.13h-21.41v6.13h4.587v27.581h-4.587v6.129h21.41v-6.129H38.23v-9.194h12.998l9.173 9.194h-2.293v6.129h22.939v-6.129h-5.353z" /><path d="M36.7.041V12.3h4.588v10.728H22.937V12.299h4.589V.041H0V12.3h4.587v22.985h.003l-.003.002 7.646 7.66h10.705v13.792h-4.589v12.26h27.525v-12.26h-4.586v-3.066h8.41l5.353 5.365v9.96h29.052l.002-12.259h-6.882L66.138 45.63l10.32-10.343h7.647l-.002-12.26-24.465.001V12.299h4.587V.041H36.701zm1.528 1.533h24.469v9.195h-4.589v13.79h24.468v9.193h-6.882L63.843 45.63 76.46 58.27h6.116v9.196H56.58V58.27h-.001l-6.118-6.13H39.758v6.13h4.587v9.196H19.878V58.27h4.59V41.415h-11.47l-6.883-6.897v-23.75H1.528V1.574h24.467v9.195h-4.588v13.79h21.41v-13.79h-4.59V1.574z"/></g></svg>`;
+		span.innerText = title;
+	}
 
 	let mobileMenuButton = document.createElement("div");
 	mobileMenuButton.classList.add("menu_button_more", "menu_button");
 	mobileMenuButton.setAttribute("tabindex", 0);
 
-	parent.appendChild(svg);
-	parent.appendChild(a);
+	const i = document.createElement("i");
+	i.setAttribute("tabIndex", "0");
+	i.classList.add("db2");
+
+	parent.appendChild(container);
+	container.appendChild(i);
+	container.appendChild(image);
+	container.appendChild(span);
 	parent.appendChild(mobileMenuButton);
 }
 
@@ -443,4 +395,9 @@ function handleResize() {
 		document.querySelector(".utility-links").classList.add("hidden");
 		document.querySelector(".menu_button").classList.remove("hidden");
 	}
+}
+
+function setCookie() {
+	const cExpires = new Date(now.getTime() + cookieExpiryMS).toUTCString();
+	document.cookie = `${cookieName}=;expires=${cExpires};Path=/`;
 }
