@@ -32,7 +32,8 @@ const headerStrings = {
 	ukltophdr_low_alert:
 		'<div class="site-ukl-alert" id="uklalert"><div class="slab__wrapper"><div class="icon-wrapper"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="#EFF4FD"></circle><rect x="22" y="12" width="4.54545" height="4.54545" fill="#1E8AFF"></rect><rect x="22" y="19.9545" width="4.54545" height="17.0455" fill="#1E8AFF"></rect></svg></div><div><h2 id="uklalerttlt"></h2><div class="message"><p><span id="uklalertmsg"></span>&nbsp;&nbsp;<span id="uklalertlink"></span></p></div></div></div></div>',
 	ukltophdr_survey:
-		'<div class="site-ukl-survey" id="uklsurvey"><div class="slab__wrapper"><div id="ukl-survey-foil"><h2 id="uklsurveytlt"></h2><div class="message"><span id="uklsurveymsg"></span><span id="uklsurveylink"></span></div></div><div id="ukl-survey-close" class="icon-wrapper"><a href="javascript:void(0);"><span id="survey_button_less"></span></a></div></div><div id="ukl-survey-close-mobile" class="icon-wrapper"><a href="javascript:void(0);"><span id="survey_button_less_mobile"></span></a></div></div>',
+		'<div class="site-ukl-survey" id="uklsurvey"><div class="slab__wrapper"><div id="ukl-survey-foil"><h2 id="uklsurveytlt"></h2><div class="message"><span id="uklsurveymsg"></span><span id="uklsurveylink"></span></div></div><div id="ukl-survey-close" class="icon-wrapper"><button class="surveybtn" id="btnCloseSurvey" title="close Survey"><span id="survey_button_less"></span></button></div></div><div id="ukl-survey-close-mobile" class="icon-wrapper"><button class="surveybtn" id="btnCloseSurveyMbl" title="Close Survey"><span id="survey_button_less_mobile"></span></button></div></div>',
+
 	ukltophdr_end_clamp: "</div>",
 };
 

@@ -12,7 +12,11 @@ export default {
 	home_label: "LibCal",
 	home_url: "https://libcal.uky.edu",
 	custom_logo: true,
+<<<<<<< HEAD
 	image_path: "./js/config/sites/libcal/img.png",
+=======
+	image_path: "./js/config/sites/libcal/logo.png",
+>>>>>>> eric
 	bases: [
 		{
 			label: "home",
