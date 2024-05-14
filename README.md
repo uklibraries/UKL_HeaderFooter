@@ -8,8 +8,10 @@ JavaScript used to insert UKYL website headers and footers into 3rd party sites.
 
 # Special Server Settings
 lib.uky.edu is currently administered by Jay Baker.
-
 Jay has set the http response headers for the ukhdr directory and subdirectories so that they have an immediate expiration to avoid browser caching. 
 
 # Usage
 [Implementation Guide](https://lib.uky.edu/webparts/ukhdr/2024/dev/doc.html)
+
+# Attribution
+Code co-authored by Eric Weig and Neal Powers with contributions by MLE Slone.
