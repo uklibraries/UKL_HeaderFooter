@@ -137,6 +137,7 @@ function insertContentAndStyle(localConfig) {
 		SurveyMsgLinkURL,
 		SurveyMsgToggle,
 		SurveyMsgBackground,
+		SurveyMsgColor,
 	} = globalConfig;
 
 	if (include) {
@@ -207,6 +208,7 @@ function insertContentAndStyle(localConfig) {
 				"<a href='" + SurveyMsgLinkURL + "'>" + SurveyMsgLinkLabel + "</a>";
 			document.getElementById("uklsurvey").style.backgroundColor =
 				SurveyMsgBackground;
+			document.querySelector(".site-ukl-survey").style.color = SurveyMsgColor;
 			/* close survey message */
 			const div3 = document.getElementById("survey_button_less");
 			if (cookieExists()) {
