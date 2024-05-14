@@ -3,7 +3,6 @@
 :root {
   --bg-primary: #0033a0;
   --bg-university-level-header: #041E42;
-  --bg-local-alert: #4cbcc0;
 }
 
 .ukl-ext-clamp .global-header {
@@ -532,7 +531,6 @@ body {
 }
 
 .site-ukl-survey .slab__wrapper {
-  background-color: var(--bg-local-alert);
   padding: 1rem;
   display: flex;
   align-items: center;
