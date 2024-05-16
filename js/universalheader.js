@@ -6,10 +6,32 @@ import globalConfig from "./config/global/globalConfig.js";
 const base_path = document.querySelector("#headerScript").dataset.base_path;
 const module_path = `./config/sites/${base_path}/${base_path}Config.js`;
 
+let {
+	DangerTitleText,
+	DangerMsgText,
+	DangerMsgToggle,
+	DangerMsgBackground,
+	DangerMsgColor,
+	DangerLinkColor,
+	WarningTitleText,
+	WarningMsgText,
+	WarningMsgToggle,
+	WarningMsgBackground,
+	WarningMsgColor,
+	WarningLinkColor,
+	AnnouncementTitleText,
+	AnnouncementMsgToggle,
+	AnnouncementMsgBackground,
+	AnnouncementMsgColor,
+	AnnouncementLinkColor,
+	AnnouncementMsgText,
+	SurveyMsgToggle,
+} = globalConfig;
+
 import(module_path).then((module) => {
 	const localConfig = module.default;
-	insertHTML(localConfig, globalConfig);
-	insertContentAndStyle(localConfig, globalConfig);
+	insertHTML(localConfig);
+	insertContentAndStyle(localConfig);
 });
 
 const cookieName = "UKLSurvey";
@@ -34,7 +56,6 @@ const headerStrings = {
 		'<div class="site-ukl-alert" id="uklalert"><div class="slab__wrapper"><div class="icon-wrapper"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="#EFF4FD"></circle><rect x="22" y="12" width="4.54545" height="4.54545" fill="#1E8AFF"></rect><rect x="22" y="19.9545" width="4.54545" height="17.0455" fill="#1E8AFF"></rect></svg></div><div><h2 id="uklalerttlt"></h2><div class="message"><p><span id="uklalertmsg"></span>&nbsp;&nbsp;<span id="uklalertlink"></span></p></div></div></div></div>',
 	ukltophdr_survey:
 		'<div class="site-ukl-survey" id="uklsurvey"><div class="slab__wrapper"><div id="ukl-survey-foil"><h2 id="uklsurveytlt"></h2><div class="message"><span id="uklsurveymsg"></span><span id="uklsurveylink"></span></div></div><div id="ukl-survey-close" class="icon-wrapper"><button class="surveybtn" id="btnCloseSurvey" title="close Survey"><span id="survey_button_less"></span></button></div></div><div id="ukl-survey-close-mobile" class="icon-wrapper"><button class="surveybtn" id="btnCloseSurveyMbl" title="Close Survey"><span id="survey_button_less_mobile"></span></button></div></div>',
-
 	ukltophdr_end_clamp: "</div>",
 };
 
@@ -43,21 +64,11 @@ function init() {
 		document.querySelector(".nav-links").classList.toggle("hidden");
 		document.querySelector(".utility-links").classList.toggle("hidden");
 	});
-
 	window.addEventListener("resize", handleResize);
 	handleResize();
 }
 
-function insertHTML(localConfig, globalConfig) {
-	let {
-		DangerMsgToggle,
-		WarningMsgToggle,
-		AnnouncementMsgToggle,
-		SurveyMsgToggle,
-		SurveyMsgBackground,
-		SurveyMsgColor,
-	} = globalConfig;
-
+function insertHTML(localConfig) {
 	let { hdr_simple, include, hdr_alert_include } = localConfig;
 
 	let {
@@ -74,6 +85,7 @@ function insertHTML(localConfig, globalConfig) {
 	ukDiv.id = "ukheader";
 	ukDiv.innerHTML = chooseRender();
 	document.body.insertBefore(ukDiv, document.body.firstChild);
+
 	function chooseRender() {
 		let headerContent = "";
 		if (hdr_simple == 1) {
@@ -100,7 +112,7 @@ function insertHTML(localConfig, globalConfig) {
 	}
 }
 
-function insertContentAndStyle(localConfig, globalConfig) {
+function insertContentAndStyle(localConfig) {
 	let {
 		hdr_simple,
 		include,
@@ -119,31 +131,16 @@ function insertContentAndStyle(localConfig, globalConfig) {
 	} = localConfig;
 
 	let {
-		DangerMsgToggle,
-		DangerTitleText,
-		DangerMsgText,
-		DangerMsgBackground,
-		DangerMsgColor,
-		DangerLinkColor,
-		WarningTitleText,
-		WarningMsgText,
-		WarningMsgBackground,
-		WarningMsgToggle,
-		AnnouncementMsgToggle,
-		AnnouncementTitleText,
-		AnnouncementMsgText,
-		AnnouncementMsgBackground,
-		AnnouncementMsgColor,
 		SurveyTitleText,
 		SurveyMsgText,
 		SurveyMsgLinkLabel,
 		SurveyMsgLinkURL,
 		SurveyMsgToggle,
+		SurveyMsgBackground,
+		SurveyMsgColor,
 	} = globalConfig;
 
-	/* mobile header? */
 	if (include) {
-		/* insert content from meta into html */
 		for (const base of bases) {
 			let title = base.title;
 			let label = base.label;
@@ -203,30 +200,15 @@ function insertContentAndStyle(localConfig, globalConfig) {
 	/* toggles for top level alert messages but not if simple header is set */
 
 	if (hdr_simple === 0) {
-		setAnnouncement(
-			DangerMsgToggle,
-			DangerTitleText,
-			DangerMsgText,
-			DangerMsgBackground,
-			DangerMsgColor,
-			DangerLinkColor,
-			WarningTitleText,
-			WarningMsgText,
-			WarningMsgBackground,
-			WarningMsgToggle,
-			AnnouncementMsgToggle,
-			AnnouncementTitleText,
-			AnnouncementMsgText,
-			AnnouncementMsgBackground,
-			AnnouncementMsgColor
-		);
+		setAnnouncement();
 		if (SurveyMsgToggle === "on") {
 			document.getElementById("uklsurveytlt").innerHTML = SurveyTitleText;
 			document.getElementById("uklsurveymsg").innerHTML = SurveyMsgText;
 			document.getElementById("uklsurveylink").innerHTML +=
 				"<a href='" + SurveyMsgLinkURL + "'>" + SurveyMsgLinkLabel + "</a>";
 			document.getElementById("uklsurvey").style.backgroundColor =
-				AnnouncementMsgBackground;
+				SurveyMsgBackground;
+			document.querySelector(".site-ukl-survey").style.color = SurveyMsgColor;
 			/* close survey message */
 			const div3 = document.getElementById("survey_button_less");
 			if (cookieExists()) {
@@ -236,7 +218,6 @@ function insertContentAndStyle(localConfig, globalConfig) {
 				div3.addEventListener("click", function () {
 					document.getElementById("uklsurvey").style.display = "none";
 				});
-
 				/* fire cookie */
 				document
 					.getElementById("ukl-survey-close")
@@ -258,9 +239,6 @@ function insertContentAndStyle(localConfig, globalConfig) {
 		}
 	}
 
-	/* toggle for survey message but not if simple header is set */
-
-	/* toggle visibility of lower operator controlled alert message */
 	if (hdr_alert_include == 1) {
 		document.getElementById("uklalert").style.display = "block";
 		document.getElementById("uklalerttlt").innerHTML = hdr_alert_title;
@@ -300,25 +278,7 @@ function createListItem(menuItem) {
 	return li;
 }
 
-function setAnnouncement(
-	DangerMsgToggle,
-	DangerTitleText,
-	DangerMsgText,
-	DangerMsgBackground,
-	DangerMsgColor,
-	DangerLinkColor,
-	WarningTitleText,
-	WarningMsgText,
-	WarningMsgBackground,
-	WarningMsgToggle,
-	WarningMsgColor,
-	WarningLinkColor,
-	AnnouncementMsgToggle,
-	AnnouncementTitleText,
-	AnnouncementMsgText,
-	AnnouncementMsgBackground,
-	AnnouncementMsgColor
-) {
+function setAnnouncement() {
 	if (DangerMsgToggle == "on") {
 		document.getElementById("tltalert").innerHTML = DangerTitleText;
 		document.getElementById("msgalert").innerHTML = DangerMsgText;
@@ -341,7 +301,7 @@ function setAnnouncement(
 		document.getElementById("top-alert").style.background =
 			AnnouncementMsgBackground;
 		document.getElementById("top-alert").style.color = AnnouncementMsgColor;
-		// document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
+		document.getElementById("ukalertlink").style.color = AnnouncementLinkColor;
 	}
 }
 
