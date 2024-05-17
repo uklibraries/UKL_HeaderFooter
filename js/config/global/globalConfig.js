@@ -26,5 +26,5 @@ export default {
 	SurveyMsgLinkURL: "https://www.libqual.org/survey/RWSLDQ72YU886X8HRA",
 	SurveyMsgToggle: "on",
 	SurveyMsgBackground: "#4CBCC0",
-	SurveyMsgColor: "#000",
+	SurveyMsgColor: "#0033a0",
 };
