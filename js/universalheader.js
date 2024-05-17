@@ -1,7 +1,3 @@
-// Universal Header for University of Kentucky Libraries websites
-// Author: Eric Weig, University of Kentucky Libraries
-// 2022 - 2024
-
 import globalConfig from "../js/config/global/globalConfig.js";
 const base_path = document.querySelector("#headerScript").dataset.base_path;
 const module_path = `./config/sites/${base_path}/${base_path}Config.js`;
