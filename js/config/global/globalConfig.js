@@ -16,7 +16,7 @@ export default {
 	AnnouncementTitleText: "0 - UK ALERT - EARLY CANCELLATION",
 	AnnouncementMsgText:
 		"We are currently experiencing technical difficulties with some online databases.  We are working to resolve this issue as soon as possible.  Thank you for your patience. ",
-	AnnouncementMsgToggle: "off",
+	AnnouncementMsgToggle: "on",
 	AnnouncementMsgBackground: "#a1d3ed",
 	AnnouncementMsgColor: "#000",
 	AnnouncementLinkColor: "#0033A0",
