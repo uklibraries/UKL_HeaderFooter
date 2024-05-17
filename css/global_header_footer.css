@@ -717,7 +717,11 @@ body {
 
 @media screen and (max-width: 1023px) {
 
-  .dropdown a {
+  .nav-links {
+    margin-top: 20px;
+  }
+  
+  .section-heading {
     padding-bottom: 20px;
   }
 
