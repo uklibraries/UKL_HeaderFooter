@@ -473,6 +473,7 @@
 
 .ukl-ext-clamp .universal-footer__ribbon svg {
   height: 1rem;
+  display: inline;
 }
 
 @media screen and (min-width: 1024px) {
@@ -497,6 +498,7 @@
 
   .ukl-ext-clamp .universal-footer__ribbon > *:first-child {
     padding-left: 0;
+    border-left: 0;
   }
 
   .ukl-ext-clamp .universal-footer__ribbon > *:last-child {
@@ -717,13 +719,18 @@ body {
 
 @media screen and (max-width: 1023px) {
 
-  .dropdown a {
+  .nav-links {
+    margin-top: 20px;
+  }
+  
+  .section-heading {
     padding-bottom: 20px;
   }
 
   .dropdown .dropdown-content.c  {
     padding: 0px 0px 0px 10px;
     margin-left: calc(-35% - 10px);
+    margin-top: -30px;
   }
 
   .dropbtn {
