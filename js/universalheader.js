@@ -246,20 +246,10 @@ function insertContentAndStyle(localConfig) {
 	/* set custom header width */
 	if (hdr_width > 72) {
 		const wrapper = document.getElementsByClassName("slab__wrapper");
-		if (typeof wrapper[0] != "undefined") {
-			wrapper[0].style.maxWidth = hdr_width + "rem";
-		}
-		if (typeof wrapper[1] != "undefined") {
-			wrapper[1].style.maxWidth = hdr_width + "rem";
-		}
-		if (typeof wrapper[2] != "undefined") {
-			wrapper[2].style.maxWidth = hdr_width + "rem";
-		}
-		if (typeof wrapper[3] != "undefined") {
-			wrapper[3].style.maxWidth = hdr_width + "rem";
-		}
-		if (typeof wrapper[4] != "undefined") {
-			wrapper[4].style.maxWidth = hdr_width + "rem";
+		for (let index = 0; index < wrapper.length; index++) {
+            		if (typeof wrapper[index] !== 'undefined') {
+                	wrapper[index].style.maxWidth = hdr_width + "rem";
+            		}
 		}
 	}
 }
