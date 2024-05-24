@@ -207,13 +207,13 @@
   justify-content: space-between;
 }
 
-.ukl-ext-clamp .ukl-universal-nav .my-uk-logo {
+.ukl-ext-clamp .ukl-universal-nav .ukl-my-uk-logo {
   height: 1.5rem;
   box-sizing: content-box;
   font-size: 1rem;
 }
 
-.ukl-ext-clamp .ukl-universal-nav .my-uk-logo svg {
+.ukl-ext-clamp .ukl-universal-nav .ukl-my-uk-logo svg {
   display: block;
   width: 3.4375em;
   height: 1.5rem;
@@ -236,7 +236,7 @@
   font-family: "usual", sans-serif;
 }
 
-.ukl-ext-clamp .universal-breadcrumb ul {
+.ukl-ext-clamp .ukl-universal-breadcrumb ul {
   font-size: 1.1667rem;
   line-height: 1.5rem;
   margin: 0;
@@ -246,18 +246,18 @@
   list-style: none;
 }
 
-.ukl-ext-clamp .universal-breadcrumb ul li {
+.ukl-ext-clamp .ukl-universal-breadcrumb ul li {
   display: inline;
   position: relative;
   margin-right: calc(1rem + 1px);
   white-space: nowrap;
 }
 
-.ukl-ext-clamp .universal-breadcrumb ul li a {
+.ukl-ext-clamp .ukl-universal-breadcrumb ul li a {
   font-size: 1rem;
 }
 
-.ukl-ext-clamp .universal-breadcrumb ul li:not(:last-child)::after {
+.ukl-ext-clamp .ukl-universal-breadcrumb ul li:not(:last-child)::after {
   display: block;
   position: absolute;
   top: 50%;
@@ -298,12 +298,6 @@
 
   .ukl-ext-clamp  .ukl-universal-nav > * {
     margin-bottom: 0;
-  }
-
-  .ukl-ext-clamp .ukl-universal-nav .my-uk-logo,
-  .ukl-ext-clamp .ukl-universal-nav .search-control {
-    margin-top: -0.5rem;
-    margin-bottom: -0.5rem;
   }
 
   .ukl-ext-clamp .ukl-universal-nav:first-child:last-child {
