@@ -103,18 +103,6 @@
   padding: 1rem 0 0 0;
 }
 
-.ukl-ext-clamp .ukl-global-header .menu-button:focus{
-  border-color: #ffffff;
-  outline: 2px solid #ffffff;
-  background-color: var(--bg-primary);
-  color: #DCDDDE;
-}
-
-.ukl-ext-clamp .ukl-global-header .menu-button:active {
-  background-color: var(--bg-primary);
-  color: #DCDDDE;
-}
-
 .ukl-ext-clamp .ukl-global-header button:focus {
   background-color: var(--bg-primary);
   color: #DCDDDE;
