@@ -135,10 +135,6 @@
   justify-content: space-between;
 }
 
-.ukl-ext-clamp .ukl-global-header__banner .uky-logo-main {
-  width: 14.118rem;
-  height: rr-gridbase(7);
-}
 
 @media screen and (min-width: 768px) {
   .ukl-ext-clamp .ukl-global-header-layout {
@@ -153,11 +149,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .ukl-ext-clamp .ukl-global-header .uky-logo-main {
-    width: 23.118rem;
-    height: rr-gridbase(12);
-  }
-
   .ukl-ext-clamp .ukl-slab.ukl-global-header__masthead {
     padding: rr-gridbase(3) rr-gridbase(2) rr-gridbase(1);
   }
