@@ -458,7 +458,7 @@ body {
   margin: 0 auto; 
 }
 
-.site-ukl-survey .icon-wrapper {
+.site-ukl-survey .ukl-icon-wrapper {
   margin-right: 4rem;
 }
 
@@ -571,6 +571,10 @@ body {
   display: flex;
   align-items: center;
   margin: 0 auto; 
+}
+
+.ukl-site-alert .ukl-icon-wrapper {
+  margin-right: 2rem;
 }
 
 .ukl-site-alert .ukl-message p:last-child {
