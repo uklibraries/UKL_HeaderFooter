@@ -354,7 +354,7 @@
   left: 0;
 }
 
-.ukl-ext-clamp .show-for-sr {
+.ukl-ext-clamp .ukl-show-for-sr {
   display: block;
   position: absolute;
   top: -999999em;
@@ -507,7 +507,7 @@ body {
   margin: 0px 0px 0px 0px;
 }
 
-.show-for-sr {
+.ukl-show-for-sr {
   display:none;
 }
 
