@@ -103,10 +103,6 @@
   padding: 1rem 0 0 0;
 }
 
-.ukl-ext-clamp .ukl-global-header .utility-nav {
-  display: none;
-}
-
 .ukl-ext-clamp .ukl-global-header .menu-button:focus{
   border-color: #ffffff;
   outline: 2px solid #ffffff;
@@ -142,10 +138,6 @@
 .ukl-ext-clamp .ukl-nav-links .ukl-link,
 .ukl-ext-clamp .ukl-utility-links .ukl-link {
   margin: 0 0 0.5rem 0;
-}
-
-.ukl-ext-clamp .utility-nav {
-  display: block;
 }
 
 .ukl-ext-clamp .ukl-global-header__banner {
