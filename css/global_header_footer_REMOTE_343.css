@@ -458,11 +458,7 @@ body {
   margin: 0 auto; 
 }
 
-.site-ukl-survey .icon-wrapper {
-  margin-right: 4rem;
-}
-
-.site-ukl-survey .message p:last-child {
+.ukl-site-survey .ukl-message p:last-child {
   margin-bottom: 0;
 }
 
@@ -771,15 +767,7 @@ body {
 
 /* was 768 */
 @media screen and (max-width: 1023px) {
-  
-  
-  #menu_button {
-    width: 5vmin; height: 5vmin;
-    }
 
-  #menu_button {
-    width: 5vmin; height: 5vmin;
-    }
   .ukl-ext-clamp .ukl-global-header-layout > div {
     padding: 0 0 0 0;
     /*margin-top: 50px;*/

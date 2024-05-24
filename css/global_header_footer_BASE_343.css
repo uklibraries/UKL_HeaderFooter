@@ -374,7 +374,7 @@
   text-shadow: none;
 }
 
-.ukl-ext-clamp .ukl-universal-footer__ribbon .ukl-icon-label .ukl-label {
+.ukl-ext-clamp .ukl-universal-footer__ribbon .icon-label .label {
   font-weight: normal;
   text-decoration: none;
 }
@@ -440,18 +440,18 @@ body {
 
 /* Custom block UKL survey message styles */
 
-.ukl-slab .ukl-site-survey.ukl-slab:first-child {
+.ukl-slab .site-ukl-survey.ukl-slab:first-child {
   padding-top: 0;
 }
 
-.ukl-surveybtn {
+.surveybtn {
   background: none;
   border: none; 
   padding: 0; 
   cursor: pointer;
 }
 
-.ukl-site-survey .ukl-slab__wrapper {
+.site-ukl-survey .ukl-slab__wrapper {
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -466,11 +466,11 @@ body {
   margin-bottom: 0;
 }
 
-.ukl-site-survey .ukl-message p:first-child {
+.site-ukl-survey .message p:first-child {
   margin-top: 0;
 }
 
-.ukl-site-survey h2 {
+.site-ukl-survey h2 {
   text-transform: uppercase;
   font-size: 1.5rem;
   font-weight: 900;
@@ -561,11 +561,11 @@ body {
 
 /* Custom block UKL alert message styles */
 
-.ukl-slab .ukl-site-alert.ukl-slab:first-child {
+.ukl-slab .site-ukl-alert.ukl-slab:first-child {
   padding-top: 0;
 }
 
-.ukl-site-alert .ukl-slab__wrapper {
+.site-ukl-alert .ukl-slab__wrapper {
   background-color: #3898FF;
   padding: 1rem;
   display: flex;
@@ -573,15 +573,19 @@ body {
   margin: 0 auto; 
 }
 
-.ukl-site-alert .ukl-message p:last-child {
+.site-ukl-alert .icon-wrapper {
+  margin-right: 2rem;
+}
+
+.site-ukl-alert .message p:last-child {
   margin-bottom: 0;
 }
 
-.ukl-site-alert .ukl-message p:first-child {
+.site-ukl-alert .message p:first-child {
   margin-top: 0;
 }
 
-.ukl-site-alert h2 {
+.site-ukl-alert h2 {
   text-transform: uppercase;
   font-family: "usual", sans-serif;
   font-size: 1.5rem;
@@ -771,15 +775,7 @@ body {
 
 /* was 768 */
 @media screen and (max-width: 1023px) {
-  
-  
-  #menu_button {
-    width: 5vmin; height: 5vmin;
-    }
 
-  #menu_button {
-    width: 5vmin; height: 5vmin;
-    }
   .ukl-ext-clamp .ukl-global-header-layout > div {
     padding: 0 0 0 0;
     /*margin-top: 50px;*/
