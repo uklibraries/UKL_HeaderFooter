@@ -361,18 +361,6 @@
   left: -999999em;
 }
 
-.ukl-ext-clamp .link-group a {
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1667rem;
-  line-height: 1.5rem;
-}
-
-.ukl-ext-clamp .link-group a:hover,
-.ukl-ext-clamp .link-group a:active {
-  text-decoration: underline;
-}
-
 /* || Footer styles */
 
 .ukl-slab__wrapper {
@@ -383,16 +371,6 @@
   font-size: unset;
   font-weight: unset;
   padding: 0 0 0 0;
-}
-
-#block-campusmap > div > a > span:nth-of-type(2) {
-  font-size: unset;
-  font-weight: unset;
-  word-break: normal;
-  max-width: 75%;
-  padding: 10px;
-  white-space: normal;
-  text-align: unset;
 }
 
 .ukl-ext-clamp .universal-footer {
