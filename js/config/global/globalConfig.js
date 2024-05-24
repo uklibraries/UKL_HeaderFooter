@@ -9,14 +9,14 @@ export default {
 	WarningTitleText: "0 - UK ALERT - EARLY CANCELLATION",
 	WarningMsgText:
 		"We are currently experiencing technical difficulties with some online databases.  We are working to resolve this issue as soon as possible.  Thank you for your patience. ",
-	WarningMsgToggle: "off",
+	WarningMsgToggle: "on",
 	WarningMsgBackground: "#FFDC00",
 	WarningMsgColor: "#000",
 	WarningLinkColor: "#0033A0",
 	AnnouncementTitleText: "0 - UK ALERT - EARLY CANCELLATION",
 	AnnouncementMsgText:
 		"We are currently experiencing technical difficulties with some online databases.  We are working to resolve this issue as soon as possible.  Thank you for your patience. ",
-	AnnouncementMsgToggle: "on",
+	AnnouncementMsgToggle: "off",
 	AnnouncementMsgBackground: "#a1d3ed",
 	AnnouncementMsgColor: "#000",
 	AnnouncementLinkColor: "#0033A0",
