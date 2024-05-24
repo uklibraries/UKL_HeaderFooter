@@ -44,23 +44,23 @@
   margin: 0 auto;
 }
 
-.ukl-ext-clamp .ukl-nav-links .link a,
-.ukl-ext-clamp .ukl-utility-links .link a {
+.ukl-ext-clamp .ukl-nav-links .ukl-link a,
+.ukl-ext-clamp .ukl-utility-links .ukl-link a {
   display: block;
 }
 
-.ukl-ext-clamp .ukl-nav-links .link a svg,
-.ukl-ext-clamp .ukl-utility-links .link a svg {
+.ukl-ext-clamp .ukl-nav-links .ukl-link a svg,
+.ukl-ext-clamp .ukl-utility-links .ukl-link a svg {
   border-radius: 50%;
 }
 
-.ukl-ext-clamp .ukl-nav-links .link a:hover svg,
-.ukl-ext-clamp .ukl-utility-links .link a:hover svg {
+.ukl-ext-clamp .ukl-nav-links .ukl-link a:hover svg,
+.ukl-ext-clamp .ukl-utility-links .ukl-link a:hover svg {
   background: white;
 }
 
-.ukl-ext-clamp .ukl-nav-links .link a:hover svg path,
-.ukl-ext-clamp .ukl-utility-links .link a:hover svg path {
+.ukl-ext-clamp .ukl-nav-links .ukl-link a:hover svg path,
+.ukl-ext-clamp .ukl-utility-links .ukl-link a:hover svg path {
   fill: black;
 }
 
@@ -139,8 +139,8 @@
   border-top: 1px color(light-gray) solid;
 }
 
-.ukl-ext-clamp .ukl-nav-links .link,
-.ukl-ext-clamp .ukl-utility-links .link {
+.ukl-ext-clamp .ukl-nav-links .ukl-link,
+.ukl-ext-clamp .ukl-utility-links .ukl-link {
   margin: 0 0 0.5rem 0;
 }
 
@@ -188,8 +188,8 @@
     align-items: center;
   }
   
-  .ukl-ext-clamp .ukl-nav-links .link,
-  .ukl-ext-clamp .ukl-utility-links .link {
+  .ukl-ext-clamp .ukl-nav-links .ukl-link,
+  .ukl-ext-clamp .ukl-utility-links .ukl-link {
     margin: 0 0.5rem;
   }
 }
@@ -302,7 +302,7 @@
   content: '';
 }
 
-.ukl-ext-clamp .link--fancy-reverse::before {
+.ukl-ext-clamp .ukl-link--fancy-reverse::before {
   position: absolute;
   content: "◂";
   transition: left .3s ease-in-out;
@@ -312,7 +312,7 @@
   font-size: 20px;
 }
 
-.ukl-ext-clamp .link--fancy-reverse {
+.ukl-ext-clamp .ukl-link--fancy-reverse {
   position: relative;
   margin-left: -1rem;
   padding-left: 1.2rem;
@@ -354,11 +354,11 @@
   transition: color .3s ease-in-out, background-color .3s ease-in-out;
 }
 
-.ukl-ext-clamp .link--sans {
+.ukl-ext-clamp .ukl-link--sans {
   font-family: "usual", sans-serif;
 }
 
-.ukl-ext-clamp .link--fancy-reverse:hover::before {
+.ukl-ext-clamp .ukl-link--fancy-reverse:hover::before {
   left: 0;
 }
 
