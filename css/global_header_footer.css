@@ -803,7 +803,7 @@ body {
   text-decoration: none;
 }
 
-.menu_button_more {
+.ukl-menu_button_more {
   display: block;
   float: right;
   justify-content:flex-end;
@@ -815,7 +815,7 @@ body {
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 120 80" width="40" height="40" version="1.0" xmlns="http://www.w3.org/2000/svg"><rect x="15" width="90" height="15" rx="10"></rect><rect x="15" y="30" width="90" height="15" rx="10"></rect><rect x="15" y="60" width="90" height="15" rx="10"></rect></svg>');
 }
 
-.menu_button_less {
+.ukl-menu_button_less {
   display: block;
   float: right;
   justify-content:flex-end;
@@ -841,17 +841,14 @@ body {
 
 /* was 769 */
 @media screen and (min-width: 1024px) {
-    .menu_button {
+    .ukl-menu_button {
     display: none;
     }
 }
 
 /* was 768 */
 @media screen and (max-width: 1023px) {
-  
-  #menu_button {
-    width: 5vmin; height: 5vmin;
-    }
+
   .ukl-ext-clamp .ukl-global-header-layout > div {
     padding: 0 0 0 0;
     /*margin-top: 50px;*/

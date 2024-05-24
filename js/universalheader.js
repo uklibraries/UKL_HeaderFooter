@@ -56,7 +56,7 @@ const headerStrings = {
 };
 
 function init() {
-	document.querySelector(".menu_button").addEventListener("click", () => {
+	document.querySelector(".ukl-menu_button").addEventListener("click", () => {
 		document.querySelector(".ukl-nav-links").classList.toggle("hidden");
 		document.querySelector(".ukl-utility-links").classList.toggle("hidden");
 	});
@@ -172,7 +172,11 @@ function insertContentAndStyle(localConfig) {
 				let url = base.url;
 				if (label) {
 					button.innerHTML =
-						'<a href="' + url + '" class="ukl-section-heading">' + title + "</a>";
+						'<a href="' +
+						url +
+						'" class="ukl-section-heading">' +
+						title +
+						"</a>";
 				} else {
 					button.innerHTML = label;
 				}
@@ -181,10 +185,10 @@ function insertContentAndStyle(localConfig) {
 
 		init();
 
-		const div2 = document.querySelector(".menu_button_more");
+		const div2 = document.querySelector(".ukl-menu_button_more");
 		div2.addEventListener("click", function () {
-			div2.classList.toggle("menu_button_more");
-			div2.classList.toggle("menu_button_less");
+			div2.classList.toggle("ukl-menu_button_more");
+			div2.classList.toggle("ukl-menu_button_less");
 		});
 		/* toggle visibility of Springshare search box */
 		if (hdr_srch_include === 1) {
@@ -321,7 +325,7 @@ function createLogoHeaderWithMobileButton(
 	}
 
 	let mobileMenuButton = document.createElement("div");
-	mobileMenuButton.classList.add("menu_button_more", "menu_button");
+	mobileMenuButton.classList.add("ukl-menu_button_more", "ukl-menu_button");
 	mobileMenuButton.setAttribute("tabindex", 0);
 
 	const i = document.createElement("i");
@@ -337,19 +341,21 @@ function createLogoHeaderWithMobileButton(
 
 function handleResize() {
 	if (window.innerWidth > 1023) {
-		document.querySelector(".menu_button").classList.add("hidden");
+		document.querySelector(".ukl-menu_button").classList.add("hidden");
 		document.querySelector(".ukl-nav-links").classList.remove("hidden");
 		document.querySelector(".ukl-utility-links").classList.remove("hidden");
 	} else {
 		if (document.querySelector(".ukl-nav-links")) {
-			document.querySelector(".menu_button").classList.add("menu_button_more");
 			document
-				.querySelector(".menu_button")
-				.classList.remove("menu_button_less");
+				.querySelector(".ukl-menu_button")
+				.classList.add("ukl-menu_button_more");
+			document
+				.querySelector(".ukl-menu_button")
+				.classList.remove("ukl-menu_button_less");
 		}
 		document.querySelector(".ukl-nav-links").classList.add("hidden");
 		document.querySelector(".ukl-utility-links").classList.add("hidden");
-		document.querySelector(".menu_button").classList.remove("hidden");
+		document.querySelector(".ukl-menu_button").classList.remove("hidden");
 	}
 }
 
