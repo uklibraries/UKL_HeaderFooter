@@ -57,8 +57,8 @@ const headerStrings = {
 
 function init() {
 	document.querySelector(".ukl-menu_button").addEventListener("click", () => {
-		document.querySelector(".ukl-nav-links").classList.toggle("hidden");
-		document.querySelector(".ukl-utility-links").classList.toggle("hidden");
+		document.querySelector(".ukl-nav-links").classList.toggle("ukl-hidden");
+		document.querySelector(".ukl-utility-links").classList.toggle("ukl-hidden");
 	});
 	window.addEventListener("resize", handleResize);
 	handleResize();
@@ -141,7 +141,7 @@ function insertContentAndStyle(localConfig) {
 			let title = base.title;
 			let label = base.label;
 			let button = document.getElementById("get" + base.label);
-			button.classList.add("dropdown");
+			button.classList.add("ukl-dropdown");
 			button.setAttribute("tabIndex", "0");
 			const i = document.createElement("i");
 			button.appendChild(i);
@@ -154,7 +154,7 @@ function insertContentAndStyle(localConfig) {
 				const menu = document.createElement("ul");
 
 				button.appendChild(menuTitle).innerText = base.title;
-				menu.classList.add("dropdown-content", "c");
+				menu.classList.add("ukl-dropdown-content", "c");
 
 				base.children.forEach((child) => {
 					menu.appendChild(createListItem(child));
@@ -341,9 +341,9 @@ function createLogoHeaderWithMobileButton(
 
 function handleResize() {
 	if (window.innerWidth > 1023) {
-		document.querySelector(".ukl-menu_button").classList.add("hidden");
-		document.querySelector(".ukl-nav-links").classList.remove("hidden");
-		document.querySelector(".ukl-utility-links").classList.remove("hidden");
+		document.querySelector(".ukl-menu_button").classList.add("ukl-hidden");
+		document.querySelector(".ukl-nav-links").classList.remove("ukl-hidden");
+		document.querySelector(".ukl-utility-links").classList.remove("ukl-hidden");
 	} else {
 		if (document.querySelector(".ukl-nav-links")) {
 			document
@@ -353,9 +353,9 @@ function handleResize() {
 				.querySelector(".ukl-menu_button")
 				.classList.remove("ukl-menu_button_less");
 		}
-		document.querySelector(".ukl-nav-links").classList.add("hidden");
-		document.querySelector(".ukl-utility-links").classList.add("hidden");
-		document.querySelector(".ukl-menu_button").classList.remove("hidden");
+		document.querySelector(".ukl-nav-links").classList.add("ukl-hidden");
+		document.querySelector(".ukl-utility-links").classList.add("ukl-hidden");
+		document.querySelector(".ukl-menu_button").classList.remove("ukl-hidden");
 	}
 }
 

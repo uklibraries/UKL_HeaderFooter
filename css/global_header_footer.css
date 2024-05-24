@@ -719,7 +719,7 @@ body {
     padding-bottom: 20px;
   }
 
-  .dropdown .dropdown-content.c  {
+  .ukl-dropdown .ukl-dropdown-content.c  {
     padding: 0px 0px 0px 10px;
     margin-left: calc(-35% - 10px);
     margin-top: -30px;
@@ -729,7 +729,7 @@ body {
     padding: 0px 0px;
   }
 
-  .dropdown .dropdown-content {
+  .ukl-dropdown .ukl-dropdown-content {
     top: 0;
     right: 0;
     bottom: 0;
@@ -742,7 +742,7 @@ body {
     padding-bottom: 20px;
   }
 
-  .dropdown:focus .dropdown-content {
+  .ukl-dropdown:focus .ukl-dropdown-content {
     outline: none;
     position:inherit;
     display:block;
@@ -752,27 +752,27 @@ body {
     padding-top: 0px;
   }
 
-  #getlink1:focus .dropdown-content {
+  #getlink1:focus .ukl-dropdown-content {
     display:block;
   }
 
-  #getlink2:focus .dropdown-content {
+  #getlink2:focus .ukl-dropdown-content {
     display:block;
   }
 
-  #getlink3:focus .dropdown-content {
+  #getlink3:focus .ukl-dropdown-content {
     display:block;
   }
 
-  #getlink4:focus .dropdown-content {
+  #getlink4:focus .ukl-dropdown-content {
     display:block;
   }
   
-  #getlink5:focus .dropdown-content {
+  #getlink5:focus .ukl-dropdown-content {
     display:block;
   }
   
-  #getlink6:focus .dropdown-content {
+  #getlink6:focus .ukl-dropdown-content {
     display:block;
   }
 
@@ -912,7 +912,7 @@ body {
 
 /* Utility */
 
-.hidden{
+.ukl-hidden{
  display: none;
 }
 
@@ -920,7 +920,7 @@ body {
 
 
 /* dd container */
-.dropdown {
+.ukl-dropdown {
   display: inline-block;
   position: relative;
   outline: none;
@@ -939,7 +939,7 @@ body {
 
 
 /* dd content */
-.dropdown .dropdown-content {
+.ukl-dropdown .ukl-dropdown-content {
   position: absolute;
   top: 50%;
   visibility: hidden;
@@ -953,25 +953,25 @@ body {
 }
 
 /* center & right position menu relative to the button */
-.dropdown .dropdown-content.c  {
+.ukl-dropdown .ukl-dropdown-content.c  {
   left: 80%;
   margin-left: calc(-70% - 10px);
   width: 250px;
   padding:20px;
 }
 
-.dropdown .dropdown-content.r  {
+.ukl-dropdown .ukl-dropdown-content.r  {
   right: 0;
 }
 
 /* style link menu item */
-.dropdown-content .mi {
+.ukl-dropdown-content .mi {
   display: block;
   padding: 10px 0;
   text-decoration: none;
   position: relative;
 }
-.dropdown-content .mi::before {
+.ukl-dropdown-content .mi::before {
   content: '';
   position: absolute;
   top: 0;
@@ -982,24 +982,24 @@ body {
   z-index: -1;
   transition: 0.4s ease-out;
 }
-.dropdown-content .mi:hover::before {
+.ukl-dropdown-content .mi:hover::before {
     opacity: 1;
 }
 
 /* style text link */
-.dropdown-content .tl {
+.ukl-dropdown-content .tl {
   color: #36f;
   text-decoration: none;
   border-bottom: 1px dotted #36f;
   transition: 0.35s ease-out;
 }
 
-.dropdown-content .tl:hover {
+.ukl-dropdown-content .tl:hover {
   border-bottom: 1px dotted transparent;
 }
 
 /* show dd content */
-.dropdown:focus .dropdown-content {
+.ukl-dropdown:focus .ukl-dropdown-content {
   outline: none;
   visibility: visible;
   opacity: 1;
@@ -1007,7 +1007,7 @@ body {
 }
 
 /* mask to close menu by clicking on the button */
-.dropdown .db2 {
+.ukl-dropdown .db2 {
   position: absolute;
   top: 0;
   right: 0;
@@ -1019,11 +1019,11 @@ body {
   display: none;
 }
 
-.dropdown:focus .db2 {
+.ukl-dropdown:focus .db2 {
   display: inline-block;
 }
 
-.dropdown .db2:focus .dropdown-content, .dropdown-content .db3:focus .dropdown-content {
+.ukl-dropdown .db2:focus .ukl-dropdown-content, .ukl-dropdown-content .db3:focus .ukl-dropdown-content {
   outline: none;
   visibility: hidden;
   opacity: 0;
@@ -1044,7 +1044,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.dropdown:focus .dropbtn::after {
+.ukl-dropdown:focus .dropbtn::after {
   content: "\2212";
 }
 
@@ -1060,7 +1060,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.dropdown:focus .dropbtn.i2::after {
+.ukl-dropdown:focus .dropbtn.i2::after {
   width: 15px;
   height: 12px;
   background: #0033a0;
@@ -1069,8 +1069,8 @@ body {
 
 /* media queries */
 @media (max-width:560px) {
-.dropdown .dropdown-content.r,
-.dropdown .dropdown-content.c {
+.ukl-dropdown .ukl-dropdown-content.r,
+.ukl-dropdown .ukl-dropdown-content.c {
   margin-left: 0;
   }
   
