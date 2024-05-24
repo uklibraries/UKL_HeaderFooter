@@ -64,21 +64,21 @@
   fill: black;
 }
 
-.ukl-ext-clamp .universal-nav a,
+.ukl-ext-clamp .ukl-universal-nav a,
 .ukl-ext-clamp .ukl-nav-links a,
 .ukl-ext-clamp .ukl-utility-links a {
   text-transform: uppercase;
   text-decoration: none;
 }
 
-.ukl-ext-clamp .universal-nav a:hover,
+.ukl-ext-clamp .ukl-universal-nav a:hover,
 .ukl-ext-clamp .ukl-nav-links a:hover,
 .ukl-ext-clamp .ukl-utility-links a:hover {
   /*text-decoration: underline;*/
   text-decoration: none;
 }
 
-.ukl-ext-clamp #gethome .section-heading {
+.ukl-ext-clamp #gethome .ukl-section-heading {
   font-size: 2rem;
   text-decoration: none;
   display: block;
@@ -240,31 +240,31 @@
   background-color: var(--bg-primary);
 }
 
-.ukl-ext-clamp .universal-nav .my-uk-logo {
+.ukl-ext-clamp .ukl-universal-nav .my-uk-logo {
   height: 1.5rem;
   box-sizing: content-box;
   font-size: 1rem;
 }
 
-.ukl-ext-clamp .universal-nav .my-uk-logo svg {
+.ukl-ext-clamp .ukl-universal-nav .my-uk-logo svg {
   display: block;
   width: 3.4375em;
   height: 1.5rem;
   margin: 0 auto;
 }
 
-.ukl-ext-clamp .universal-nav {
+.ukl-ext-clamp .ukl-universal-nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
 
-.ukl-ext-clamp .universal-nav > * {
+.ukl-ext-clamp .ukl-universal-nav > * {
   flex: 0 1 auto;
   margin-left: 1rem;
 }
 
-.ukl-ext-clamp .universal-nav a {
+.ukl-ext-clamp .ukl-universal-nav a {
   font-weight: 500;
   font-family: "usual", sans-serif;
 }
@@ -325,21 +325,21 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .ukl-ext-clamp .universal-nav {
+  .ukl-ext-clamp .ukl-universal-nav {
     justify-content: flex-end;
   }
 
-  .ukl-ext-clamp  .universal-nav > * {
+  .ukl-ext-clamp  .ukl-universal-nav > * {
     margin-bottom: 0;
   }
 
-  .ukl-ext-clamp .universal-nav .my-uk-logo,
-  .ukl-ext-clamp .universal-nav .search-control {
+  .ukl-ext-clamp .ukl-universal-nav .my-uk-logo,
+  .ukl-ext-clamp .ukl-universal-nav .search-control {
     margin-top: -0.5rem;
     margin-bottom: -0.5rem;
   }
 
-  .ukl-ext-clamp .universal-nav:first-child:last-child {
+  .ukl-ext-clamp .ukl-universal-nav:first-child:last-child {
     position: relative;
     width: 100%;
   }
@@ -723,7 +723,7 @@ body {
     margin-top: 20px;
   }
   
-  .section-heading {
+  .ukl-section-heading {
     padding-bottom: 20px;
   }
 
