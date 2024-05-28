@@ -523,14 +523,6 @@ body {
 }
 
 @media screen and (max-width: 765px) {
-  #ukl-survey-close {
-    display: none;
-  }
-  
-  #ukl-survey_button_less {
-    display: none;
-  }
-
   #ukl-survey-close-mobile {
     padding-bottom: 10px;
   }
@@ -595,25 +587,25 @@ body {
   line-height: 1.2;
 }
 
-#uklalert {
+#ukl-alert {
   display: none;
   background: #3898FF;
   font-family: "usual", sans-serif;
 }
 
-#uklalertmsg {
+#ukl-alertmsg {
   color: #000;
   line-height: 1.5;
 }
 
-#uklalertlink a {
+#ukl-alertlink a {
   color: #000000;
 }
 
 
 /* top level alert div */
 
-#top-alert { 
+#ukl-top-alert { 
   padding-top: 12px;
   padding-left: 12px;
   padding-right: 12px;
@@ -624,11 +616,11 @@ body {
   font-size: 16px;
 }
 
-#top-alert > div > div > div > p:nth-of-type(3) {
+#ukl-top-alert > div > div > div > p:nth-of-type(3) {
   margin: 0 0 0 0;
 }
 
-#ukalertlink {
+#ukl-global-alert-link {
   color: white;
   text-decoration: underline;
 }
@@ -709,7 +701,7 @@ body {
 
 }
 
-#MainHeader .ukl-slab {
+#ukl-main-header .ukl-slab {
   padding: .9rem 1rem;
 }
 
@@ -769,11 +761,11 @@ body {
 
 /* was 768 */
 @media screen and (max-width: 1023px) { 
-  #menu_button {
+  #ukl-menu_button {
     width: 5vmin; height: 5vmin;
     }
 
-  #menu_button {
+  #ukl-menu_button {
     width: 5vmin; height: 5vmin;
     }
   .ukl-ext-clamp .ukl-global-header-layout > div {
@@ -801,17 +793,17 @@ body {
 
 /* added style for Springshare search box */
 
-#springsrchLabel {
+#ukl-spring-search-label {
   font-weight: normal;
   background: none;
 }
 
-#springsrch {
+#ukl-spring-search {
   font-family: "usual", sans-serif;
   display: none; 
 }
 
-#springbtn {
+#ukl-spring-btn {
   background-color: #e7e7e7;
   color: #000;
   height: 25px;
@@ -820,7 +812,7 @@ body {
   border-width: 1px;
 }
 
-#searchTerm {
+#ukl-search-term {
   height: 25px;
   box-sizing: border-box;
   color: #000;
@@ -828,11 +820,11 @@ body {
   font-weight: normal;
 }
 
-#springbtn:active {
+#ukl-spring-btn:active {
   background-color: #e7e7e7;
 } 
 
-#springbtn:focus {
+#ukl-spring-btn:focus {
   background-color: #e7e7e7;
   color: black;
 }
