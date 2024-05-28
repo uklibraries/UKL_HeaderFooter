@@ -462,7 +462,7 @@ body {
   margin-right: 4rem;
 }
 
-.ukl-site-survey .message p:last-child {
+.ukl-site-survey .ukl-message p:last-child {
   margin-bottom: 0;
 }
 
@@ -646,7 +646,7 @@ body {
     padding-bottom: 20px;
   }
 
-  .ukl-dropdown .ukl-dropdown-content.c  {
+  .ukl-dropdown .ukl-dropdown-content.ukl-c  {
     padding: 0px 0px 0px 10px;
     margin-left: calc(-35% - 10px);
     margin-top: -30px;
@@ -665,7 +665,7 @@ body {
     z-index: unset;
   }
 
-  .ukl-dropbtn.c {
+  .ukl-dropbtn.ukl-c {
     padding-bottom: 20px;
   }
 
@@ -877,7 +877,7 @@ body {
 }
 
 /* center & right position menu relative to the button */
-.ukl-dropdown .ukl-dropdown-content.c  {
+.ukl-dropdown .ukl-dropdown-content.ukl-c  {
   left: 80%;
   margin-left: calc(-70% - 10px);
   width: 250px;
@@ -967,7 +967,7 @@ body {
   }
 }
 
-.UK-Logo-Header {
+.ukl-UK-Logo-Header {
   width: 75px;
   height: 75px;
   color: white;
