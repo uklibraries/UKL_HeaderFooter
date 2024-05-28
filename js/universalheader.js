@@ -146,15 +146,15 @@ function insertContentAndStyle(localConfig) {
 			const i = document.createElement("i");
 			button.appendChild(i);
 			i.setAttribute("tabIndex", "0");
-			i.classList.add("db2");
+			i.classList.add("ukl-db2");
 
 			if (base.hasOwnProperty("children")) {
 				const menuTitle = document.createElement("span");
-				menuTitle.classList.add("dropbtn", "c");
+				menuTitle.classList.add("ukl-dropbtn", "ukl-c");
 				const menu = document.createElement("ul");
 
 				button.appendChild(menuTitle).innerText = base.title;
-				menu.classList.add("ukl-dropdown-content", "c");
+				menu.classList.add("ukl-dropdown-content", "ukl-c");
 
 				base.children.forEach((child) => {
 					menu.appendChild(createListItem(child));
@@ -270,7 +270,7 @@ function insertContentAndStyle(localConfig) {
 
 function createListItem(menuItem) {
 	const li = document.createElement("li");
-	li.classList.add("mi");
+	li.classList.add("ukl-mi");
 	const a = document.createElement("a");
 	a.href = menuItem.url;
 	a.textContent = menuItem.title;
@@ -330,7 +330,7 @@ function createLogoHeaderWithMobileButton(
 
 	const i = document.createElement("i");
 	i.setAttribute("tabIndex", "0");
-	i.classList.add("db2");
+	i.classList.add("ukl-db2");
 
 	parent.appendChild(container);
 	container.appendChild(i);
