@@ -20,7 +20,7 @@
   text-decoration: none;
 }
 
-.ukl-ext-clamp #gethome {
+.ukl-ext-clamp #ukl-gethome {
   font-size: 2rem;
   text-decoration: none;
   display: flex;
@@ -28,7 +28,7 @@
   gap: 1.5rem;
 }
 
-.ukl-ext-clamp #gethome a {
+.ukl-ext-clamp #ukl-gethome a {
   text-decoration: none;
 }
 
@@ -78,7 +78,7 @@
   text-decoration: none;
 }
 
-.ukl-ext-clamp #gethome .ukl-section-heading {
+.ukl-ext-clamp #ukl-gethome .ukl-section-heading {
   font-size: 2rem;
   text-decoration: none;
   display: block;
@@ -679,27 +679,27 @@ body {
     padding-top: 0px;
   }
 
-  #getlink1:focus .ukl-dropdown-content {
+  #ukl-getlink1:focus .ukl-dropdown-content {
     display:block;
   }
 
-  #getlink2:focus .ukl-dropdown-content {
+  #ukl-getlink2:focus .ukl-dropdown-content {
     display:block;
   }
 
-  #getlink3:focus .ukl-dropdown-content {
+  #ukl-getlink3:focus .ukl-dropdown-content {
     display:block;
   }
 
-  #getlink4:focus .ukl-dropdown-content {
+  #ukl-getlink4:focus .ukl-dropdown-content {
     display:block;
   }
   
-  #getlink5:focus .ukl-dropdown-content {
+  #ukl-getlink5:focus .ukl-dropdown-content {
     display:block;
   }
   
-  #getlink6:focus .ukl-dropdown-content {
+  #ukl-getlink6:focus .ukl-dropdown-content {
     display:block;
   }
 
@@ -713,7 +713,7 @@ body {
   padding: .9rem 1rem;
 }
 
-#getmhome {
+#ukl-getmhome {
   font-size: 1.7rem;
   text-decoration: none;
   display: block;
@@ -723,7 +723,7 @@ body {
   padding-left: 15px;
 }
 
-#getmhome a {
+#ukl-getmhome a {
   color: white;
   font-family: "usual", sans-serif;
   font-weight: normal;
@@ -786,7 +786,7 @@ body {
 }
 
 @media screen and (max-width: 265px) {
-  #getmhome {
+  #ukl-getmhome {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 260px;
@@ -982,7 +982,7 @@ body {
   }
 }
 
-div#gethome>a{
+div#ukl-gethome>a{
   max-height: 20vh;
   display: flex;
   align-items: center;
@@ -990,7 +990,7 @@ div#gethome>a{
   gap: 1.5rem;
 }
 
-div#gethome>a>img {
+div#ukl-gethome>a>img {
   max-width: 100%;
   max-height: 100%;
   height: auto;
