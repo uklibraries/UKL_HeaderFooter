@@ -30,7 +30,7 @@ import(module_path).then((module) => {
 	insertContentAndStyle(localConfig);
 });
 
-const cookieName = "UKLSurvey";
+const cookieName = "ukl-survey";
 // 300000 = 5 minutes
 const cookieExpiryMS = 300000;
 const now = new Date();
@@ -51,7 +51,7 @@ const headerStrings = {
 	ukltophdr_low_alert:
 		'<div class="ukl-site-alert" id="uklalert"><div class="ukl-slab__wrapper"><div class="ukl-icon-wrapper"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="#EFF4FD"></circle><rect x="22" y="12" width="4.54545" height="4.54545" fill="#1E8AFF"></rect><rect x="22" y="19.9545" width="4.54545" height="17.0455" fill="#1E8AFF"></rect></svg></div><div><h2 id="uklalerttlt"></h2><div class="ukl-message"><p><span id="uklalertmsg"></span>&nbsp;&nbsp;<span id="uklalertlink"></span></p></div></div></div></div>',
 	ukltophdr_survey:
-		'<div class="ukl-site-survey" id="uklsurvey"><div class="ukl-slab__wrapper"><div id="ukl-survey-foil"><h2 id="uklsurveytlt"></h2><div class="ukl-message"><span id="uklsurveymsg"></span><span id="uklsurveylink"></span></div></div><div id="ukl-survey-close" class="ukl-icon-wrapper"><button class="ukl-surveybtn" id="btnCloseSurvey" title="close Survey"><span id="survey_button_less"></span></button></div></div><div id="ukl-survey-close-mobile" class="ukl-icon-wrapper"><button class="ukl-surveybtn" id="btnCloseSurveyMbl" title="Close Survey"><span id="survey_button_less_mobile"></span></button></div></div>',
+		'<div class="ukl-site-survey" id="ukl-survey"><div class="ukl-slab__wrapper"><div id="ukl-survey-foil"><h2 id="ukl-surveytlt"></h2><div class="ukl-message"><span id="ukl-surveymsg"></span><span id="ukl-surveylink"></span></div></div><div id="ukl-survey-close" class="ukl-icon-wrapper"><button class="ukl-surveybtn" id="ukl-btnCloseSurvey" title="close Survey"><span id="ukl-survey_button_less"></span></button></div></div></div>',
 	ukltophdr_end_clamp: "</div>",
 };
 
@@ -202,38 +202,25 @@ function insertContentAndStyle(localConfig) {
 	if (hdr_simple === 0) {
 		setAnnouncement();
 		if (SurveyMsgToggle === "on") {
-			document.getElementById("uklsurveytlt").innerHTML = SurveyTitleText;
-			document.getElementById("uklsurveymsg").innerHTML = SurveyMsgText;
-			document.getElementById("uklsurveylink").innerHTML +=
+			document.getElementById("ukl-surveytlt").innerHTML = SurveyTitleText;
+			document.getElementById("ukl-surveymsg").innerHTML = SurveyMsgText;
+			document.getElementById("ukl-surveylink").innerHTML +=
 				"<a href='" + SurveyMsgLinkURL + "'>" + SurveyMsgLinkLabel + "</a>";
-			document.getElementById("uklsurvey").style.backgroundColor =
+			document.getElementById("ukl-survey").style.backgroundColor =
 				SurveyMsgBackground;
 			document.querySelector(".ukl-site-survey").style.color = SurveyMsgColor;
 			/* close survey message */
-			const div3 = document.getElementById("survey_button_less");
+			const div3 = document.getElementById("ukl-survey_button_less");
 			if (cookieExists()) {
-				document.getElementById("uklsurvey").style.display = "none";
+				document.getElementById("ukl-survey").style.display = "none";
 			}
 			if (div3) {
 				div3.addEventListener("click", function () {
-					document.getElementById("uklsurvey").style.display = "none";
+					document.getElementById("ukl-survey").style.display = "none";
 				});
 				/* fire cookie */
 				document
 					.getElementById("ukl-survey-close")
-					.addEventListener("click", setCookie);
-			}
-
-			/* close survey message in mobile */
-			const div4 = document.getElementById("survey_button_less_mobile");
-			if (div4 || cookieExists) {
-				div4.addEventListener("click", function () {
-					document.getElementById("uklsurvey").style.display = "none";
-				});
-
-				/* fire cookie in mobile */
-				document
-					.getElementById("ukl-survey-close-mobile")
 					.addEventListener("click", setCookie);
 			}
 		}

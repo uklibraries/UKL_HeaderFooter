@@ -316,7 +316,7 @@
   font-size: 1rem;
 }
 
-#ukfooter > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > a > span {
+#ukl-ukfooter > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > a > span {
   font-size: unset;
   font-weight: unset;
   padding: 0 0 0 0;
@@ -379,7 +379,7 @@
   text-decoration: none;
 }
 
-#ukfooter > div > div > div > div:nth-of-type(2) > div:nth-of-type(2) > a > span {
+#ukl-ukfooter > div > div > div > div:nth-of-type(2) > div:nth-of-type(2) > a > span {
   font-weight: normal;
   text-decoration: none;
   font-size: 100%;
@@ -478,16 +478,16 @@ body {
   line-height: 1.2;
 }
 
-#uklsurvey {
+#ukl-survey {
   background: var(--bg-local-alert);
   font-family: "usual", sans-serif;
 }
 
-#uklsurvey .ukl-slab__wrapper {
+#ukl-survey .ukl-slab__wrapper {
   background: var(--bg-local-alert);
 }
 
-#uklsurveylink > a {
+#ukl-surveylink > a {
   word-wrap: break-word;
 }
 
@@ -499,7 +499,7 @@ body {
   float:right;
 }
 
-#survey_button_less {
+#ukl-survey_button_less {
   display: block;
   color: var(--bg-primary);
   float: right;
@@ -509,16 +509,16 @@ body {
   background-size: 100%;
 }
 
-#survey_button_less::after {
+#ukl-survey_button_less::after {
   font-size: 16px;
   content: "\02612 \0000a0 CLOSE";
 }
 
-#uklsurveymsg {
+#ukl-surveymsg {
   color: var(--bg-primary);
 }
 
-#uklsurveylink a {
+#ukl-surveylink a {
   color: #212121;
 }
 
@@ -527,7 +527,7 @@ body {
     display: none;
   }
   
-  #survey_button_less {
+  #ukl-survey_button_less {
     display: none;
   }
 
@@ -539,11 +539,11 @@ body {
     text-decoration: none;
   }
   
-  #uklsurveymsg {
+  #ukl-surveymsg {
   color: var(--bg-primary);
   }
 
-  #survey_button_less_mobile {
+  #ukl-survey_button_less_mobile {
     display: block;
     color: var(--bg-primary);
     margin-left: 2vmin;
@@ -552,7 +552,7 @@ body {
     background-size: 100%;
   }
 
-  #survey_button_less_mobile::after {
+  #ukl-survey_button_less_mobile::after {
     font-size: 16px;
     content: "\02612 \0000a0 CLOSE";
   }
