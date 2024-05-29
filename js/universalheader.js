@@ -246,9 +246,9 @@ function insertContentAndStyle(localConfig) {
 	/* set custom header width */
 	if (hdr_width > 72) {
 		const wrapper = document.getElementsByClassName("slab__wrapper");
-		for (let index = 0; index < wrapper.length; index++) {
-            		if (typeof wrapper[index] !== 'undefined') {
-                	wrapper[index].style.maxWidth = hdr_width + "rem";
+		for (let i = 0; i < wrapper.length; i++) {
+            		if (typeof wrapper[i] !== 'undefined') {
+                	wrapper[i].style.maxWidth = hdr_width + "rem";
             		}
 		}
 	}
