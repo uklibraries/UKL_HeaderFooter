@@ -239,7 +239,7 @@ function insertContentAndStyle(localConfig) {
 
 	/* set custom header width */
 	if (hdr_width > 72) {
-		const wrapper = document.getElementsByClassName("slab__wrapper");
+		const wrapper = document.getElementsByClassName("ukl-slab__wrapper");
 		for (let i = 0; i < wrapper.length; i++) {
          if (typeof wrapper[i] !== 'undefined') {
              wrapper[i].style.maxWidth = hdr_width + "rem";
