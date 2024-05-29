@@ -470,7 +470,7 @@ body {
   margin-top: 0;
 }
 
-.ukl-site-survey h2 {
+.ukl-site-survey h1 {
   text-transform: uppercase;
   font-size: 1.5rem;
   font-weight: 900;
@@ -577,7 +577,7 @@ body {
   margin-top: 0;
 }
 
-.ukl-site-alert h2 {
+.ukl-site-alert h1 {
   text-transform: uppercase;
   font-family: "usual", sans-serif;
   font-size: 1.5rem;
