@@ -1,7 +1,3 @@
-// Universal Footer for University of Kentucky Libraries websites
-// Author: Eric Weig, University of Kentucky Libraries
-// 2022 - 2024
-
 var ukfoot = document.createElement("div");
 ukfoot.id = "ukl-ukfooter";
 ukfoot.innerHTML =
