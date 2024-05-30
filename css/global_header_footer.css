@@ -36,6 +36,10 @@
   font-size: 1rem; 
 }
 
+.ukl-ext-clamp .ukl-utility-links .ukl-link .ukl-dropdown a:hover  {
+  text-decoration: underline;
+}
+
 .ukl-ext-clamp .ukl-global-header .ukl-slab {
   padding: 1.4rem 1rem;
 }
@@ -76,6 +80,10 @@
 .ukl-ext-clamp .ukl-utility-links a:hover {
   /*text-decoration: underline;*/
   text-decoration: none;
+}
+
+.ukl-ext-clamp .ukl-nav-links .ukl-link .ukl-dropdown a:hover  {
+  text-decoration: underline;
 }
 
 .ukl-ext-clamp #ukl-gethome .ukl-section-heading {
@@ -896,6 +904,10 @@ body {
 }
 .ukl-dropdown-content .ukl-mi:hover::before {
     opacity: 1;
+}
+
+.ukl-dropdown-content .ukl-mi a:hover {
+    text-decoration: underline;
 }
 
 /* show dd content */
