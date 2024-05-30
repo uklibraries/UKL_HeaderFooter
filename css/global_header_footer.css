@@ -583,6 +583,7 @@ body {
 
 .ukl-site-alert .ukl-message p:first-child {
   margin-top: 0;
+  line-height: 1.5;
 }
 
 .ukl-site-alert h2 {
