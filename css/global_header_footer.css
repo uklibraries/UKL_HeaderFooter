@@ -962,10 +962,6 @@ body {
 
 /* media queries */
 @media (max-width:560px) {
-.ukl-dropdown .ukl-dropdown-content.ukl-c {
-  margin-left: 0;
-  }
-  
 .ukl-dropbtn.ukl-c::before {
   background: #0033a0;
   }
