@@ -638,7 +638,11 @@ body {
 /* styles for mobile secondary header */
 
 @media screen and (max-width: 1023px) {
-
+  
+  .ukl-ext-clamp .ukl-global-header-layout {
+        line-height: 1;
+  }
+  
   .ukl-nav-links {
     margin-top: 20px;
   }
