@@ -12,6 +12,7 @@
 .ukl-ext-clamp .ukl-global-header {
   color: white;
   font-family: "usual", sans-serif;
+  margin: 0;
 }
 
 .ukl-ext-clamp .ukl-utility-links  {
@@ -280,6 +281,11 @@
   padding-left: 1.2em;
 }
 
+.ukl-ext-clamp .ukl-link--fancy-reverse sub {
+  vertical-align: sub;
+  line-height: .9em;
+}
+
 @media screen and (min-width: 398px) {
   .ukl-ext-clamp .ukl-universal-header__layout {
     display: flex;
@@ -346,6 +352,7 @@
 
 .ukl-ext-clamp .ukl-universal-footer a {
   color: white;
+  white-space: normal;
 }
 
 .ukl-ext-clamp .ukl-universal-footer .ukl-uk-wordmark {
@@ -579,6 +586,7 @@ body {
 
 .ukl-site-alert .ukl-icon-wrapper {
   margin-right: 2em;
+  line-height: normal;
 }
 
 .ukl-site-alert .ukl-message p:last-child {
@@ -598,6 +606,8 @@ body {
   color: var(--bg-primary);
   margin: 0;
   line-height: 1.2;
+  letter-spacing: normal;
+  padding: 0;
 }
 
 #ukl-alert {
