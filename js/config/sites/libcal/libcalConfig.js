@@ -3,7 +3,7 @@ export default {
 	include: 1,
 	hdr_srch_include: 1,
 	hdr_width: 80,
-	hdr_alert_include: 0,
+	hdr_alert_include: 1,
 	hdr_alert_title: "Unexpected Service Disruption",
 	hdr_alert_msg:
 		"We are currently working to resolve an authentication issue affect EBSCO databases.",
