@@ -5,9 +5,14 @@
   --bg-university-level-header: #041E42;
 }
 
+.ukl-ext-clamp {
+  font-size: 16px;
+}
+
 .ukl-ext-clamp .ukl-global-header {
   color: white;
   font-family: "usual", sans-serif;
+  margin: 0;
 }
 
 .ukl-ext-clamp .ukl-utility-links  {
@@ -21,11 +26,12 @@
 }
 
 .ukl-ext-clamp #ukl-gethome {
-  font-size: 2rem;
+  font-size: 2em;
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.5em;
+  padding-left: 0;
 }
 
 .ukl-ext-clamp #ukl-gethome a {
@@ -33,14 +39,18 @@
 }
 
 .ukl-utility-links {
-  font-size: 1rem; 
+  font-size: 1em; 
+}
+
+.ukl-ext-clamp .ukl-utility-links .ukl-link .ukl-dropdown a:hover  {
+  text-decoration: underline;
 }
 
 .ukl-ext-clamp .ukl-global-header .ukl-slab {
-  padding: 1.4rem 1rem;
+  padding: 1.4em 1em;
 }
 .ukl-ext-clamp .ukl-slab__wrapper {
-  max-width: 72rem;
+  max-width: 72em;
   margin: 0 auto;
 }
 
@@ -78,8 +88,12 @@
   text-decoration: none;
 }
 
+.ukl-ext-clamp .ukl-nav-links .ukl-link .ukl-dropdown a:hover  {
+  text-decoration: underline;
+}
+
 .ukl-ext-clamp #ukl-gethome .ukl-section-heading {
-  font-size: 2rem;
+  font-size: 2em;
   text-decoration: none;
   display: block;
 }
@@ -100,7 +114,7 @@
 }
 
 .ukl-ext-clamp .ukl-global-header-layout > div {
-  padding: 1rem 0 0 0;
+  padding: 1em 0 0 0;
 }
 
 .ukl-ext-clamp .ukl-global-header button:focus {
@@ -125,7 +139,7 @@
 
 .ukl-ext-clamp .ukl-nav-links .ukl-link,
 .ukl-ext-clamp .ukl-utility-links .ukl-link {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5em 0;
 }
 
 .ukl-ext-clamp .ukl-global-header__banner {
@@ -144,7 +158,7 @@
   }
   
   .ukl-ext-clamp .ukl-global-header-layout > div {
-    padding: 0 0.5rem;
+    padding: 0 0.5em;
   }
 }
 
@@ -157,21 +171,21 @@
   
   .ukl-ext-clamp .ukl-nav-links .ukl-link,
   .ukl-ext-clamp .ukl-utility-links .ukl-link {
-    margin: 0 0.5rem;
+    margin: 0 0.5em;
   }
 }
 
 /* || Universal header styles */
 .ukl-ext-clamp .ukl-universal-header {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
   background-color: var(--bg-university-level-header);
   color: white;
 }
 
 .ukl-ext-clamp .ukl-universal-header.ukl-slab {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.2em;
+  padding-right: 1em;
 }
 
 .ukl-ext-clamp .ukl-universal-header a {
@@ -191,15 +205,15 @@
 }
 
 .ukl-ext-clamp .ukl-universal-nav .ukl-my-uk-logo {
-  height: 1.5rem;
+  height: 1.5em;
   box-sizing: content-box;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .ukl-ext-clamp .ukl-universal-nav .ukl-my-uk-logo svg {
   display: block;
   width: 3.4375em;
-  height: 1.5rem;
+  height: 1.5em;
   margin: 0 auto;
 }
 
@@ -211,7 +225,7 @@
 
 .ukl-ext-clamp .ukl-universal-nav > * {
   flex: 0 1 auto;
-  margin-left: 1rem;
+  margin-left: 1em;
 }
 
 .ukl-ext-clamp .ukl-universal-nav a {
@@ -220,8 +234,7 @@
 }
 
 .ukl-ext-clamp .ukl-universal-breadcrumb ul {
-  font-size: 1.1667rem;
-  line-height: 1.5rem;
+  line-height: 1.5em;
   margin: 0;
   padding: 0;
   font-family: "usual", sans-serif;
@@ -232,21 +245,21 @@
 .ukl-ext-clamp .ukl-universal-breadcrumb ul li {
   display: inline;
   position: relative;
-  margin-right: calc(1rem + 1px);
+  margin-right: calc(1em + 1px);
   white-space: nowrap;
 }
 
 .ukl-ext-clamp .ukl-universal-breadcrumb ul li a {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .ukl-ext-clamp .ukl-universal-breadcrumb ul li:not(:last-child)::after {
   display: block;
   position: absolute;
   top: 50%;
-  right: -0.5rem;
+  right: -0.5em;
   width: 1px;
-  height: 1rem;
+  height: 1em;
   transform: translateY(-50%);
   background-color: #fff;
   content: '';
@@ -257,15 +270,20 @@
   content: "◂";
   transition: left .3s ease-in-out;
   color: #1897d4;
-  left: 0.1rem;
-  padding-right: 0.5rem;
+  left: 0.1em;
+  padding-right: 0.5em;
   font-size: 20px;
 }
 
 .ukl-ext-clamp .ukl-link--fancy-reverse {
   position: relative;
-  margin-left: -1rem;
-  padding-left: 1.2rem;
+  margin-left: -1em;
+  padding-left: 1.2em;
+}
+
+.ukl-ext-clamp .ukl-link--fancy-reverse sub {
+  vertical-align: sub;
+  line-height: .9em;
 }
 
 @media screen and (min-width: 398px) {
@@ -313,7 +331,7 @@
 /* || Footer styles */
 
 .ukl-slab__wrapper {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 #ukl-ukfooter > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > a > span {
@@ -323,10 +341,10 @@
 }
 
 .ukl-ext-clamp .ukl-universal-footer {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
   background-color: var(--bg-primary);
   color: white;
   font-family: "usual", sans-serif;
@@ -334,17 +352,18 @@
 
 .ukl-ext-clamp .ukl-universal-footer a {
   color: white;
+  white-space: normal;
 }
 
 .ukl-ext-clamp .ukl-universal-footer .ukl-uk-wordmark {
   display: block;
   width: 70vw;
   height: 7.14vw;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1em;
 }
 
 .ukl-ext-clamp .ukl-universal-footer__ribbon {
-  padding-bottom: 1rem;
+  padding-bottom: 1em;
 }
 
 .ukl-ext-clamp .ukl-universal-footer__ribbon a {
@@ -387,18 +406,18 @@
 }
 
 .ukl-ext-clamp .ukl-universal-footer__ribbon > * {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 
 .ukl-ext-clamp .ukl-universal-footer__ribbon svg {
-  height: 1rem;
+  height: 1em;
   display: inline;
 }
 
 @media screen and (min-width: 1024px) {
   .ukl-ext-clamp .ukl-universal-footer .ukl-uk-wordmark {
-    width: 20rem;
-    height: 2.04rem;
+    width: 20em;
+    height: 2.04em;
   }
 
   .ukl-ext-clamp .ukl-universal-footer__ribbon {
@@ -410,7 +429,7 @@
   .ukl-ext-clamp .ukl-universal-footer__ribbon > * {
     margin-right: -1px;
     margin-bottom: 0;
-    padding: 0 1rem;
+    padding: 0 1em;
     border-right: 1px #a1d3ed solid;
     border-width: 0 1px;
   }
@@ -452,14 +471,14 @@ body {
 }
 
 .ukl-site-survey .ukl-slab__wrapper {
-  padding: 1rem;
+  padding: 1em;
   display: flex;
   align-items: center;
   margin: 0 auto; 
 }
 
 .ukl-site-survey .ukl-icon-wrapper {
-  margin-right: 4rem;
+  margin-right: 4em;
 }
 
 .ukl-site-survey .ukl-message p:last-child {
@@ -472,7 +491,7 @@ body {
 
 .ukl-site-survey h2 {
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: 900;
   margin: 0;
   line-height: 1.2;
@@ -559,14 +578,15 @@ body {
 
 .ukl-site-alert .ukl-slab__wrapper {
   background-color: #3898FF;
-  padding: 1rem;
+  padding: 1em;
   display: flex;
   align-items: center;
   margin: 0 auto; 
 }
 
 .ukl-site-alert .ukl-icon-wrapper {
-  margin-right: 2rem;
+  margin-right: 2em;
+  line-height: normal;
 }
 
 .ukl-site-alert .ukl-message p:last-child {
@@ -575,16 +595,19 @@ body {
 
 .ukl-site-alert .ukl-message p:first-child {
   margin-top: 0;
+  line-height: 1.5;
 }
 
 .ukl-site-alert h2 {
   text-transform: uppercase;
   font-family: "usual", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: 900;
   color: var(--bg-primary);
   margin: 0;
   line-height: 1.2;
+  letter-spacing: normal;
+  padding: 0;
 }
 
 #ukl-alert {
@@ -629,7 +652,11 @@ body {
 /* styles for mobile secondary header */
 
 @media screen and (max-width: 1023px) {
-
+  
+  .ukl-ext-clamp .ukl-global-header-layout {
+        line-height: 1;
+  }
+  
   .ukl-nav-links {
     margin-top: 20px;
   }
@@ -702,11 +729,11 @@ body {
 }
 
 #ukl-main-header .ukl-slab {
-  padding: .9rem 1rem;
+  padding: .9em 1em;
 }
 
 #ukl-getmhome {
-  font-size: 1.7rem;
+  font-size: 1.7em;
   text-decoration: none;
   display: block;
   float: left;
@@ -898,6 +925,10 @@ body {
     opacity: 1;
 }
 
+.ukl-dropdown-content .ukl-mi a:hover {
+    text-decoration: underline;
+}
+
 /* show dd content */
 .ukl-dropdown:focus .ukl-dropdown-content {
   outline: none;
@@ -950,10 +981,6 @@ body {
 
 /* media queries */
 @media (max-width:560px) {
-.ukl-dropdown .ukl-dropdown-content.ukl-c {
-  margin-left: 0;
-  }
-  
 .ukl-dropbtn.ukl-c::before {
   background: #0033a0;
   }
@@ -963,7 +990,7 @@ body {
   width: 75px;
   height: 75px;
   color: white;
-  padding-right: 1.3rem;
+  padding-right: .5em;
   border-right: 1px solid white;
 }
 
@@ -974,12 +1001,12 @@ body {
   }
 }
 
-div#ukl-gethome>a{
+div#ukl-gethome>a {
   max-height: 20vh;
   display: flex;
   align-items: center;
   max-width: 250px;
-  gap: 1.5rem;
+  gap: .5em;
 }
 
 div#ukl-gethome>a>img {
