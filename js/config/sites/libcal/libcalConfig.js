@@ -13,6 +13,8 @@ export default {
 	home_url: "https://libcal.uky.edu",
 	custom_logo: true,
 	image_path: "./js/config/sites/libcal/logo.png",
+	image_path_fallback:
+		"https://cdn.jsdelivr.net/gh/uklibraries/UKL_HeaderFooter@dev/js/config/sites/libcal/logo.png",
 	bases: [
 		{
 			label: "home",
