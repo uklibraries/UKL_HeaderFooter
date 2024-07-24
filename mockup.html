@@ -28,11 +28,44 @@
 			};
 		</script>
 		<!-- universal header/footer files start -->
-		<link rel="stylesheet" href="./css/global_header_footer.css" media="all" />
+		<link
+			id="ukl-header-styles"
+			rel="stylesheet"
+			href="./css/global_header_footer.css"
+			media="all"
+		/>
 		<script
-			id="headerScript"
+			id="ukl-header-script"
 			type="module"
 			src="./js/universalheader.js"
+			onerror="
+			(() => {
+				// Remove this script
+				old_script = document.querySelector('#ukl-header-script');
+				old_script.remove();
+
+				// Use the fallback css
+				const styles = document.querySelector('#ukl-header-styles');
+				styles.href='https://cdn.jsdelivr.net/gh/uklibraries/UKL_HeaderFooter@dev/css/global_header_footer.css'
+				
+				// Create a new script and use fallback js
+				const script = document.createElement('script');
+				script.id = 'ukl-header-script';
+				script.type = 'module';
+				script.src = 'https://cdn.jsdelivr.net/gh/uklibraries/UKL_HeaderFooter@dev/js/universalheader.js';
+				script.dataset.base_path = 'libcal';
+				document.head.appendChild(script);
+
+				// Remove footer script
+				old_footer=document.querySelector('#ukl-footer-script')
+				old_footer.remove();
+				
+				// Create a new footer script and use fallback js
+				const footer_script = document.createElement('script');
+				footer_script.src='https://cdn.jsdelivr.net/gh/uklibraries/UKL_HeaderFooter@dev/js/combofootershared.js';
+				document.body.appendChild(footer_script);
+			})();
+			"
 			data-base_path="libcal"
 		></script>
 		<!-- universal header/footer files end -->
@@ -196,7 +229,7 @@
 			</div>
 		</div>
 		<!-- universal header/footer file part 2 start -->
-		<script src="./js/combofootershared.js"></script>
+		<script id="ukl-footer-script" src="./js/combofootershared.js"></script>
 		<!-- universal header/footer files part 2 end -->
 	</body>
 </html>
