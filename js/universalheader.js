@@ -1,5 +1,6 @@
 import globalConfig from "../js/config/global/globalConfig.js";
-const base_path = document.querySelector("#headerScript").dataset.base_path;
+const base_path =
+	document.querySelector("#ukl-header-script").dataset.base_path;
 const module_path = `./config/sites/${base_path}/${base_path}Config.js`;
 
 let {
