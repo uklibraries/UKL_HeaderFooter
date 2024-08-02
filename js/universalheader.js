@@ -79,7 +79,7 @@ function insertHTML(localConfig) {
 	} = headerStrings;
 
 	const ukDiv = document.createElement("div");
-	ukDiv.id = "ukheader";
+	ukDiv.id = "ukl-header";
 	ukDiv.innerHTML = chooseRender();
 	document.body.insertBefore(ukDiv, document.body.firstChild);
 
