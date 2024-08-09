@@ -150,7 +150,7 @@ function insertContentAndStyle(localConfig) {
 			i.setAttribute("tabIndex", "0");
 			i.classList.add("ukl-db2");
 
-			if (base.hasOwnProperty("children")) {
+			if (Object.hasOwn(base, "children")) {
 				const menuTitle = document.createElement("span");
 				menuTitle.classList.add("ukl-dropbtn", "ukl-c");
 				const menu = document.createElement("ul");
