@@ -3,6 +3,8 @@ const base_path =
 	document.querySelector("#ukl-header-script").dataset.base_path;
 const module_path = `./config/sites/${base_path}/${base_path}Config.js`;
 
+const unusedVar = 10;
+
 let {
 	DangerTitleText,
 	DangerMsgText,
