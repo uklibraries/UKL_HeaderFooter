@@ -2,6 +2,7 @@
 
 A winter storm has occurred and campus has gone on Plan B. Only essential staff report to work. This requires activation of the Universal Headers/Footer emergency messaging which is at https://github.com/uklibraries/UKL_HeaderFooter/blob/main/js/config/global/globalConfig.js
 
+![article_header](https://github.com/user-attachments/assets/9b9f51f8-e482-4038-b7d0-303ea2622d28)
 Figure 1: Universal Headers/Footer Layers
 
 ## Workflow Steps Using GitHub Web UI:
