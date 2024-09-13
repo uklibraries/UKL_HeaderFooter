@@ -688,7 +688,7 @@ body {
     padding-bottom: 20px;
   }
 
-  .ukl-dropdown:focus .ukl-dropdown-content {
+  .ukl-dropdown:focus-within .ukl-dropdown-content {
     outline: none;
     position:inherit;
     display:block;
