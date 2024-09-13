@@ -930,7 +930,7 @@ body {
 }
 
 /* show dd content */
-.ukl-dropdown:focus .ukl-dropdown-content {
+.ukl-dropdown:focus-within .ukl-dropdown-content {
   outline: none;
   visibility: visible;
   opacity: 1;

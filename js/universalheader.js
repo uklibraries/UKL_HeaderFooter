@@ -188,10 +188,10 @@ function insertContentAndStyle(localConfig) {
 
 		init();
 
-		const div2 = document.querySelector(".ukl-menu_button_more");
-		div2.addEventListener("click", function () {
-			div2.classList.toggle("ukl-menu_button_more");
-			div2.classList.toggle("ukl-menu_button_less");
+		const menu_button = document.querySelector(".ukl-menu_button_more");
+		menu_button.addEventListener("click", function () {
+			menu_button.classList.toggle("ukl-menu_button_more");
+			menu_button.classList.toggle("ukl-menu_button_less");
 		});
 		/* toggle visibility of Springshare search box */
 		if (hdr_srch_include === 1) {
@@ -316,7 +316,7 @@ function createLogoHeaderWithMobileButton(
 		span.innerText = title;
 	}
 
-	let mobileMenuButton = document.createElement("div");
+	let mobileMenuButton = document.createElement("button");
 	mobileMenuButton.classList.add("ukl-menu_button_more", "ukl-menu_button");
 	mobileMenuButton.setAttribute("tabindex", 0);
 
