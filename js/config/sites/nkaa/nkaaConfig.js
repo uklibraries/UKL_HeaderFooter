@@ -2,7 +2,7 @@ export default {
 	hdr_simple: 1,
 	include: 0,
 	hdr_srch_include: 0,
-	hdr_width: 80,
+	hdr_width: 100,
 	hdr_alert_include: 0,
 	hdr_alert_title: "Scheduled Service Interruption",
 	hdr_alert_msg:
