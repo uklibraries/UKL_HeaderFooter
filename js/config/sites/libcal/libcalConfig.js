@@ -19,9 +19,32 @@ export default {
 			label: "home",
 		},
 		{
+			title: "",
+			label: "link1",
+		},
+		{
+			title: "",
+			label: "link2",
+		},
+		{
+			title: "",
+			label: "link3",
+			url: "",
+		},
+		{
+			title: "",
+			label: "link4",
+			url: "",
+		},
+		{
+			title: "",
+			label: "link5",
+			url: "",
+		},
+		{
 			title: "Research Guides",
 			label: "link6",
-			url: "https://libguides.uky",
+			url: "https://libguides.uky.edu",
 		},
 	],
 };
