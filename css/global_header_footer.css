@@ -658,34 +658,16 @@ body {
   }
   
   .ukl-nav-links {
-    margin-top: 20px;
-  }
-  
-  .ukl-section-heading {
-    padding-bottom: 20px;
-  }
-
-  .ukl-dropdown .ukl-dropdown-content.ukl-c  {
-    padding: 0px 0px 0px 10px;
-    margin-left: calc(-35% - 10px);
-    margin-top: -30px;
-  }
-
-  .ukl-dropbtn {
-    padding: 0px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding:2rem;
+    margin-left: 20px;
   }
 
   .ukl-dropdown .ukl-dropdown-content {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    cursor: unset;
-    z-index: unset;
-  }
-
-  .ukl-dropbtn.ukl-c {
-    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
   }
 
   /* .ukl-dropdown:focus-within .ukl-dropdown-content {
@@ -698,32 +680,10 @@ body {
     padding-top: 0px;
   } */
 
-  #ukl-getlink1:focus .ukl-dropdown-content {
-    display:block;
-  }
-
-  #ukl-getlink2:focus .ukl-dropdown-content {
-    display:block;
-  }
-
-  #ukl-getlink3:focus .ukl-dropdown-content {
-    display:block;
-  }
-
-  #ukl-getlink4:focus .ukl-dropdown-content {
-    display:block;
-  }
-  
-  #ukl-getlink5:focus .ukl-dropdown-content {
-    display:block;
-  }
-  
-  #ukl-getlink6:focus .ukl-dropdown-content {
-    display:block;
-  }
-
   .ukl-ext-clamp .ukl-global-header-layout { 
-    display: block; 
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
   } 
 
 }
@@ -865,14 +825,41 @@ body {
 /* .ukl-dropdown{
   border: 1px solid red;
 } */
+
+.ukl-link {
+  position: relative;
+}
+
+.ukl-mi{
+  width: 200px;
+}
+
 .ukl-dropdown-content {
   position: absolute;
-  transform: translateX(-1.25rem);
+  transform: translateX(-1.5rem);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
+  z-index: 10;
   background-color: #0033a0;
-  padding: 1.25rem;
+  padding: 1.5rem;
+  opacity: 1;
+}
+
+.ukl-dropbtn:focus-within::after{
+  padding: 5px;
+  content: \2212 !important;
+}
+
+.ukl-dropbtn::after{
+  padding: 5px;
+  content: "\002B"
+}
+
+@media screen and (max-width: 1023px){
+  .ukl-dropdown-content {
+    width: 50%;
+  }
 }
 
 /* dd container */

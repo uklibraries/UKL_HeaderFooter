@@ -156,6 +156,10 @@ function insertContentAndStyle(localConfig) {
 				menu.classList.add("ukl-dropdown-content", "ukl-c", "ukl-hidden");
 				button.appendChild(menuTitle).innerText = base.title;
 
+				button.addEventListener('click', () => {
+					menu.classList.contains("ukl-hidden") ? menu.classList.remove("ukl-hidden") : menu.classList.add("ukl-hidden");
+				})
+
 				button.addEventListener('mouseenter', () => {
 					menu.classList.contains("ukl-hidden") ? menu.classList.remove("ukl-hidden") : ""
 				});
@@ -170,7 +174,7 @@ function insertContentAndStyle(localConfig) {
 				
 				menu.addEventListener('focusout', (e) => {
 					!menu.contains(e.relatedTarget) && !menu.classList.contains('ukl-hidden') ? menu.classList.add('ukl-hidden') : e.stopPropagation();
-				  });
+				});
 
 				base.children.forEach((child) => {
 					menu.appendChild(createListItem(child));
@@ -273,7 +277,7 @@ function createListItem(menuItem) {
 	a.href = menuItem.url;
 	a.textContent = menuItem.title;
 	li.appendChild(a);
-	return a;
+	return li;
 }
 
 function setAnnouncement() {
