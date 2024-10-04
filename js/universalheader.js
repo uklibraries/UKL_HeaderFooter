@@ -168,9 +168,9 @@ function insertContentAndStyle(localConfig) {
 					menu.classList.contains("ukl-hidden") ? menu.classList.remove("ukl-hidden") : ""
 				});
 				
-				menu.addEventListener('focusout', () => {
-					menu.classList.contains("ukl-hidden") == false ? menu.classList.add("ukl-hidden") : ""
-				});
+				menu.addEventListener('focusout', (e) => {
+					!menu.contains(e.relatedTarget) && !menu.classList.contains('ukl-hidden') ? menu.classList.add('ukl-hidden') : e.stopPropagation();
+				  });
 
 				base.children.forEach((child) => {
 					menu.appendChild(createListItem(child));
