@@ -1,6 +1,5 @@
 import globalConfig from "../js/config/global/globalConfig.js";
-const base_path =
-	document.querySelector("#ukl-header-script").dataset.base_path;
+const base_path = document.querySelector("#ukl-header-script").dataset.base_path;
 const module_path = `./config/sites/${base_path}/${base_path}Config.js`;
 
 let {
@@ -144,23 +143,39 @@ function insertContentAndStyle(localConfig) {
 			let label = base.label;
 			let button = document.getElementById("ukl-get" + base.label);
 			button.classList.add("ukl-dropdown");
-			button.setAttribute("tabIndex", "0");
-			const i = document.createElement("i");
-			button.appendChild(i);
-			i.setAttribute("tabIndex", "0");
-			i.classList.add("ukl-db2");
-
+			// const i = document.createElement("i");
+			// button.appendChild(i);
+			// i.setAttribute("tabIndex", "0");
+			// i.classList.add("ukl-db2");
+			
 			if (Object.hasOwn(base, "children")) {
+				button.setAttribute("tabIndex", "0");
 				const menuTitle = document.createElement("span");
 				menuTitle.classList.add("ukl-dropbtn", "ukl-c");
 				const menu = document.createElement("ul");
-
+				menu.classList.add("ukl-dropdown-content", "ukl-c", "ukl-hidden");
 				button.appendChild(menuTitle).innerText = base.title;
-				menu.classList.add("ukl-dropdown-content", "ukl-c");
+
+				button.addEventListener('mouseenter', () => {
+					menu.classList.contains("ukl-hidden") ? menu.classList.remove("ukl-hidden") : ""
+				});
+				
+				button.addEventListener('mouseleave', () => {
+					!menu.classList.contains("ukl-hidden") ? menu.classList.add("ukl-hidden") : ""
+				});
+
+				button.addEventListener('focusin', () => {
+					menu.classList.contains("ukl-hidden") ? menu.classList.remove("ukl-hidden") : ""
+				});
+				
+				menu.addEventListener('focusout', () => {
+					menu.classList.contains("ukl-hidden") == false ? menu.classList.add("ukl-hidden") : ""
+				});
 
 				base.children.forEach((child) => {
 					menu.appendChild(createListItem(child));
 				});
+
 				button.appendChild(menu);
 			} else if (label == "home") {
 				createLogoHeaderWithMobileButton(
@@ -258,7 +273,7 @@ function createListItem(menuItem) {
 	a.href = menuItem.url;
 	a.textContent = menuItem.title;
 	li.appendChild(a);
-	return li;
+	return a;
 }
 
 function setAnnouncement() {
