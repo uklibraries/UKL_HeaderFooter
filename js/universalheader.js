@@ -150,30 +150,69 @@ function insertContentAndStyle(localConfig) {
 			
 			if (Object.hasOwn(base, "children")) {
 				button.setAttribute("tabIndex", "0");
+
+				const menuTitleGroup = document.createElement("div");
 				const menuTitle = document.createElement("span");
-				menuTitle.classList.add("ukl-dropbtn", "ukl-c");
+				let icon = document.createElement("figure");
 				const menu = document.createElement("ul");
+				// HTML codes for the plus and minus symbols
+				const icon_plus = "&#43;"
+				const icon_minus = "&#8722"
+				icon.innerHTML = icon_plus;
+
+				menuTitleGroup.classList.add("ukl-dropbtn", "ukl-c");
 				menu.classList.add("ukl-dropdown-content", "ukl-c", "ukl-hidden");
-				button.appendChild(menuTitle).innerText = base.title;
 
-				button.addEventListener('click', () => {
-					menu.classList.contains("ukl-hidden") ? menu.classList.remove("ukl-hidden") : menu.classList.add("ukl-hidden");
-				})
-
-				button.addEventListener('mouseenter', () => {
-					menu.classList.contains("ukl-hidden") ? menu.classList.remove("ukl-hidden") : ""
-				});
+				menuTitleGroup.appendChild(menuTitle);
+				button.appendChild(menuTitleGroup)
+				menuTitle.innerText = base.title;
+				menuTitleGroup.appendChild(icon);
 				
-				button.addEventListener('mouseleave', () => {
-					!menu.classList.contains("ukl-hidden") ? menu.classList.add("ukl-hidden") : ""
-				});
+				let clicked = false
+				function toggleHidden(){
+					if(menu.classList.contains("ukl-hidden")){
+						menu.classList.remove("ukl-hidden")
+						icon.innerHTML = icon_minus
+					} else {
+						menu.classList.add("ukl-hidden")
+						icon.innerHTML = icon_plus
+					}
+				}
+
+				function handleMouseMovement(){
+					toggleHidden()
+					button.addEventListener("mouseleave", toggleHidden)
+				}
+				
+				button.addEventListener("mouseenter", handleMouseMovement);
+
+				button.addEventListener("click", () => {
+					if(!menu.classList.contains('ukl-hidden') && !clicked){
+						button.removeEventListener("mouseenter", handleMouseMovement);
+						button.removeEventListener("mouseleave", toggleHidden);
+						clicked = true
+						console.log("click")
+					} else {
+						clicked = false
+						button.addEventListener("mouseenter", handleMouseMovement)
+						toggleHidden()
+					}
+				})	
 
 				button.addEventListener('focusin', () => {
-					menu.classList.contains("ukl-hidden") ? menu.classList.remove("ukl-hidden") : ""
+					if(menu.classList.contains("ukl-hidden")){
+						menu.classList.remove("ukl-hidden")
+						icon.innerHTML = icon_minus
+					}
 				});
 				
 				menu.addEventListener('focusout', (e) => {
-					!menu.contains(e.relatedTarget) && !menu.classList.contains('ukl-hidden') ? menu.classList.add('ukl-hidden') : e.stopPropagation();
+					if(!menu.contains(e.relatedTarget) && !menu.classList.contains('ukl-hidden')){
+						menu.classList.add('ukl-hidden')
+						icon.innerHTML = icon_plus
+					} else {
+						e.stopPropagation();
+					}
 				});
 
 				base.children.forEach((child) => {
