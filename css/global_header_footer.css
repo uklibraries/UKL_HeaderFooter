@@ -38,6 +38,15 @@
   text-decoration: none;
 }
 
+.ukl-icon{
+  margin: 0;
+}
+
+.ukl-dropdown-content {
+  list-style-type: none;
+  margin: 0;
+}
+
 .ukl-utility-links {
   font-size: 1em; 
 }
@@ -858,7 +867,8 @@ body {
 .ukl-dropbtn.ukl-c {
   display: flex;
   flex-direction: row;
-  gap: .5rem;
+  align-items: center;
+  gap: 0.5rem; 
 }
 
 @media screen and (max-width: 1023px){

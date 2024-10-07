@@ -161,7 +161,9 @@ function insertContentAndStyle(localConfig) {
 				icon.innerHTML = icon_plus;
 
 				menuTitleGroup.classList.add("ukl-dropbtn", "ukl-c");
+				menuTitle.classList.add("ukl-menu-title");
 				menu.classList.add("ukl-dropdown-content", "ukl-c", "ukl-hidden");
+				icon.classList.add("ukl-icon");
 
 				menuTitleGroup.appendChild(menuTitle);
 				button.appendChild(menuTitleGroup)
@@ -376,7 +378,6 @@ function createLogoHeaderWithMobileButton(
 
 	let mobileMenuButton = document.createElement("button");
 	mobileMenuButton.classList.add("ukl-menu_button_more", "ukl-menu_button");
-	mobileMenuButton.setAttribute("tabindex", 0);
 
 	const i = document.createElement("i");
 	i.setAttribute("tabIndex", "0");
