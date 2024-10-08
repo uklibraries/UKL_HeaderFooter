@@ -51,12 +51,12 @@ const headerStrings = {
 	ukltophdr_low_alert:
 		'<div class="ukl-site-alert" id="ukl-alert"><div class="ukl-slab__wrapper"><div class="ukl-icon-wrapper"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="#EFF4FD"></circle><rect x="22" y="12" width="4.54545" height="4.54545" fill="#1E8AFF"></rect><rect x="22" y="19.9545" width="4.54545" height="17.0455" fill="#1E8AFF"></rect></svg></div><div><h2 id="ukl-alerttlt"></h2><div class="ukl-message"><p><span id="ukl-alertmsg"></span>&nbsp;&nbsp;<span id="ukl-alertlink"></span></p></div></div></div></div>',
 	ukltophdr_survey:
-		'<div class="ukl-site-survey" id="ukl-survey"><div class="ukl-slab__wrapper"><div id="ukl-survey-foil"><h2 id="ukl-surveytlt"></h2><div class="ukl-message"><span id="ukl-surveymsg"></span><span id="ukl-surveylink"></span></div></div><div id="ukl-survey-close" class="ukl-icon-wrapper"><button class="ukl-surveybtn" id="ukl-btnCloseSurvey" title="close Survey"><span id="ukl-survey_button_less"></span></button></div></div></div>',
+		'<div class="ukl-site-survey" id="ukl-survey"><div class="ukl-slab__wrapper"><div id="ukl-survey-foil"><h2 id="ukl-surveytlt"></h2><div class="ukl-message"><span id="ukl-surveymsg"></span><span id="ukl-surveylink"></span></div></div><div id="ukl-survey-close" class="ukl-icon-wrapper"><button class="ukl-surveybtn" id="ukl-btnCloseSurvey" title="close Survey"><span id="ukl-survey-button-less"></span></button></div></div></div>',
 	ukltophdr_end_clamp: "</div>",
 };
 
 function init() {
-	document.querySelector(".ukl-menu_button").addEventListener("click", () => {
+	document.querySelector(".ukl-menu-button").addEventListener("click", () => {
 		document.querySelector(".ukl-nav-links").classList.toggle("ukl-hidden");
 		document.querySelector(".ukl-utility-links").classList.toggle("ukl-hidden");
 	});
@@ -248,10 +248,10 @@ function insertContentAndStyle(localConfig) {
 
 		init();
 
-		const menu_button = document.querySelector(".ukl-menu_button_more");
+		const menu_button = document.querySelector(".ukl-menu-button-more");
 		menu_button.addEventListener("click", function () {
-			menu_button.classList.toggle("ukl-menu_button_more");
-			menu_button.classList.toggle("ukl-menu_button_less");
+			menu_button.classList.toggle("ukl-menu-button-more");
+			menu_button.classList.toggle("ukl-menu-button-less");
 		});
 		/* toggle visibility of Springshare search box */
 		if (hdr_srch_include === 1) {
@@ -276,7 +276,7 @@ function insertContentAndStyle(localConfig) {
 				SurveyMsgBackground;
 			document.querySelector(".ukl-site-survey").style.color = SurveyMsgColor;
 			/* close survey message */
-			const div3 = document.getElementById("ukl-survey_button_less");
+			const div3 = document.getElementById("ukl-survey-button-less");
 			if (cookieExists()) {
 				document.getElementById("ukl-survey").style.display = "none";
 			}
@@ -377,7 +377,7 @@ function createLogoHeaderWithMobileButton(
 	}
 
 	let mobileMenuButton = document.createElement("button");
-	mobileMenuButton.classList.add("ukl-menu_button_more", "ukl-menu_button");
+	mobileMenuButton.classList.add("ukl-menu-button-more", "ukl-menu-button");
 
 	const i = document.createElement("i");
 	i.setAttribute("tabIndex", "0");
@@ -392,21 +392,21 @@ function createLogoHeaderWithMobileButton(
 
 function handleResize() {
 	if (window.innerWidth > 1023) {
-		document.querySelector(".ukl-menu_button").classList.add("ukl-hidden");
+		document.querySelector(".ukl-menu-button").classList.add("ukl-hidden");
 		document.querySelector(".ukl-nav-links").classList.remove("ukl-hidden");
 		document.querySelector(".ukl-utility-links").classList.remove("ukl-hidden");
 	} else {
 		if (document.querySelector(".ukl-nav-links")) {
 			document
-				.querySelector(".ukl-menu_button")
-				.classList.add("ukl-menu_button_more");
+				.querySelector(".ukl-menu-button")
+				.classList.add("ukl-menu-button-more");
 			document
-				.querySelector(".ukl-menu_button")
-				.classList.remove("ukl-menu_button_less");
+				.querySelector(".ukl-menu-button")
+				.classList.remove("ukl-menu-button-less");
 		}
 		document.querySelector(".ukl-nav-links").classList.add("ukl-hidden");
 		document.querySelector(".ukl-utility-links").classList.add("ukl-hidden");
-		document.querySelector(".ukl-menu_button").classList.remove("ukl-hidden");
+		document.querySelector(".ukl-menu-button").classList.remove("ukl-hidden");
 	}
 }
 
