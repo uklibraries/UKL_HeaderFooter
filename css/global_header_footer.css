@@ -527,7 +527,7 @@ body {
   float:right;
 }
 
-#ukl-survey_button_less {
+#ukl-survey-button-less {
   display: block;
   color: var(--bg-primary);
   float: right;
@@ -537,7 +537,7 @@ body {
   background-size: 100%;
 }
 
-#ukl-survey_button_less::after {
+#ukl-survey-button-less::after {
   font-size: 16px;
   content: "\02612 \0000a0 CLOSE";
 }
@@ -563,7 +563,7 @@ body {
   color: var(--bg-primary);
   }
 
-  #ukl-survey_button_less_mobile {
+  #ukl-survey-button-less-mobile {
     display: block;
     color: var(--bg-primary);
     margin-left: 2vmin;
@@ -572,7 +572,7 @@ body {
     background-size: 100%;
   }
 
-  #ukl-survey_button_less_mobile::after {
+  #ukl-survey-button-less-mobile::after {
     font-size: 16px;
     content: "\02612 \0000a0 CLOSE";
   }
@@ -732,7 +732,7 @@ body {
   text-decoration: none;
 }
 
-.ukl-menu_button_more {
+.ukl-menu-button-more {
   display: block;
   float: right;
   justify-content:flex-end;
@@ -744,7 +744,7 @@ body {
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 120 80" width="40" height="40" version="1.0" xmlns="http://www.w3.org/2000/svg"><rect x="15" width="90" height="15" rx="10"></rect><rect x="15" y="30" width="90" height="15" rx="10"></rect><rect x="15" y="60" width="90" height="15" rx="10"></rect></svg>');
 }
 
-.ukl-menu_button_less {
+.ukl-menu-button-less {
   display: block;
   float: right;
   justify-content:flex-end;
@@ -764,18 +764,18 @@ body {
 
 /* was 769 */
 @media screen and (min-width: 1024px) {
-    .ukl-menu_button {
+    .ukl-menu-button {
     display: none;
     }
 }
 
 /* was 768 */
 @media screen and (max-width: 1023px) { 
-  #ukl-menu_button {
+  #ukl-menu-button {
     width: 5vmin; height: 5vmin;
     }
 
-  #ukl-menu_button {
+  #ukl-menu-button {
     width: 5vmin; height: 5vmin;
     }
   .ukl-ext-clamp .ukl-global-header-layout > div {
