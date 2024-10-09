@@ -1,85 +1,50 @@
 export default {
 	hdr_simple: 0,
 	include: 1,
-	hdr_srch_include: 1,
-	hdr_width: 80,
+	hdr_srch_include: 0,
+	hdr_width: 100,
 	hdr_alert_include: 1,
-	hdr_alert_title: "Unexpected Service Disruption",
+	hdr_alert_title: "Important Notice",
 	hdr_alert_msg:
-		"We are currently working to resolve an authentication issue affect EBSCO databases.",
-	hdr_alert_url_label: "More information",
-	hdr_alert_url: "https://google.com",
-	home_label: "LibCal",
+		"The Young Library Auditorium will be unavailable for reservation beginning August 2024.",
+	hdr_alert_url_label: "More information here.",
+	hdr_alert_url: "https://libraries.uky.edu/news/young-library-auditorium-closed-events-beginning-august-2024",
+	home_label: "Hours and Scheduling",
 	home_url: "https://libcal.uky.edu",
 	custom_logo: false,
-	image_path: "./js/config/sites/libcal/logo.png",
-	image_path_fallback:
-		"https://cdn.jsdelivr.net/gh/uklibraries/UKL_HeaderFooter@dev/js/config/sites/libcal/logo.png",
+	image_path: "",
+	image_path_fallback: "",
 	bases: [
 		{
 			label: "home",
 		},
 		{
-			title: "About",
+			title: "",
 			label: "link1",
-			children: [
-				{
-					title: "About Collections",
-					label: "link1Child1",
-					url: "https://linktolibrary.com/about/collections",
-				},
-				{
-					title: "About King",
-					label: "link1Child2",
-					url: "https://linktolibrary.com/about/King",
-				},
-				{
-					title: "About UK",
-					label: "link1Child3",
-					url: "https://linktolibrary.com/about/UK",
-				},
-			],
 		},
 		{
-			title: "Kitty cats",
+			title: "",
 			label: "link2",
-			children: [
-				{
-					title: "About kats",
-					label: "link1Child1",
-					url: "https://linktolibrary.com/about/collec",
-				},
-				{
-					title: "About King",
-					label: "link1Child2",
-					url: "https://linktolibrary.com/about/King",
-				},
-				{
-					title: "About UK",
-					label: "link1Child3",
-					url: "https://linktolibrary.com/about/UK",
-				},
-			],
 		},
 		{
-			title: "Stuff 3",
+			title: "",
 			label: "link3",
-			url: "https://google.com/",
+			url: "",
 		},
 		{
-			title: "Stuff 4",
+			title: "",
 			label: "link4",
-			url: "https://google.com/",
+			url: "",
 		},
 		{
-			title: "Stuff",
+			title: "",
 			label: "link5",
-			url: "https://google.com/",
+			url: "",
 		},
 		{
 			title: "Research Guides",
 			label: "link6",
-			url: "https://libguides.uky",
+			url: "https://libguides.uky.edu",
 		},
 	],
 };
