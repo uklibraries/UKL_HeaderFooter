@@ -143,14 +143,10 @@ function insertContentAndStyle(localConfig) {
 			let label = base.label;
 			let button = document.getElementById("ukl-get" + base.label);
 			button.classList.add("ukl-dropdown");
-			// const i = document.createElement("i");
-			// button.appendChild(i);
-			// i.setAttribute("tabIndex", "0");
-			// i.classList.add("ukl-db2");
-			
+
 			if (Object.hasOwn(base, "children")) {
 				button.setAttribute("tabIndex", "0");
-
+				
 				const menuTitleGroup = document.createElement("div");
 				const menuTitle = document.createElement("span");
 				let icon = document.createElement("figure");
@@ -159,56 +155,78 @@ function insertContentAndStyle(localConfig) {
 				const icon_plus = "&#43;"
 				const icon_minus = "&#8722"
 				icon.innerHTML = icon_plus;
-
+				
 				menuTitleGroup.classList.add("ukl-dropbtn", "ukl-c");
 				menuTitle.classList.add("ukl-menu-title");
 				menu.classList.add("ukl-dropdown-content", "ukl-c", "ukl-hidden");
+				menu.setAttribute('data-clicked', false)
 				icon.classList.add("ukl-icon");
-
+				
 				menuTitleGroup.appendChild(menuTitle);
-				button.appendChild(menuTitleGroup)
+				button.appendChild(menuTitleGroup);
 				menuTitle.innerText = base.title;
 				menuTitleGroup.appendChild(icon);
 				
-				let clicked = false
-				function toggleHidden(){
-					if(menu.classList.contains("ukl-hidden")){
-						menu.classList.remove("ukl-hidden")
-						icon.innerHTML = icon_minus
-					} else {
-						menu.classList.add("ukl-hidden")
-						icon.innerHTML = icon_plus
-					}
-				}
+				button.addEventListener('mouseenter', handleMouseEnter)
+				button.addEventListener('click', () => {
+					if(!menu.classList.contains('ukl-hidden') && menu.getAttribute('data-clicked') == "true"){
+						menu.classList.add('ukl-hidden');
+						button.addEventListener('mouseenter', handleMouseEnter)
+						console.log('click added hidden');
+						let allButtons = document.querySelectorAll('.ukl-dropdown')
+						allButtons.forEach(item => {
+							item.addEventListener('mouseenter', handleMouseEnter)
+						})
 
-				function handleMouseMovement(){
-					toggleHidden()
-					button.addEventListener("mouseleave", toggleHidden)
-				}
-				
-				button.addEventListener("mouseenter", handleMouseMovement);
-
-				button.addEventListener("click", () => {
-					if(!menu.classList.contains('ukl-hidden') && !clicked){
-						button.removeEventListener("mouseenter", handleMouseMovement);
-						button.removeEventListener("mouseleave", toggleHidden);
-						clicked = true
-						console.log("click")
-					} else {
-						clicked = false
-						button.addEventListener("mouseenter", handleMouseMovement)
-						toggleHidden()
+						menu.setAttribute("data-clicked", false);
+					} else if (menu.classList.contains('ukl-hidden') && menu.getAttribute('data-clicked') == 'false') {
+						menu.classList.remove('ukl-hidden');
+						menu.setAttribute("data-clicked", true)
+						console.log("Set clicked to true")
+						button.removeEventListener('mouseenter', handleMouseEnter)
+						console.log('Click removed button mouseenter listener')
+						button.removeEventListener('mouseleave', handleMouseLeave)
+						console.log("Click removed mouseleave listener")
+						let allMenus = document.querySelectorAll('.ukl-dropdown-content');
+						allMenus.forEach(item => {
+							if(!item.classList.contains('ukl-hidden') && item !== menu){
+								item.classList.add('ukl-hidden')
+								item.setAttribute('data-clicked', false)
+								console.log(item)
+							}
+						}
+					)
+				} else if (!menu.classList.contains('ukl-hidden') && menu.getAttribute('data-clicked') == 'false') {
+					// button.removeEventListener('mouseenter', handleMouseEnter)
+					console.log('Click removed button mouseenter listener')
+					// button.removeEventListener('mouseleave', handleMouseLeave)
+					console.log("Click removed mouseleave listener")
+					menu.setAttribute('data-clicked', true);
+					let allButtons = document.querySelectorAll('.ukl-dropdown')
+					allButtons.forEach(item => {
+						item.removeEventListener('mouseenter', handleMouseEnter)
+						item.removeEventListener('mouseleave', handleMouseLeave)
+					})
+					console.log("set clicked to true")
 					}
-				})	
+					let allMenus = document.querySelectorAll('.ukl-dropdown-content');
+					allMenus.forEach(item => {
+						if(item !== menu){
+							item.setAttribute('data-clicked', false)
+							console.log(item)
+						}
+					})
+				})
 
 				button.addEventListener('focusin', () => {
 					if(menu.classList.contains("ukl-hidden")){
-						menu.classList.remove("ukl-hidden")
-						icon.innerHTML = icon_minus
+						menu.classList.remove('ukl-hidden')
+						button.setAttribute('data-clicked', false)
+						console.log('focusin')
 					}
-				});
+				})
 				
-				menu.addEventListener('focusout', (e) => {
+				button.addEventListener('focusout', (e) => {
 					if(!menu.contains(e.relatedTarget) && !menu.classList.contains('ukl-hidden')){
 						menu.classList.add('ukl-hidden')
 						icon.innerHTML = icon_plus
@@ -413,4 +431,21 @@ function handleResize() {
 function setCookie() {
 	const cExpires = new Date(now.getTime() + cookieExpiryMS).toUTCString();
 	document.cookie = `${cookieName}=;expires=${cExpires};Path=/`;
+}
+
+function handleMouseEnter(event){
+	const menu = event.currentTarget.querySelector('.ukl-dropdown-content')
+	if(menu && menu.classList.contains('ukl-hidden')){
+			menu.classList.remove('ukl-hidden');
+			event.currentTarget.addEventListener('mouseleave', handleMouseLeave)
+			console.log("Mouseenter removed hidden")
+		}
+	}
+
+function handleMouseLeave(event){
+	const menu = event.currentTarget.querySelector('.ukl-dropdown-content')
+	if(menu && !menu.classList.contains('ukl-hidden')){
+		menu.classList.add('ukl-hidden')
+		console.log("MouseLeave added hidden")
+	}
 }

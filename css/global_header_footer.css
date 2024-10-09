@@ -841,7 +841,7 @@ body {
 
 /* Utility */
 .ukl-hidden {
- display: none !important;
+ visibility: hidden;
 }
 
 .ukl-link {
