@@ -42,6 +42,10 @@
   margin: 0;
 }
 
+.ukl-link {
+  margin: 0;
+}
+
 .ukl-dropdown-content {
   list-style-type: none;
   margin: 0;
@@ -841,7 +845,7 @@ body {
 
 /* Utility */
 .ukl-hidden {
- visibility: hidden;
+ display: none !important;
 }
 
 .ukl-link {
