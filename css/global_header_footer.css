@@ -123,7 +123,6 @@
 
 .ukl-ext-clamp .ukl-global-header .ukl-slab.ukl-global-header__nav-bar {
   display: none;
-  padding: rr-gridbase(2);
 }
 
 .ukl-ext-clamp .ukl-global-header-layout > div {
@@ -197,7 +196,6 @@
 }
 
 .ukl-ext-clamp .ukl-universal-header.ukl-slab {
-  padding-left: 1.2em;
   padding-right: 1em;
 }
 
@@ -673,44 +671,39 @@ body {
   .ukl-nav-links {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     padding:2rem;
     margin-left: 20px;
   }
 
   #ukl-gethome {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
   }
-
-  .ukl-dropdown {
-    /* border-width: 1px;
-    border-color: red;
-    border-style: solid; */
-    width: fit-content;
+  
+  #ukl-gethome:first-child {
+   align-self: start; 
   }
+
+  /* .ukl-dropdown {
+    width: fit-content;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  } */
 
   .ukl-dropdown .ukl-dropdown-content {
     display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
-    /* filter: drop-shadow(10px 5px 5px #212121); */
   }
-
-  /* .ukl-dropdown:focus-within .ukl-dropdown-content {
-    outline: none;
-    position:inherit;
-    display:block;
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0px);
-    padding-top: 0px;
-  } */
 
   .ukl-ext-clamp .ukl-global-header-layout { 
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    justify-content: center;
+    align-items: baseline;
   } 
 
 }
@@ -737,10 +730,6 @@ body {
 }
 
 .ukl-menu-button-more {
-  display: block;
-  float: right;
-  justify-content:flex-end;
-  margin-left: auto;
   width: 7mm;
   height: 7mm;
   background-size: 100%;
@@ -762,7 +751,6 @@ body {
 
 @media screen and (min-width: 770px) and (max-width: 1190px) {
   .ukl-ext-clamp .ukl-slab__wrapper {
-    padding-right: 15px;
   }
 }
 
@@ -876,9 +864,20 @@ body {
 }
 
 @media screen and (max-width: 1023px){
+  .ukl-global-header-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
   .ukl-dropdown-content {
     width: 50%;
   }
+
+  .ukl-nav-links, .ukl-utility-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
 }
 
 /* dd container */
@@ -908,6 +907,6 @@ div#ukl-gethome>a>img {
 }
 
 /* Hide empty menu elements */
-.ukl-link:has(.ukl-getlink:empty) {
+.ukl-link:has(.ukl-getlink:empty), #ukl-gethdrw:empty {
   display: none;
 }
