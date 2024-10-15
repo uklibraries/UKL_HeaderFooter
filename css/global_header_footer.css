@@ -196,6 +196,7 @@
 }
 
 .ukl-ext-clamp .ukl-universal-header.ukl-slab {
+  padding-left: 1.25em;
   padding-right: 1em;
 }
 
@@ -747,11 +748,6 @@ body {
   background-size: 100%;
   /* inline SVG element! */
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M8 8 L24 24 M8 24 L24 8'/%3E%3C/svg%3E");
-}
-
-@media screen and (min-width: 770px) and (max-width: 1190px) {
-  .ukl-ext-clamp .ukl-slab__wrapper {
-  }
 }
 
 /* was 769 */
