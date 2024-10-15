@@ -906,3 +906,8 @@ div#ukl-gethome>a>img {
   height: auto;
   object-fit:cover;
 }
+
+/* Hide empty menu elements */
+.ukl-link:has(.ukl-getlink:empty) {
+  display: none;
+}
