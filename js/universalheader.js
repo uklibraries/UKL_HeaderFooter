@@ -179,7 +179,7 @@ function insertContentAndStyle(localConfig) {
 						})
 
 						menu.setAttribute("data-clicked", false);
-					} else if (menu.classList.contains('ukl-hidden') && menu.getAttribute('data-clicked') == 'false') {
+					} else if (hidden && menu.getAttribute('data-clicked') == 'false') {
 						menu.classList.remove('ukl-hidden');
 						menu.setAttribute("data-clicked", true);
 						
@@ -222,6 +222,8 @@ function insertContentAndStyle(localConfig) {
 						menu.classList.add('ukl-hidden');
 						icon.innerHTML = icon_plus;
 					} else {
+						button.setAttribute('data-clicked', false);
+						button.addEventListener('mouseenter', handleMouseEnter);
 						e.stopPropagation();
 					}
 				});
@@ -428,13 +430,13 @@ function handleMouseEnter(event){
 	const menu = event.currentTarget.querySelector('.ukl-dropdown-content')
 	if(menu && menu.classList.contains('ukl-hidden')){
 			menu.classList.remove('ukl-hidden');
-			event.currentTarget.addEventListener('mouseleave', handleMouseLeave)
+			event.currentTarget.addEventListener('mouseleave', handleMouseLeave);
 		}
 	}
 
 function handleMouseLeave(event){
 	const menu = event.currentTarget.querySelector('.ukl-dropdown-content')
 	if(menu && !menu.classList.contains('ukl-hidden')){
-		menu.classList.add('ukl-hidden')
+		menu.classList.add('ukl-hidden');
 	}
 }
