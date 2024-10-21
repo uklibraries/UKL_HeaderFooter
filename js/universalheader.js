@@ -173,7 +173,7 @@ function insertContentAndStyle(localConfig) {
 			const link5 = document.getElementById("ukl-link5");
 			const link6 = document.getElementById("ukl-link6");
 			if(link5) {
-				link5link5.style.display = "none";
+				link5.style.display = "none";
 			}
 			if(link6) {
 				link6.style.display = "none";
