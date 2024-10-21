@@ -852,11 +852,11 @@ body {
   opacity: 1;
 }
 
-.ukl-dropbtn.ukl-c {
+.ukl-dropbtn {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.5rem; 
+  gap: .5rem;
 }
 
 @media screen and (max-width: 1023px){
