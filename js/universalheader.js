@@ -139,120 +139,17 @@ function insertContentAndStyle(localConfig) {
 
 	if (include) {
 		for (const base of bases) {
-			let title = base.title;
-			let label = base.label;
-			let button = document.getElementById("ukl-get" + base.label);
-			button.classList.add("ukl-dropdown");
-
-			if (Object.hasOwn(base, "children")) {
-				button.setAttribute("tabIndex", "0");
-				
-				const menuTitleGroup = document.createElement("div");
-				const menuTitle = document.createElement("span");
-				let icon = document.createElement("figure");
-				const menu = document.createElement("ul");
-				// HTML codes for the plus and minus symbols
-				const icon_plus = "&#43;"
-				const icon_minus = "&#8722"
-				icon.innerHTML = icon_plus;
-				
-				menuTitleGroup.classList.add("ukl-dropbtn", "ukl-c");
-				menuTitle.classList.add("ukl-menu-title");
-				menu.classList.add("ukl-dropdown-content", "ukl-c", "ukl-hidden");
-				menu.setAttribute('data-clicked', false);
-				icon.classList.add("ukl-icon");
-				
-				menuTitleGroup.appendChild(menuTitle);
-				button.appendChild(menuTitleGroup);
-				menuTitle.innerText = base.title;
-				menuTitleGroup.appendChild(icon);
-				
-				button.addEventListener('mouseenter', handleMouseEnter);
-				button.addEventListener('click', () => {
-					if(!menu.classList.contains('ukl-hidden') && menu.getAttribute('data-clicked') == "true"){
-						menu.classList.add('ukl-hidden');
-						button.addEventListener('mouseenter', handleMouseEnter);
-						
-						let allButtons = document.querySelectorAll('.ukl-dropdown');
-						allButtons.forEach(item => {
-							item.addEventListener('mouseenter', handleMouseEnter);
-						})
-
-						menu.setAttribute("data-clicked", false);
-					} else if (hidden && menu.getAttribute('data-clicked') == 'false') {
-						menu.classList.remove('ukl-hidden');
-						menu.setAttribute("data-clicked", true);
-						
-						button.removeEventListener('mouseenter', handleMouseEnter);
-						button.removeEventListener('mouseleave', handleMouseLeave);
-						
-						let allMenus = document.querySelectorAll('.ukl-dropdown-content');
-						allMenus.forEach(item => {
-							if(!item.classList.contains('ukl-hidden') && item !== menu){
-								item.classList.add('ukl-hidden');
-								item.setAttribute('data-clicked', false);
-							}
-						}
-					)
-				} else if (!menu.classList.contains('ukl-hidden') && menu.getAttribute('data-clicked') == 'false') {
-					menu.setAttribute('data-clicked', true);
-					let allButtons = document.querySelectorAll('.ukl-dropdown');
-					allButtons.forEach(item => {
-						item.removeEventListener('mouseenter', handleMouseEnter);
-						item.removeEventListener('mouseleave', handleMouseLeave);
-					})
-					}
-					let allMenus = document.querySelectorAll('.ukl-dropdown-content');
-					allMenus.forEach(item => {
-						if(item !== menu){
-							item.setAttribute('data-clicked', false);
-						}
-					})
-				})
-
-				button.addEventListener('focusin', () => {
-					if(menu.classList.contains("ukl-hidden")){
-						menu.classList.remove('ukl-hidden');
-						button.setAttribute('data-clicked', false);
-					}
-				})
-				
-				button.addEventListener('focusout', (e) => {
-					if(!menu.contains(e.relatedTarget) && !menu.classList.contains('ukl-hidden')){
-						menu.classList.add('ukl-hidden');
-						icon.innerHTML = icon_plus;
-					} else {
-						button.setAttribute('data-clicked', false);
-						button.addEventListener('mouseenter', handleMouseEnter);
-						e.stopPropagation();
-					}
-				});
-
-				base.children.forEach((child) => {
-					menu.appendChild(createListItem(child));
-				});
-
-				button.appendChild(menu);
+			const { title, label, url, children } = base;
+			const container = document.getElementById("ukl-get" + label);
+			if (children && children.length > 0) {
+				setDropdownsAndListen(container, title, children);	
 			} else if (label == "home") {
-				createLogoHeaderWithMobileButton(
-					button,
-					home_url,
-					home_label,
-					custom_logo,
-					image_path,
-					image_path_fallback
-				);
+				createLogoHeaderWithMobileButton(container, home_url, home_label, custom_logo, image_path, image_path_fallback);
 			} else {
-				let url = base.url;
-				if (label) {
-					button.innerHTML =
-						'<a href="' +
-						url +
-						'" class="ukl-section-heading">' +
-						title +
-						"</a>";
+				if (label){
+					container.innerHTML = `<a href="${url}" class="ukl-section-heading">${title}</a>`;
 				} else {
-					button.innerHTML = label;
+					container.innerHTML = label;
 				}
 			}
 		}
@@ -260,20 +157,34 @@ function insertContentAndStyle(localConfig) {
 		init();
 
 		const menu_button = document.querySelector(".ukl-menu-button-more");
-		menu_button.addEventListener("click", function () {
-			menu_button.classList.toggle("ukl-menu-button-more");
-			menu_button.classList.toggle("ukl-menu-button-less");
-		});
+		if (menu_button) {
+			menu_button.addEventListener("click", function () {
+				menu_button.classList.toggle("ukl-menu-button-more");
+				menu_button.classList.toggle("ukl-menu-button-less");
+			});
+		}
+
 		/* toggle visibility of Springshare search box */
+		const search_label = document.getElementById("ukl-spring-search-label")
 		if (hdr_srch_include === 1) {
-			document.getElementById("ukl-spring-search-label").style.display =
-				"block";
-			document.getElementById("ukl-link5").style.display = "none";
-			document.getElementById("ukl-link6").style.display = "none";
+			if (search_label) {
+				search_label.style.display = "block";
+			}
+			const link5 = document.getElementById("ukl-link5");
+			const link6 = document.getElementById("ukl-link6");
+			if(link5) {
+				link5link5.style.display = "none";
+			}
+			if(link6) {
+				link6.style.display = "none";
+			}
 		} else {
-			document.getElementById("ukl-spring-search-label").style.display = "none";
+			if(search_label){
+				search_label.style.display = "none";
+			}
 		}
 	}
+
 	/* toggles for top level alert messages but not if simple header is set */
 
 	if (hdr_simple === 0) {
@@ -296,9 +207,7 @@ function insertContentAndStyle(localConfig) {
 					document.getElementById("ukl-survey").style.display = "none";
 				});
 				/* fire cookie */
-				document
-					.getElementById("ukl-survey-close")
-					.addEventListener("click", setCookie);
+				document.getElementById("ukl-survey-close").addEventListener("click", setCookie);
 			}
 		}
 	}
@@ -313,7 +222,7 @@ function insertContentAndStyle(localConfig) {
 
 	/* set custom header width */
 	if (hdr_width > 72) {
-		const wrapper = document.getElementsByClassName("ukl-slab__wrapper");
+		const wrapper = document.querySelectorAll(".ukl-slab__wrapper");
 		for (let i = 0; i < wrapper.length; i++) {
 			if (typeof wrapper[i] !== "undefined") {
 				wrapper[i].style.maxWidth = hdr_width + "em";
@@ -421,22 +330,112 @@ function handleResize() {
 	}
 }
 
+
+function setDropdownsAndListen(container, title, children){
+	let is_pinned = false;
+	container.classList.add("ukl-dropdown");
+	container.setAttribute("tabIndex", "0");
+	
+	const menu_title_and_icon = document.createElement("div");
+	const menu_title = document.createElement("span");
+	const icon = document.createElement("span");
+	const menu = document.createElement("ul");
+	
+	const ICON_PLUS = "&#43;";
+	const ICON_MINUS = "&#8722;"
+	
+	icon.innerHTML = ICON_PLUS;
+	
+	menu_title_and_icon.classList.add("ukl-dropbtn");
+	menu_title.classList.add("ukl-menu-title");
+	menu.classList.add("ukl-dropdown-content", "ukl-hidden");
+	icon.classList.add("ukl-icon");
+	
+	menu_title.innerText = title;
+	menu_title_and_icon.appendChild(menu_title);
+	menu_title_and_icon.appendChild(icon);
+	
+	container.appendChild(menu_title_and_icon);
+	
+	children.forEach((child) => {
+		menu.appendChild(createListItem(child));
+	});
+	
+	container.appendChild(menu);
+	
+	const handleMenuClick = (e) => {
+		const target = e.currentTarget
+		const menu_content = target.querySelector('.ukl-dropdown-content');
+		const icon = target.querySelector('.ukl-icon')
+		let is_open = !menu_content.classList.contains('ukl-hidden');
+		console.log(`Starting\nIs_Open: ${is_open}\nIs_Pinned: ${is_pinned}`)
+		if(!is_open && !is_pinned){
+			is_pinned = true;
+			openMenu(menu_content, icon);
+			target.removeEventListener("mouseenter", handleMouseEnter);
+			target.removeEventListener('mouseleave', handleMouseLeave);
+		} else if (is_open && is_pinned) {
+			is_pinned = false;
+			closeMenu(menu_content, icon)
+			target.addEventListener("mouseenter", handleMouseEnter);
+			target.addEventListener("mouseleave", handleMouseLeave);
+		} else if (is_open && !is_pinned){
+			is_pinned=true;
+			openMenu(menu_content, icon);
+			target.removeEventListener("mouseenter", handleMouseEnter);
+			target.removeEventListener('mouseleave', handleMouseLeave);
+		} else if (!is_open && is_pinned) {
+			is_pinned = false;
+		}
+		console.log(`Ending\nIs_Open: ${is_open}\nIs_Pinned: ${is_pinned}`)
+	}
+
+	const handleMouseEnter = (e) => {
+		const target = e.currentTarget;
+		const icon = target.querySelector('.ukl-icon');
+		const menu_content = e.currentTarget.querySelector('.ukl-dropdown-content');
+		openMenu(menu_content, icon);
+		target.addEventListener('mouseleave', handleMouseLeave);
+	}
+
+	const handleMouseLeave = (e) => {
+		const menu_content = e.currentTarget.querySelector('.ukl-dropdown-content');
+		const icon = e.currentTarget.querySelector('.ukl-icon')
+		closeMenu(menu_content, icon)
+	}
+
+	const handleFocusOut = (e) => {
+		// Remove event listeners first in case a set already exists
+		e.currentTarget.removeEventListener("mouseenter", handleMouseEnter);
+		e.currentTarget.removeEventListener("click", handleMenuClick);
+
+		const menu_content = e.currentTarget.querySelector('.ukl-dropdown-content');
+		const icon = e.currentTarget.querySelector('.ukl-icon')
+
+		closeMenu(menu_content, icon)
+		
+		is_pinned = false;
+		e.currentTarget.addEventListener("mouseenter", handleMouseEnter);
+		e.currentTarget.addEventListener("click", handleMenuClick);
+	}
+
+	function openMenu(menu, icon){
+		icon.innerHTML = ICON_MINUS;
+		menu.classList.remove('ukl-hidden');
+	}
+	
+	function closeMenu(menu, icon){
+		icon.innerHTML = ICON_PLUS;
+		menu.classList.add('ukl-hidden');
+	}
+	
+	container.addEventListener("mouseenter", handleMouseEnter);
+	container.addEventListener("click", handleMenuClick);
+	container.addEventListener("focusin", () => openMenu(menu, icon));
+	container.addEventListener("focusout", handleFocusOut);
+}
+
 function setCookie() {
 	const cExpires = new Date(now.getTime() + cookieExpiryMS).toUTCString();
 	document.cookie = `${cookieName}=;expires=${cExpires};Path=/`;
-}
-
-function handleMouseEnter(event){
-	const menu = event.currentTarget.querySelector('.ukl-dropdown-content')
-	if(menu && menu.classList.contains('ukl-hidden')){
-			menu.classList.remove('ukl-hidden');
-			event.currentTarget.addEventListener('mouseleave', handleMouseLeave);
-		}
-	}
-
-function handleMouseLeave(event){
-	const menu = event.currentTarget.querySelector('.ukl-dropdown-content')
-	if(menu && !menu.classList.contains('ukl-hidden')){
-		menu.classList.add('ukl-hidden');
-	}
 }
