@@ -400,23 +400,35 @@ function setDropdownsAndListen(container, title, children){
 
 	const handleMouseLeave = (e) => {
 		const menu_content = e.currentTarget.querySelector('.ukl-dropdown-content');
-		const icon = e.currentTarget.querySelector('.ukl-icon')
+		const icon = e.currentTarget.querySelector('.ukl-icon');
 		closeMenu(menu_content, icon)
 	}
 
 	const handleFocusOut = (e) => {
+		const target = e.currentTarget;
+
 		// Remove event listeners first in case a set already exists
-		e.currentTarget.removeEventListener("mouseenter", handleMouseEnter);
-		e.currentTarget.removeEventListener("click", handleMenuClick);
+		target.removeEventListener("mouseenter", handleMouseEnter);
+		target.removeEventListener("click", handleMenuClick);
 
-		const menu_content = e.currentTarget.querySelector('.ukl-dropdown-content');
-		const icon = e.currentTarget.querySelector('.ukl-icon')
+		const menu_content = target.querySelector('.ukl-dropdown-content');
+		const icon = target.querySelector('.ukl-icon');
 
-		closeMenu(menu_content, icon)
+		if(!target.contains(e.relatedTarget)){
+			closeMenu(menu_content, icon);
+			is_pinned = false;
+		} else {
+			e.stopPropagation();
+		}
 		
-		is_pinned = false;
 		e.currentTarget.addEventListener("mouseenter", handleMouseEnter);
 		e.currentTarget.addEventListener("click", handleMenuClick);
+	}
+
+	const handleFocusIn = (e) => {
+		const menu_content = e.currentTarget.querySelector('.ukl-dropdown-content');
+		const icon = e.currentTarget.querySelector('.ukl-icon');
+		openMenu(menu_content, icon);
 	}
 
 	function openMenu(menu, icon){
@@ -431,7 +443,7 @@ function setDropdownsAndListen(container, title, children){
 	
 	container.addEventListener("mouseenter", handleMouseEnter);
 	container.addEventListener("click", handleMenuClick);
-	container.addEventListener("focusin", () => openMenu(menu, icon));
+	container.addEventListener("focusin", handleFocusIn);
 	container.addEventListener("focusout", handleFocusOut);
 }
 
