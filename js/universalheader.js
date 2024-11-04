@@ -47,7 +47,7 @@ const headerStrings = {
 	ukltophdr_univlvl:
 		'<div class="ukl-slab ukl-universal-header"><div class="ukl-slab__wrapper"><div class="ukl-universal-header__layout"><div class="ukl-universal-breadcrumb" role="region" aria-label="Breadcrumb"><ul><li><a class="ukl-link--fancy-reverse" href="https://www.uky.edu" title="Back to University of Kentucky home page">University of Kentucky <sub>&#174;</sub></a></li><li><a class="ukl-link--sans" href="https://libraries.uky.edu">UK Libraries</a></li></ul></div><div class="ukl-universal-nav" role="region" aria-label="Navigation"><div class="ukl-show-for-sr" id="ukl-UniversalNavLabel">University-wide Navigation</div><a class="ukl-my-uk-logo" href="https://myuk.uky.edu" title="Log into the myUK portal"><svg focusable="false" aria-hidden="true" viewBox="0 0 61 27" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fill-rule="evenodd"><path d="M57.878 24.676c0-.174.034-.337.1-.49a1.29 1.29 0 0 1 .668-.669c.152-.067.315-.1.488-.1s.336.033.488.1a1.29 1.29 0 0 1 .668.67c.066.152.1.315.1.49 0 .174-.034.336-.1.488a1.284 1.284 0 0 1-.668.671c-.152.067-.315.101-.488.101s-.336-.034-.488-.1a1.289 1.289 0 0 1-.668-.672 1.215 1.215 0 0 1-.1-.489zm.182 0a1.103 1.103 0 0 0 .314.763c.098.097.211.174.341.23.13.056.27.085.42.085a1.053 1.053 0 0 0 .758-.315c.096-.098.173-.211.23-.343.056-.13.084-.27.084-.42a1.06 1.06 0 0 0-.314-.761 1.053 1.053 0 0 0-.759-.316 1.054 1.054 0 0 0-.76.316 1.099 1.099 0 0 0-.314.761zm.8.722h-.182v-1.453h.557c.164 0 .281.034.352.103.068.069.104.168.104.3 0 .068-.01.125-.03.173a.358.358 0 0 1-.196.197.635.635 0 0 1-.138.043l.43.637h-.205l-.432-.637h-.26v.637zm0-.799h.233c.05 0 .1-.002.149-.005a.426.426 0 0 0 .133-.031.246.246 0 0 0 .097-.075.235.235 0 0 0 .037-.14.226.226 0 0 0-.029-.118.225.225 0 0 0-.075-.072.32.32 0 0 0-.104-.038.566.566 0 0 0-.117-.012h-.323v.491zm-46.745-6.412c0-.346.068-.833.162-1.227l.744-4c.326-1.782.187-2.591-1.07-2.591-.72 0-1.325.254-2.279.786l-1.371 8.142H5.952l1.071-6.338c.301-1.804.232-2.59-1-2.59-.744 0-1.326.254-2.28.786l-1.371 8.142H0l1.465-8.582L0 9.767v-.232l3.953-1.156.093.07-.326 2.15.094.07C5.394 9.235 6.65 8.518 7.79 8.518c1.278 0 1.814.925 1.836 2.105l.093.07c1.558-1.435 2.86-2.175 4.023-2.175 1.604 0 2.116 1.457 1.675 3.793l-.907 4.742c-.164.926.046 1.204 2.116 1.25l.068.162c-1.046.647-2.208 1.087-3.115 1.087-1.07 0-1.464-.578-1.464-1.365"></path><path d="M15.13 22.333c0-.754.44-1.416 1.188-1.416.945 0 1.451 1.028 1.407 2.284.968-.548 2.068-1.919 2.816-3.358-.616-3.265-1.672-6.988-2.31-8.587-.243-.594-.462-.822-.88-.822-.264 0-.704.092-1.364.343l-.132-.183c.858-1.096 1.848-2.033 2.75-2.033.77 0 1.166.389 1.54 1.142.572 1.097 1.386 4.134 1.826 7.217h.109a71.802 71.802 0 0 0 1.98-8.542h.176l2.023 1.006c-1.957 4.658-4.31 10.985-6.774 13.475-.858.867-1.606 1.347-2.486 1.347-1.165 0-1.87-.868-1.87-1.873m19.511-9.431h-1.71v-9.16h1.711V1.454h-7.983v2.29h1.71v9.16l2.281 2.29h3.992zm5.703 2.29h3.991l2.282-2.29V3.744h1.71v-2.29h-7.983v2.29h1.71v9.158h-1.71z"></path><path d="M48.469 17.339l4.99-5.01h2.28V10.04h-8.554v2.29h.856l-3.421 3.434h-4.847V12.33h1.71v-2.29H33.5v2.29h1.71v10.303H33.5v2.29h7.984v-2.29h-1.71V19.2h4.847l3.42 3.434h-.855v2.29h8.554v-2.29h-1.996z"></path><path d="M39.201.308v4.58h1.711v4.007H34.07V4.888h1.712V.308H25.516v4.58h1.711v8.587l2.85 2.862h3.992v5.152h-1.71v4.58h10.264v-4.58h-1.71v-1.146h3.136l1.996 2.005v3.721H56.88v-4.58h-2.567l-4.133-4.15 3.848-3.864h2.852v-4.58h-9.124V4.888h1.71V.308H39.2zm.571.573h9.125v3.435h-1.711v5.152h9.123v3.434h-2.565l-4.42 4.437 4.705 4.722h2.28v3.436h-9.693V22.06l-2.282-2.29h-3.991v2.29h1.71v3.436h-9.125V22.06h1.712v-6.297h-4.278l-2.566-2.576V4.316h-1.711V.88h9.124v3.435H33.5v5.152h7.985V4.316h-1.712V.88z"></path></g></svg><span class="ukl-show-for-sr">My UK</span></a></div></div></div></div>',
 	ukltophdr_sitehdr:
-		'<div id="ukl-site-lvl"><div class="ukl-ext-clamp"><header id="ukl-main-header" class="ukl-global-header "><div class="ukl-slab"><div class="ukl-slab__wrapper"><div class="ukl-global-header"><div class="ukl-global-header-layout"><div id="ukl-gethome"></div><span id="ukl-gethdrw"></span> <div class="ukl-nav-links"><div class="ukl-link" id="ukl-link1"><div id="ukl-getlink1"></div></div><div class="ukl-link" id="ukl-link2"><div id="ukl-getlink2"></div></div><div class="ukl-link" id="ukl-link3"><div id="ukl-getlink3"></div></div><div class="ukl-link" id="ukl-link4"><div id="ukl-getlink4"></div></div></div><div class="ukl-utility-links"><div id="ukl-spring-search-label"><form action="https://libguides.uky.edu/srch.php" role="search"><label id="ukl-spring-search-label" for="searchTerm"><input type="text" id="ukl-search-term" name="q" placeholder="Search our Guides">&nbsp;</label><button type="submit" id="ukl-spring-btn">Search</button></form></div><div class="ukl-link" id="ukl-link5"><div id="ukl-getlink5"></div></div><div class="ukl-link" id="ukl-link6"><div id="ukl-getlink6"></div></div></div></div></div></div></div></header></div>',
+		'<div id="ukl-site-lvl"><div class="ukl-ext-clamp"><header id="ukl-main-header" class="ukl-global-header "><div class="ukl-slab"><div class="ukl-slab__wrapper"><div class="ukl-global-header"><div class="ukl-global-header-layout"><div id="ukl-gethome"></div><span id="ukl-gethdrw"></span> <div class="ukl-nav-links"><div class="ukl-link" id="ukl-link1"><div class="ukl-getlink" id="ukl-getlink1"></div></div><div class="ukl-link" id="ukl-link2"><div class="ukl-getlink" id="ukl-getlink2"></div></div><div class="ukl-link" id="ukl-link3"><div class="ukl-getlink" id="ukl-getlink3"></div></div><div class="ukl-link" id="ukl-link4"><div class="ukl-getlink" id="ukl-getlink4"></div></div></div><div class="ukl-utility-links"><div id="ukl-spring-search-label"><form action="https://libguides.uky.edu/srch.php" role="search"><label id="ukl-spring-search-label" for="searchTerm"><input type="text" id="ukl-search-term" name="q" placeholder="Search our Guides">&nbsp;</label><button type="submit" id="ukl-spring-btn">Search</button></form></div><div class="ukl-link" id="ukl-link5"><div id="ukl-getlink5"></div></div><div class="ukl-link" id="ukl-link6"><div id="ukl-getlink6"></div></div></div></div></div></div></div></header></div>',
 	ukltophdr_low_alert:
 		'<div class="ukl-site-alert" id="ukl-alert"><div class="ukl-slab__wrapper"><div class="ukl-icon-wrapper"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="#EFF4FD"></circle><rect x="22" y="12" width="4.54545" height="4.54545" fill="#1E8AFF"></rect><rect x="22" y="19.9545" width="4.54545" height="17.0455" fill="#1E8AFF"></rect></svg></div><div><h2 id="ukl-alerttlt"></h2><div class="ukl-message"><p><span id="ukl-alertmsg"></span>&nbsp;&nbsp;<span id="ukl-alertlink"></span></p></div></div></div></div>',
 	ukltophdr_survey:
@@ -139,109 +139,17 @@ function insertContentAndStyle(localConfig) {
 
 	if (include) {
 		for (const base of bases) {
-			let title = base.title;
-			let label = base.label;
-			let button = document.getElementById("ukl-get" + base.label);
-			button.classList.add("ukl-dropdown");
-			// const i = document.createElement("i");
-			// button.appendChild(i);
-			// i.setAttribute("tabIndex", "0");
-			// i.classList.add("ukl-db2");
-			
-			if (Object.hasOwn(base, "children")) {
-				button.setAttribute("tabIndex", "0");
-
-				const menuTitleGroup = document.createElement("div");
-				const menuTitle = document.createElement("span");
-				let icon = document.createElement("figure");
-				const menu = document.createElement("ul");
-				// HTML codes for the plus and minus symbols
-				const icon_plus = "&#43;"
-				const icon_minus = "&#8722"
-				icon.innerHTML = icon_plus;
-
-				menuTitleGroup.classList.add("ukl-dropbtn", "ukl-c");
-				menuTitle.classList.add("ukl-menu-title");
-				menu.classList.add("ukl-dropdown-content", "ukl-c", "ukl-hidden");
-				icon.classList.add("ukl-icon");
-
-				menuTitleGroup.appendChild(menuTitle);
-				button.appendChild(menuTitleGroup)
-				menuTitle.innerText = base.title;
-				menuTitleGroup.appendChild(icon);
-				
-				let clicked = false
-				function toggleHidden(){
-					if(menu.classList.contains("ukl-hidden")){
-						menu.classList.remove("ukl-hidden")
-						icon.innerHTML = icon_minus
-					} else {
-						menu.classList.add("ukl-hidden")
-						icon.innerHTML = icon_plus
-					}
-				}
-
-				function handleMouseMovement(){
-					toggleHidden()
-					button.addEventListener("mouseleave", toggleHidden)
-				}
-				
-				button.addEventListener("mouseenter", handleMouseMovement);
-
-				button.addEventListener("click", () => {
-					if(!menu.classList.contains('ukl-hidden') && !clicked){
-						button.removeEventListener("mouseenter", handleMouseMovement);
-						button.removeEventListener("mouseleave", toggleHidden);
-						clicked = true
-						console.log("click")
-					} else {
-						clicked = false
-						button.addEventListener("mouseenter", handleMouseMovement)
-						toggleHidden()
-					}
-				})	
-
-				button.addEventListener('focusin', () => {
-					if(menu.classList.contains("ukl-hidden")){
-						menu.classList.remove("ukl-hidden")
-						icon.innerHTML = icon_minus
-					}
-				});
-				
-				menu.addEventListener('focusout', (e) => {
-					if(!menu.contains(e.relatedTarget) && !menu.classList.contains('ukl-hidden')){
-						menu.classList.add('ukl-hidden')
-						icon.innerHTML = icon_plus
-					} else {
-						e.stopPropagation();
-					}
-				});
-
-				base.children.forEach((child) => {
-					menu.appendChild(createListItem(child));
-				});
-
-				button.appendChild(menu);
+			const { title, label, url, children } = base;
+			const container = document.getElementById("ukl-get" + label);
+			if (children && children.length > 0) {
+				setDropdownsAndListen(container, title, children);	
 			} else if (label == "home") {
-				createLogoHeaderWithMobileButton(
-					button,
-					home_url,
-					home_label,
-					custom_logo,
-					image_path,
-					image_path_fallback
-				);
+				createLogoHeaderWithMobileButton(container, home_url, home_label, custom_logo, image_path, image_path_fallback);
 			} else {
-				let url = base.url;
-				if (label) {
-					button.innerHTML =
-						'<a href="' +
-						url +
-						'" class="ukl-section-heading">' +
-						title +
-						"</a>";
+				if (label){
+					container.innerHTML = `<a href="${url}" class="ukl-section-heading">${title}</a>`;
 				} else {
-					button.innerHTML = label;
+					container.innerHTML = label;
 				}
 			}
 		}
@@ -249,20 +157,34 @@ function insertContentAndStyle(localConfig) {
 		init();
 
 		const menu_button = document.querySelector(".ukl-menu-button-more");
-		menu_button.addEventListener("click", function () {
-			menu_button.classList.toggle("ukl-menu-button-more");
-			menu_button.classList.toggle("ukl-menu-button-less");
-		});
+		if (menu_button) {
+			menu_button.addEventListener("click", function () {
+				menu_button.classList.toggle("ukl-menu-button-more");
+				menu_button.classList.toggle("ukl-menu-button-less");
+			});
+		}
+
 		/* toggle visibility of Springshare search box */
+		const search_label = document.getElementById("ukl-spring-search-label")
 		if (hdr_srch_include === 1) {
-			document.getElementById("ukl-spring-search-label").style.display =
-				"block";
-			document.getElementById("ukl-link5").style.display = "none";
-			document.getElementById("ukl-link6").style.display = "none";
+			if (search_label) {
+				search_label.style.display = "block";
+			}
+			const link5 = document.getElementById("ukl-link5");
+			const link6 = document.getElementById("ukl-link6");
+			if(link5) {
+				link5.style.display = "none";
+			}
+			if(link6) {
+				link6.style.display = "none";
+			}
 		} else {
-			document.getElementById("ukl-spring-search-label").style.display = "none";
+			if(search_label){
+				search_label.style.display = "none";
+			}
 		}
 	}
+
 	/* toggles for top level alert messages but not if simple header is set */
 
 	if (hdr_simple === 0) {
@@ -285,9 +207,7 @@ function insertContentAndStyle(localConfig) {
 					document.getElementById("ukl-survey").style.display = "none";
 				});
 				/* fire cookie */
-				document
-					.getElementById("ukl-survey-close")
-					.addEventListener("click", setCookie);
+				document.getElementById("ukl-survey-close").addEventListener("click", setCookie);
 			}
 		}
 	}
@@ -302,7 +222,7 @@ function insertContentAndStyle(localConfig) {
 
 	/* set custom header width */
 	if (hdr_width > 72) {
-		const wrapper = document.getElementsByClassName("ukl-slab__wrapper");
+		const wrapper = document.querySelectorAll(".ukl-slab__wrapper");
 		for (let i = 0; i < wrapper.length; i++) {
 			if (typeof wrapper[i] !== "undefined") {
 				wrapper[i].style.maxWidth = hdr_width + "em";
@@ -408,6 +328,123 @@ function handleResize() {
 		document.querySelector(".ukl-utility-links").classList.add("ukl-hidden");
 		document.querySelector(".ukl-menu-button").classList.remove("ukl-hidden");
 	}
+}
+
+
+function setDropdownsAndListen(container, title, children){
+	let is_pinned = false;
+	container.classList.add("ukl-dropdown");
+	container.setAttribute("tabIndex", "0");
+	
+	const menu_title_and_icon = document.createElement("div");
+	const menu_title = document.createElement("span");
+	const icon = document.createElement("span");
+	const menu = document.createElement("ul");
+	
+	const ICON_PLUS = "&#43;";
+	const ICON_MINUS = "&#8722;"
+	
+	icon.innerHTML = ICON_PLUS;
+	
+	menu_title_and_icon.classList.add("ukl-dropbtn");
+	menu_title.classList.add("ukl-menu-title");
+	menu.classList.add("ukl-dropdown-content", "ukl-hidden");
+	icon.classList.add("ukl-icon");
+	
+	menu_title.innerText = title;
+	menu_title_and_icon.appendChild(menu_title);
+	menu_title_and_icon.appendChild(icon);
+	
+	container.appendChild(menu_title_and_icon);
+	
+	children.forEach((child) => {
+		menu.appendChild(createListItem(child));
+	});
+	
+	container.appendChild(menu);
+	
+	const handleMenuClick = (e) => {
+		const target = e.currentTarget
+		const menu_content = target.querySelector('.ukl-dropdown-content');
+		const icon = target.querySelector('.ukl-icon')
+		let is_open = !menu_content.classList.contains('ukl-hidden');
+		console.log(`Starting\nIs_Open: ${is_open}\nIs_Pinned: ${is_pinned}`)
+		if(!is_open && !is_pinned){
+			is_pinned = true;
+			openMenu(menu_content, icon);
+			target.removeEventListener("mouseenter", handleMouseEnter);
+			target.removeEventListener('mouseleave', handleMouseLeave);
+		} else if (is_open && is_pinned) {
+			is_pinned = false;
+			closeMenu(menu_content, icon)
+			target.addEventListener("mouseenter", handleMouseEnter);
+			target.addEventListener("mouseleave", handleMouseLeave);
+		} else if (is_open && !is_pinned){
+			is_pinned=true;
+			openMenu(menu_content, icon);
+			target.removeEventListener("mouseenter", handleMouseEnter);
+			target.removeEventListener('mouseleave', handleMouseLeave);
+		} else if (!is_open && is_pinned) {
+			is_pinned = false;
+		}
+		console.log(`Ending\nIs_Open: ${is_open}\nIs_Pinned: ${is_pinned}`)
+	}
+
+	const handleMouseEnter = (e) => {
+		const target = e.currentTarget;
+		const icon = target.querySelector('.ukl-icon');
+		const menu_content = e.currentTarget.querySelector('.ukl-dropdown-content');
+		openMenu(menu_content, icon);
+		target.addEventListener('mouseleave', handleMouseLeave);
+	}
+
+	const handleMouseLeave = (e) => {
+		const menu_content = e.currentTarget.querySelector('.ukl-dropdown-content');
+		const icon = e.currentTarget.querySelector('.ukl-icon');
+		closeMenu(menu_content, icon)
+	}
+
+	const handleFocusOut = (e) => {
+		const target = e.currentTarget;
+
+		// Remove event listeners first in case a set already exists
+		target.removeEventListener("mouseenter", handleMouseEnter);
+		target.removeEventListener("click", handleMenuClick);
+
+		const menu_content = target.querySelector('.ukl-dropdown-content');
+		const icon = target.querySelector('.ukl-icon');
+
+		if(!target.contains(e.relatedTarget)){
+			closeMenu(menu_content, icon);
+			is_pinned = false;
+		} else {
+			e.stopPropagation();
+		}
+		
+		e.currentTarget.addEventListener("mouseenter", handleMouseEnter);
+		e.currentTarget.addEventListener("click", handleMenuClick);
+	}
+
+	const handleFocusIn = (e) => {
+		const menu_content = e.currentTarget.querySelector('.ukl-dropdown-content');
+		const icon = e.currentTarget.querySelector('.ukl-icon');
+		openMenu(menu_content, icon);
+	}
+
+	function openMenu(menu, icon){
+		icon.innerHTML = ICON_MINUS;
+		menu.classList.remove('ukl-hidden');
+	}
+	
+	function closeMenu(menu, icon){
+		icon.innerHTML = ICON_PLUS;
+		menu.classList.add('ukl-hidden');
+	}
+	
+	container.addEventListener("mouseenter", handleMouseEnter);
+	container.addEventListener("click", handleMenuClick);
+	container.addEventListener("focusin", handleFocusIn);
+	container.addEventListener("focusout", handleFocusOut);
 }
 
 function setCookie() {
