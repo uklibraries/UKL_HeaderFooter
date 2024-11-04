@@ -34,4 +34,4 @@ Jay has set the http response headers for the ukhdr directory and subdirectories
 Please contact any of those listed on attributions below.
 
 # Attribution
-Code co-authored by [Eric Weig](@libmanuk) and [Neal Powers](@nealium104) with contributions by [MLE Slone](@cokernel).
+Code co-authored by [Eric Weig](https://github.com/libmanuk/) and [Neal Powers](https://github.com/Nealium104/) with contributions by [MLE Slone](https://github.com/cokernel/).
