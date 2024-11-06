@@ -1,46 +1,46 @@
-import globalConfig from "../js/config/global/globalConfig.js";
+import global_config from "../js/config/global/globalConfig.js";
 const base_path = document.querySelector("#ukl-header-script").dataset.base_path;
 const module_path = `./config/sites/${base_path}/${base_path}Config.js`;
 
 let {
-	DangerTitleText,
-	DangerMsgText,
-	DangerMsgToggle,
-	DangerMsgBackground,
-	DangerMsgColor,
-	DangerLinkColor,
-	WarningTitleText,
-	WarningMsgText,
-	WarningMsgToggle,
-	WarningMsgBackground,
-	WarningMsgColor,
-	WarningLinkColor,
-	AnnouncementTitleText,
-	AnnouncementMsgToggle,
-	AnnouncementMsgBackground,
-	AnnouncementMsgColor,
-	AnnouncementLinkColor,
-	AnnouncementMsgText,
-	SurveyMsgToggle,
-} = globalConfig;
+	danger_title_text,
+	danger_msg_text,
+	danger_msg_toggle,
+	danger_msg_background,
+	danger_msg_color,
+	danger_link_color,
+	warning_title_text,
+	warning_msg_text,
+	warning_msg_toggle,
+	warning_msg_background,
+	warning_msg_color,
+	warning_link_color,
+	announcement_title_text,
+	announcement_msg_toggle,
+	announcement_msg_background,
+	announcement_msg_color,
+	announcement_link_color,
+	announcement_msg_text,
+	survey_msg_toggle,
+} = global_config;
 
 import(module_path).then((module) => {
-	const localConfig = module.default;
-	insertHTML(localConfig);
-	insertContentAndStyle(localConfig);
+	const local_config = module.default;
+	insertHTML(local_config);
+	insertContentAndStyle(local_config);
 });
 
-const cookieName = "ukl-survey";
+const cookie_name = "ukl-survey";
 // 300000 = 5 minutes
-const cookieExpiryMS = 300000;
+const cookie_expiry_ms = 300000;
 const now = new Date();
 const cookieExists = () => {
 	return document.cookie.split(";").some((cookie) => {
-		return cookie.trim().startsWith(cookieName + "=");
+		return cookie.trim().startsWith(cookie_name + "=");
 	});
 };
 
-const headerStrings = {
+const header_strings = {
 	ukltophdr_start_clamp: '<div class="ukl-ext-clamp">',
 	ukltophdr_top_alert:
 		'<div id="ukl-top-alert" class="banner-alert"><div class="ukl-slab"><div class="ukl-slab__wrapper"><span class="ukl-icon-label"><span class="ic ic--alert" aria-hidden="true"></span><span id="ukl-tltalert"></span></span><div class="ukl-message"><p id="ukl-msgalert"></p><p>More at&nbsp;<a href="https://www.uky.edu/alert" id="ukl-global-alert-link" title="www.uky.edu/alert">www.uky.edu/alert</a></p><p>&nbsp;</p></div></div></div></div>',
@@ -64,8 +64,8 @@ function init() {
 	handleResize();
 }
 
-function insertHTML(localConfig) {
-	let { hdr_simple, include, hdr_alert_include } = localConfig;
+function insertHTML(local_config) {
+	let { hdr_simple, include, hdr_alert_include } = local_config;
 
 	let {
 		ukltophdr_start_clamp,
@@ -75,40 +75,40 @@ function insertHTML(localConfig) {
 		ukltophdr_low_alert,
 		ukltophdr_survey,
 		ukltophdr_end_clamp,
-	} = headerStrings;
+	} = header_strings;
 
-	const ukDiv = document.createElement("div");
-	ukDiv.id = "ukl-header";
-	ukDiv.innerHTML = chooseRender();
-	document.body.insertBefore(ukDiv, document.body.firstChild);
+	const uk_div = document.createElement("div");
+	uk_div.id = "ukl-header";
+	uk_div.innerHTML = chooseRender();
+	document.body.insertBefore(uk_div, document.body.firstChild);
 
 	function chooseRender() {
-		let headerContent = "";
+		let header_content = "";
 		if (hdr_simple == 1) {
-			headerContent += ukltophdr_start_clamp;
-			headerContent += ukltophdr_univlvl;
-			headerContent += include === 1 ? ukltophdr_sitehdr : "";
-			headerContent += hdr_alert_include === 1 ? ukltophdr_low_alert : "";
-			headerContent += ukltophdr_end_clamp;
-			return headerContent;
+			header_content += ukltophdr_start_clamp;
+			header_content += ukltophdr_univlvl;
+			header_content += include === 1 ? ukltophdr_sitehdr : "";
+			header_content += hdr_alert_include === 1 ? ukltophdr_low_alert : "";
+			header_content += ukltophdr_end_clamp;
+			return header_content;
 		}
-		headerContent += ukltophdr_start_clamp;
-		headerContent +=
-			DangerMsgToggle == "on" ||
-			WarningMsgToggle == "on" ||
-			AnnouncementMsgToggle == "on"
+		header_content += ukltophdr_start_clamp;
+		header_content +=
+			danger_msg_toggle == "on" ||
+			warning_msg_toggle == "on" ||
+			announcement_msg_toggle == "on"
 				? ukltophdr_top_alert
 				: "";
-		headerContent += ukltophdr_univlvl;
-		headerContent += include === 1 ? ukltophdr_sitehdr : "";
-		headerContent += hdr_alert_include === 1 ? ukltophdr_low_alert : "";
-		headerContent += SurveyMsgToggle === "on" ? ukltophdr_survey : "";
-		headerContent += ukltophdr_end_clamp;
-		return headerContent;
+		header_content += ukltophdr_univlvl;
+		header_content += include === 1 ? ukltophdr_sitehdr : "";
+		header_content += hdr_alert_include === 1 ? ukltophdr_low_alert : "";
+		header_content += survey_msg_toggle === "on" ? ukltophdr_survey : "";
+		header_content += ukltophdr_end_clamp;
+		return header_content;
 	}
 }
 
-function insertContentAndStyle(localConfig) {
+function insertContentAndStyle(local_config) {
 	let {
 		hdr_simple,
 		include,
@@ -125,17 +125,17 @@ function insertContentAndStyle(localConfig) {
 		custom_logo,
 		image_path,
 		image_path_fallback,
-	} = localConfig;
+	} = local_config;
 
 	let {
-		SurveyTitleText,
-		SurveyMsgText,
-		SurveyMsgLinkLabel,
-		SurveyMsgLinkURL,
-		SurveyMsgToggle,
-		SurveyMsgBackground,
-		SurveyMsgColor,
-	} = globalConfig;
+		survey_title_text,
+		survey_msg_text,
+		survey_msg_link_label,
+		survey_msg_link_url,
+		survey_msg_toggle,
+		survey_msg_background,
+		survey_msg_color,
+	} = global_config;
 
 	if (include) {
 		for (const base of bases) {
@@ -267,21 +267,21 @@ function insertContentAndStyle(localConfig) {
 
 	if (hdr_simple === 0) {
 		setAnnouncement();
-		if (SurveyMsgToggle === "on") {
-			document.getElementById("ukl-surveytlt").innerHTML = SurveyTitleText;
-			document.getElementById("ukl-surveymsg").innerHTML = SurveyMsgText;
+		if (survey_msg_toggle === "on") {
+			document.getElementById("ukl-surveytlt").innerHTML = survey_title_text;
+			document.getElementById("ukl-surveymsg").innerHTML = survey_msg_text;
 			document.getElementById("ukl-surveylink").innerHTML +=
-				"<a href='" + SurveyMsgLinkURL + "'>" + SurveyMsgLinkLabel + "</a>";
+				"<a href='" + survey_msg_link_url + "'>" + survey_msg_link_label + "</a>";
 			document.getElementById("ukl-survey").style.backgroundColor =
-				SurveyMsgBackground;
-			document.querySelector(".ukl-site-survey").style.color = SurveyMsgColor;
+				survey_msg_background;
+			document.querySelector(".ukl-site-survey").style.color = survey_msg_color;
 			/* close survey message */
-			const div3 = document.getElementById("ukl-survey-button-less");
+			const survey_button = document.getElementById("ukl-survey-button-less");
 			if (cookieExists()) {
 				document.getElementById("ukl-survey").style.display = "none";
 			}
-			if (div3) {
-				div3.addEventListener("click", function () {
+			if (survey_button) {
+				survey_button.addEventListener("click", function () {
 					document.getElementById("ukl-survey").style.display = "none";
 				});
 				/* fire cookie */
@@ -311,44 +311,44 @@ function insertContentAndStyle(localConfig) {
 	}
 }
 
-function createListItem(menuItem) {
+function createListItem(menu_item) {
 	const li = document.createElement("li");
 	li.classList.add("ukl-mi");
 	const a = document.createElement("a");
-	a.href = menuItem.url;
-	a.textContent = menuItem.title;
+	a.href = menu_item.url;
+	a.textContent = menu_item.title;
 	li.appendChild(a);
 	return li;
 }
 
 function setAnnouncement() {
-	if (DangerMsgToggle == "on") {
-		document.getElementById("ukl-tltalert").innerHTML = DangerTitleText;
-		document.getElementById("ukl-msgalert").innerHTML = DangerMsgText;
+	if (danger_msg_toggle == "on") {
+		document.getElementById("ukl-tltalert").innerHTML = danger_title_text;
+		document.getElementById("ukl-msgalert").innerHTML = danger_msg_text;
 		document.getElementById("ukl-top-alert").style.display = "block";
 		document.getElementById("ukl-top-alert").style.background =
-			DangerMsgBackground;
-		document.getElementById("ukl-top-alert").style.color = DangerMsgColor;
+			danger_msg_background;
+		document.getElementById("ukl-top-alert").style.color = danger_msg_color;
 		document.getElementById("ukl-global-alert-link").style.color =
-			DangerLinkColor;
-	} else if (WarningMsgToggle == "on") {
-		document.getElementById("ukl-tltalert").innerHTML = WarningTitleText;
-		document.getElementById("ukl-msgalert").innerHTML = WarningMsgText;
+			danger_link_color;
+	} else if (warning_msg_toggle == "on") {
+		document.getElementById("ukl-tltalert").innerHTML = warning_title_text;
+		document.getElementById("ukl-msgalert").innerHTML = warning_msg_text;
 		document.getElementById("ukl-top-alert").style.display = "block";
 		document.getElementById("ukl-top-alert").style.background =
-			WarningMsgBackground;
-		document.getElementById("ukl-top-alert").style.color = WarningMsgColor;
+			warning_msg_background;
+		document.getElementById("ukl-top-alert").style.color = warning_msg_color;
 		document.getElementById("ukl-global-alert-link").style.color =
-			WarningLinkColor;
-	} else if (AnnouncementMsgToggle == "on") {
-		document.getElementById("ukl-tltalert").innerHTML = AnnouncementTitleText;
-		document.getElementById("ukl-msgalert").innerHTML = AnnouncementMsgText;
+			warning_link_color;
+	} else if (announcement_msg_toggle == "on") {
+		document.getElementById("ukl-tltalert").innerHTML = announcement_title_text;
+		document.getElementById("ukl-msgalert").innerHTML = announcement_msg_text;
 		document.getElementById("ukl-top-alert").style.display = "block";
 		document.getElementById("ukl-top-alert").style.background =
-			AnnouncementMsgBackground;
-		document.getElementById("ukl-top-alert").style.color = AnnouncementMsgColor;
+			announcement_msg_background;
+		document.getElementById("ukl-top-alert").style.color = announcement_msg_color;
 		document.getElementById("ukl-global-alert-link").style.color =
-			AnnouncementLinkColor;
+			announcement_link_color;
 	}
 }
 
@@ -376,8 +376,8 @@ function createLogoHeaderWithMobileButton(
 		span.innerText = title;
 	}
 
-	let mobileMenuButton = document.createElement("button");
-	mobileMenuButton.classList.add("ukl-menu-button-more", "ukl-menu-button");
+	let mobile_menu_button = document.createElement("button");
+	mobile_menu_button.classList.add("ukl-menu-button-more", "ukl-menu-button");
 
 	const i = document.createElement("i");
 	i.setAttribute("tabIndex", "0");
@@ -387,7 +387,7 @@ function createLogoHeaderWithMobileButton(
 	container.appendChild(i);
 	container.appendChild(image);
 	container.appendChild(span);
-	parent.appendChild(mobileMenuButton);
+	parent.appendChild(mobile_menu_button);
 }
 
 function handleResize() {
@@ -411,6 +411,6 @@ function handleResize() {
 }
 
 function setCookie() {
-	const cExpires = new Date(now.getTime() + cookieExpiryMS).toUTCString();
-	document.cookie = `${cookieName}=;expires=${cExpires};Path=/`;
+	const c_expires = new Date(now.getTime() + cookie_expiry_ms).toUTCString();
+	document.cookie = `${cookie_name}=;expires=${c_expires};Path=/`;
 }
