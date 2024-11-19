@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-# UKL_HeaderFooter
-JavaScript used to insert UKYL website headers and footers into 3rd party sites.
-
-# Scripts Location
-(https://lib.uky.edu/webparts/ukhdr/2024/css/global_header_footer.css)
-(https://lib.uky.edu/webparts/ukhdr/2024/js/universalheader.js)
-(https://lib.uky.edu/webparts/ukhdr/2024/js/combofootershared.js)
-
-# Special Server Settings
-lib.uky.edu is currently administered by Jay Baker.
-Jay has set the http response headers for the ukhdr directory and subdirectories so that they have an immediate expiration to avoid browser caching. 
-
-# Usage
-[Implementation Guide](https://lib.uky.edu/webparts/ukhdr/2024/dev/doc.html)
-
-# Attribution
-Code co-authored by Eric Weig and Neal Powers with contributions by MLE Slone.
-=======
 # UKL_HeaderFooter
 > A configurable header and footer for use across University of Kentucky Libraries web properties
 
@@ -56,4 +37,3 @@ Please contact any of those listed on attributions below.
 
 # Attribution
 Code co-authored by [Eric Weig](https://github.com/libmanuk/) and [Neal Powers](https://github.com/Nealium104/) with contributions by [MLE Slone](https://github.com/cokernel/).
->>>>>>> click-behavior
