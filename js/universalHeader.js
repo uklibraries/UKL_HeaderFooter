@@ -1,7 +1,5 @@
-// First get base path
 const base_path = document.querySelector("#ukl-header-script").dataset.base_path;
 
-// Fetch both configs before initializing
 Promise.all([
   fetch('../js/config/global/globalConfig.json'),
   fetch(`../js/config/sites/${base_path}/${base_path}Config.json`)
@@ -13,10 +11,8 @@ Promise.all([
   return Promise.all(responses.map(response => response.json()));
 })
 .then(([global_config, local_config]) => {
-  // Now we have both configs loaded
   window.global_config = global_config; // Make it globally available
   
-  // Initialize header
   insertHTML(local_config, global_config);
   insertContentAndStyle(local_config, global_config);
 })
