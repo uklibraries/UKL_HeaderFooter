@@ -18,13 +18,15 @@
 		<script
 			id="ukl-header-script"
 			type="module"
-			src="./js/universalheader.js"
+			<script
+			id="ukl-header-script"
+			type="module"
+			src="./js/universalHeader.js"
+			data-base_path="libcal"
 			onerror="
 			(() => {
-				// Remove this script
-				old_script = document.querySelector('#ukl-header-script');
-				old_script.remove();
-
+				this_script = document.querySelector('#ukl-header-script');
+				
 				// Use the fallback css
 				const styles = document.querySelector('#ukl-header-styles');
 				styles.href='https://cdn.jsdelivr.net/gh/uklibraries/UKL_HeaderFooter@main/css/global_header_footer.css'
@@ -36,18 +38,23 @@
 				script.src = 'https://cdn.jsdelivr.net/gh/uklibraries/UKL_HeaderFooter@main/js/universalHeader.js';
 				script.dataset.base_path = this_script.dataset.base_path;
 				document.head.appendChild(script);
-
-				// Remove footer script
-				old_footer=document.querySelector('#ukl-footer-script')
-				old_footer.remove();
+				
+				// Remove footer script and footer
+				const old_footer=document.querySelector('#ukl-footer');
+				if (old_footer) old_footer.remove();
+				const old_footer_script=document.querySelector('#ukl-footer-script');
+				if (old_footer_script) old_footer_script.remove();
 				
 				// Create a new footer script and use fallback js
 				const footer_script = document.createElement('script');
 				footer_script.src='https://cdn.jsdelivr.net/gh/uklibraries/UKL_HeaderFooter@main/js/comboFooterShared.js';
 				document.body.appendChild(footer_script);
+
+				console.warn('The fallback needed to be deployed');
+		
+				if (this_script) this_script.remove();
 			})();
 			"
-			data-base_path="libcal"
 		></script>
 		<!-- universal header/footer files end -->
 	</head>
@@ -152,7 +159,7 @@
 			</div>
 		</main>
 		<!-- universal header/footer file part 2 start -->
-		<script id="ukl-footer-script" src="./js/combofootershared.js"></script>
+		<script id="ukl-footer-script" src="./js/comboFooterShared.js"></script>
 		<!-- universal header/footer files part 2 end -->
 	</body>
 </html>
