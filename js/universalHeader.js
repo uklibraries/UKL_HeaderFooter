@@ -1,6 +1,21 @@
 import global_config from "../js/config/global/globalConfig.json";
 const base_path = document.querySelector("#ukl-header-script").dataset.base_path;
-const module_path = `./config/sites/${base_path}/${base_path}Config.js`;
+const module_path = `./config/sites/${base_path}/${base_path}Config.json`;
+
+fetch('../js/config/global/globalConfig.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data); // Use the JSON data here
+  })
+  .catch(error => {
+    console.error("There was a problem with the fetch operation:", error);
+  });
+
 
 let {
 	danger_title_text,
