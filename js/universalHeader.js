@@ -1,48 +1,27 @@
-import global_config from "../js/config/global/globalConfig.json";
+// First get base path
 const base_path = document.querySelector("#ukl-header-script").dataset.base_path;
-const module_path = `./config/sites/${base_path}/${base_path}Config.json`;
 
-fetch('../js/config/global/globalConfig.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data); // Use the JSON data here
-  })
-  .catch(error => {
-    console.error("There was a problem with the fetch operation:", error);
-  });
-
-
-let {
-	danger_title_text,
-	danger_msg_text,
-	danger_msg_toggle,
-	danger_msg_background,
-	danger_msg_color,
-	danger_link_color,
-	warning_title_text,
-	warning_msg_text,
-	warning_msg_toggle,
-	warning_msg_background,
-	warning_msg_color,
-	warning_link_color,
-	announcement_title_text,
-	announcement_msg_toggle,
-	announcement_msg_background,
-	announcement_msg_color,
-	announcement_link_color,
-	announcement_msg_text,
-	survey_msg_toggle,
-} = global_config;
-
-import(module_path).then((module) => {
-	const local_config = module.default;
-	insertHTML(local_config);
-	insertContentAndStyle(local_config);
+// Fetch both configs before initializing
+Promise.all([
+  fetch('../js/config/global/globalConfig.json'),
+  fetch(`../js/config/sites/${base_path}/${base_path}Config.json`)
+])
+.then(responses => {
+  if (!responses.every(response => response.ok)) {
+    throw new Error("One or more configs failed to load");
+  }
+  return Promise.all(responses.map(response => response.json()));
+})
+.then(([global_config, local_config]) => {
+  // Now we have both configs loaded
+  window.global_config = global_config; // Make it globally available
+  
+  // Initialize header
+  insertHTML(local_config, global_config);
+  insertContentAndStyle(local_config, global_config);
+})
+.catch(error => {
+  console.error("Configuration loading failed:", error);
 });
 
 const cookie_name = "ukl-survey";
@@ -79,7 +58,7 @@ function init() {
 	handleResize();
 }
 
-function insertHTML(local_config) {
+function insertHTML(local_config, global_config) {
 	let { hdr_simple, include, hdr_alert_include } = local_config;
 
 	let {
@@ -94,10 +73,12 @@ function insertHTML(local_config) {
 
 	const uk_div = document.createElement("div");
 	uk_div.id = "ukl-header";
-	uk_div.innerHTML = chooseRender();
+	uk_div.innerHTML = chooseRender(global_config);
 	document.body.insertBefore(uk_div, document.body.firstChild);
 
-	function chooseRender() {
+	function chooseRender(global_config) {
+		let { danger_msg_toggle, warning_msg_toggle, survey_msg_toggle } = global_config;
+
 		let header_content = "";
 		if (hdr_simple == 1) {
 			header_content += ukltophdr_start_clamp;
@@ -123,7 +104,7 @@ function insertHTML(local_config) {
 	}
 }
 
-function insertContentAndStyle(local_config) {
+function insertContentAndStyle(local_config, global_config) {
 	let {
 		hdr_simple,
 		include,
@@ -203,7 +184,7 @@ function insertContentAndStyle(local_config) {
 	/* toggles for top level alert messages but not if simple header is set */
 
 	if (hdr_simple === 0) {
-		setAnnouncement();
+		setAnnouncement(global_config);
 		if (survey_msg_toggle === "on") {
 			document.getElementById("ukl-surveytlt").innerHTML = survey_title_text;
 			document.getElementById("ukl-surveymsg").innerHTML = survey_msg_text;
@@ -257,6 +238,27 @@ function createListItem(menu_item) {
 }
 
 function setAnnouncement() {
+	let { 
+		danger_msg_toggle, 
+		danger_title_text, 
+		danger_msg_text, 
+		danger_msg_background, 
+		danger_msg_color, 
+		danger_link_color, 
+		warning_msg_toggle,
+		warning_title_text, 
+		warning_msg_text, 
+		warning_msg_background,
+		warning_msg_color,
+		warning_link_color, 
+		announcement_msg_toggle,
+		announcement_title_text,
+		announcement_msg_text,
+		announcement_msg_background,
+		announcement_msg_color,
+		announcement_link_color
+	} = global_config
+	
 	if (danger_msg_toggle == "on") {
 		document.getElementById("ukl-tltalert").innerHTML = danger_title_text;
 		document.getElementById("ukl-msgalert").innerHTML = danger_msg_text;
