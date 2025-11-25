@@ -404,6 +404,7 @@
 
 .ukl-ext-clamp .ukl-universal-footer__ribbon a.ukl-underline-link:hover {
   background-position: 0 0,1000px 1px;
+  color: white;
 }
 
 .ukl-ext-clamp .ukl-universal-footer__ribbon a.ukl-underline-link:hover,
