@@ -3,6 +3,7 @@
 :root {
   --bg-primary: #0033a0;
   --bg-university-level-header: #041E42;
+  --link-active: #b1c9e8;
 }
 
 .ukl-ext-clamp {
@@ -364,6 +365,11 @@
 
 .ukl-ext-clamp .ukl-universal-footer a {
   color: white;
+  white-space: normal;
+}
+
+.ukl-ext-clamp .ukl-universal-footer a:hover {
+  color: var(--link-active);
   white-space: normal;
 }
 
