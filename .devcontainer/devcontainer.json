@@ -1,0 +1,25 @@
+{
+  "name": "UKL HeaderFooter Dev",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
+  "customizations": {
+    "vscode": {
+      "settings": { 
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "forwardPorts": [5500],
+  "portsAttributes": {
+    "5500": {
+      "label": "Mockup Preview",
+      "onAutoForward": "notify",
+      "visibility": "public"
+    }
+  },
+  "postCreateCommand": "npm install -g http-server",
+  "postAttachCommand": "nohup http-server -p 5500 -a 0.0.0.0 --cors > /dev/null 2>&1 &"
+}
