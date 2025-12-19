@@ -1,5 +1,6 @@
 /* || Global header styles */
 
+
 :root {
   --bg-primary: #0033a0;
   --bg-university-level-header: #041E42;
@@ -16,9 +17,13 @@
   margin: 0;
 }
 
+.ukl-universal-breadcrumb {
+  margin-left: 1.75em;
+}
+
 .ukl-ext-clamp .ukl-utility-links  {
   text-transform: uppercase;
-  text-decoration: none;
+  /*text-decoration: none;*/
 }
 
 .ukl-ext-clamp .ukl-nav-links  {
@@ -98,8 +103,8 @@
 .ukl-ext-clamp .ukl-universal-nav a:hover,
 .ukl-ext-clamp .ukl-nav-links a:hover,
 .ukl-ext-clamp .ukl-utility-links a:hover {
-  /*text-decoration: underline;*/
-  text-decoration: none;
+  text-decoration: underline;
+  /*text-decoration: none;*/
 }
 
 .ukl-ext-clamp .ukl-nav-links .ukl-link .ukl-dropdown a:hover  {
@@ -205,7 +210,7 @@
   color: white;
   text-decoration: none;
   border-bottom: 0px;
-  font-weight: normal;
+  font-weight: 300;
 }
 
 .ukl-ext-clamp .ukl-universal-header a:hover {
@@ -247,7 +252,7 @@
 }
 
 .ukl-ext-clamp .ukl-universal-breadcrumb ul {
-  line-height: 1.5em;
+  line-height: 1em;
   margin: 0;
   padding: 0;
   font-family: "usual", sans-serif;
@@ -263,7 +268,7 @@
 }
 
 .ukl-ext-clamp .ukl-universal-breadcrumb ul li a {
-  font-size: 1em;
+  font-size: .875em;
 }
 
 .ukl-ext-clamp .ukl-universal-breadcrumb ul li:not(:last-child)::after {
@@ -604,7 +609,7 @@ body {
 }
 
 .ukl-site-alert .ukl-icon-wrapper {
-  margin-right: 2em;
+  margin: 0 2em 0 1em;
   line-height: normal;
 }
 
@@ -642,6 +647,11 @@ body {
 
 #ukl-alertlink a {
   color: #000000;
+  text-decoration: none;
+}
+
+#ukl-alertlink a:hover {
+  text-decoration: underline;
 }
 
 
