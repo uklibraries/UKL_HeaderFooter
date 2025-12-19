@@ -221,14 +221,15 @@ function insertContentAndStyle(local_config) {
 	}
 
 	/* set custom header width */
-	if (hdr_width > 72) {
+	/*
+	if (hdr_width > 72) { 
 		const wrapper = document.querySelectorAll(".ukl-slab__wrapper");
 		for (let i = 0; i < wrapper.length; i++) {
 			if (typeof wrapper[i] !== "undefined") {
 				wrapper[i].style.maxWidth = hdr_width + "em";
 			}
 		}
-	}
+	} */
 }
 
 function createListItem(menu_item) {
