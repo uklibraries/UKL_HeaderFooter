@@ -1,8 +1,10 @@
 /* || Global header styles */
 
+
 :root {
   --bg-primary: #0033a0;
   --bg-university-level-header: #041E42;
+  --link-active: #b1c9e8;
 }
 
 .ukl-ext-clamp {
@@ -15,9 +17,13 @@
   margin: 0;
 }
 
+.ukl-universal-breadcrumb {
+  margin-left: 1.75em;
+}
+
 .ukl-ext-clamp .ukl-utility-links  {
   text-transform: uppercase;
-  text-decoration: none;
+  /*text-decoration: none;*/
 }
 
 .ukl-ext-clamp .ukl-nav-links  {
@@ -97,8 +103,8 @@
 .ukl-ext-clamp .ukl-universal-nav a:hover,
 .ukl-ext-clamp .ukl-nav-links a:hover,
 .ukl-ext-clamp .ukl-utility-links a:hover {
-  /*text-decoration: underline;*/
-  text-decoration: none;
+  text-decoration: underline;
+  /*text-decoration: none;*/
 }
 
 .ukl-ext-clamp .ukl-nav-links .ukl-link .ukl-dropdown a:hover  {
@@ -204,7 +210,7 @@
   color: white;
   text-decoration: none;
   border-bottom: 0px;
-  font-weight: normal;
+  font-weight: 300;
 }
 
 .ukl-ext-clamp .ukl-universal-header a:hover {
@@ -246,7 +252,7 @@
 }
 
 .ukl-ext-clamp .ukl-universal-breadcrumb ul {
-  line-height: 1.5em;
+  line-height: 1em;
   margin: 0;
   padding: 0;
   font-family: "usual", sans-serif;
@@ -262,7 +268,7 @@
 }
 
 .ukl-ext-clamp .ukl-universal-breadcrumb ul li a {
-  font-size: 1em;
+  font-size: .875em;
 }
 
 .ukl-ext-clamp .ukl-universal-breadcrumb ul li:not(:last-child)::after {
@@ -367,6 +373,11 @@
   white-space: normal;
 }
 
+.ukl-ext-clamp .ukl-universal-footer a:hover {
+  color: var(--link-active);
+  white-space: normal;
+}
+
 .ukl-ext-clamp .ukl-universal-footer .ukl-uk-wordmark {
   display: block;
   width: 70vw;
@@ -398,6 +409,7 @@
 
 .ukl-ext-clamp .ukl-universal-footer__ribbon a.ukl-underline-link:hover {
   background-position: 0 0,1000px 1px;
+  color: white;
 }
 
 .ukl-ext-clamp .ukl-universal-footer__ribbon a.ukl-underline-link:hover,
@@ -597,7 +609,7 @@ body {
 }
 
 .ukl-site-alert .ukl-icon-wrapper {
-  margin-right: 2em;
+  margin: 0 2em 0 1em;
   line-height: normal;
 }
 
@@ -635,6 +647,11 @@ body {
 
 #ukl-alertlink a {
   color: #000000;
+  text-decoration: none;
+}
+
+#ukl-alertlink a:hover {
+  text-decoration: underline;
 }
 
 
@@ -736,6 +753,8 @@ body {
   background-size: 100%;
   /* inline SVG element! */
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 120 80" width="40" height="40" version="1.0" xmlns="http://www.w3.org/2000/svg"><rect x="15" width="90" height="15" rx="10"></rect><rect x="15" y="30" width="90" height="15" rx="10"></rect><rect x="15" y="60" width="90" height="15" rx="10"></rect></svg>');
+  background-color: #0033a0;
+  border: 0px;
 }
 
 .ukl-menu-button-less {
@@ -748,6 +767,8 @@ body {
   background-size: 100%;
   /* inline SVG element! */
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M8 8 L24 24 M8 24 L24 8'/%3E%3C/svg%3E");
+  background-color: #0033a0;
+  border: 0px;
 }
 
 /* was 769 */
@@ -789,6 +810,18 @@ body {
   }
 }
 
+/* added style for top level messaging titles */
+
+#ukl-tltalert {
+  font-size: 1.25em;
+}
+
+/* added style for Springshare content block */
+
+.s-lg-guide-body .container {
+  max-width: 72em !important;
+}
+
 /* added style for Springshare search box */
 
 #ukl-spring-search-label {
@@ -808,6 +841,7 @@ body {
   font-size: 12px;
   vertical-align: middle;
   border-width: 1px;
+  padding: 0px 5px 0px 5px;
 }
 
 #ukl-search-term {
@@ -816,6 +850,7 @@ body {
   color: #000;
   vertical-align: middle;
   font-weight: normal;
+  padding-left: 5px;
 }
 
 #ukl-spring-btn:active {
@@ -891,7 +926,7 @@ div#ukl-gethome>a {
   max-height: 20vh;
   display: flex;
   align-items: center;
-  max-width: 250px;
+  max-width: 350px;
   gap: .5em;
 }
 
