@@ -1,0 +1,3 @@
+# Code owners
+/.github/CODEOWNERS @uklibraries/header_footer
+*       @uklibraries/header_footer
