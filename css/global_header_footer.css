@@ -827,6 +827,7 @@ body {
 #ukl-spring-search-label {
   font-weight: normal;
   background: none;
+  display: block;
 }
 
 #ukl-spring-search {
