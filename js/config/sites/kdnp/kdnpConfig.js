@@ -3,7 +3,7 @@ export default {
 	include: 0,
 	hdr_srch_include: 0,
 	hdr_width: 110,
-	hdr_alert_include: 1,
+	hdr_alert_include: 0,
 	hdr_alert_title: "Temporary Service Disruption",
 	hdr_alert_msg:
 		"Kentucky digital newspapers are currently unavailable due to an Internet Archive outage.",
