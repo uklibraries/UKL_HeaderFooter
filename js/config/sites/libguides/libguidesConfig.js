@@ -1,9 +1,9 @@
 export default {
-	hdr_simple: 1,
+	hdr_simple: 0,
 	include: 1,
 	hdr_srch_include: 1,
-	hdr_width: 100,
-	hdr_alert_include: 1,
+	hdr_width: 115,
+	hdr_alert_include: 0,
 	hdr_alert_title: "Scheduled Service Disruption",
 	hdr_alert_msg:
 		"The site will be offline for scheduled maintenance on YYYY-MM-DD.",
