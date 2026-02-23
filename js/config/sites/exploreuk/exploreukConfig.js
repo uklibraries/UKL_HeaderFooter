@@ -2,13 +2,13 @@ export default {
 	hdr_simple: 1,
 	include: 1,
 	hdr_srch_include: 0,
-	hdr_width: 100,
-	hdr_alert_include: 1,
-	hdr_alert_title: "Scheduled Service Disruption",
+	hdr_width: 70,
+	hdr_alert_include: 0,
+	hdr_alert_title: "",
 	hdr_alert_msg:
-		"The site will be offline for scheduled maintenance on YYYY-MM-DD.",
-	hdr_alert_url_label: "More information",
-	hdr_alert_url: "https://google.com",
+		"",
+	hdr_alert_url_label: "",
+	hdr_alert_url: "",
 	home_label: "ExploreUK",
 	home_url: "https://exploreuk.uky.edu/",
 	custom_logo: false,
@@ -20,13 +20,8 @@ export default {
 		{
 			title: "About",
 			label: "link1",
-			children: [
-				{
-					title: "About ExploreUK",
-					label: "link1Child1",
-					url: "https://exploreuk.uky.edu/about",
-				},
-			],
+			url: "https://exploreuk.uky.edu/about",
+
 		},
 		{
 			title: "How to",
