@@ -27,13 +27,5 @@ export default {
 			label: "link2",
 			url: "https://libguides.uky.edu/courseguides",
 		},
-		{
-			title: "Contact Us",
-			label: "link5",
-		},
-		{
-			title: "Login",
-			label: "link6",
-		},
 	],
 };
