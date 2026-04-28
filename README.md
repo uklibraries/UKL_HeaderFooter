@@ -22,7 +22,7 @@ The header has 5 sections, that we've named from top to bottom.
 
 The Universal Footer should be the last element on the page before `</body>`.
 
-This version of the footer changes the html to include `<footer>` for semantically correct html and accessibility compliance.  Before injecting this version, manually check the downstream site's html and replace any existing `<footer>` or `region="content-info"` sections with more appriopately defined regions.
+[V2.2.0](https://github.com/uklibraries/UKL_HeaderFooter/releases/tag/v2.2.0) changes the footer html to include `<footer>` for semantically correct html and accessibility compliance.  Before injecting this version, manually check the downstream site's html and replace any existing `<footer>` or `region="content-info"` sections with more appriopately defined regions.
 
 ## CDN Usage
 The [CDN](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/) we've chosen is [jsDelivr](https://www.jsdelivr.com/), an open source CDN with backing from [Fastly](https://www.fastly.com/) and [CloudFlare](https://www.cloudflare.com/). We've chosen jsDelivr as a cost-saving measure, but its integrations with GitHub are also useful for our team. One additional note about usage, browser caching from jsDelivr is set to be a week from user usage. This was the primary reason the CDN was chosen as a fallback and not the primary provider. In case of changes to the backup, vendors **must** purge relevant links from the [Purge Cache Tool](https://www.jsdelivr.com/tools/purge) if they wish changes to be reflected within 12 hours. A hard refresh from users is also required.
